@@ -170,6 +170,11 @@ export class Game {
 
     toggleOption(opt) {
         const card = document.getElementById(`card-${opt.id}`);
+        
+        // Add click pulse effect
+        card.classList.add('click-pulse');
+        setTimeout(() => card.classList.remove('click-pulse'), 300);
+
         if (this.currentSelection.has(opt)) {
             this.currentSelection.delete(opt);
             card.classList.remove('selected');

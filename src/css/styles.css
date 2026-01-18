@@ -56,9 +56,9 @@ body {
 }
 
 @keyframes pulse-border {
-    0% { border-color: rgba(59, 130, 246, 0.4); }
-    50% { border-color: rgba(59, 130, 246, 1); }
-    100% { border-color: rgba(59, 130, 246, 0.4); }
+    0% { border-color: rgba(59, 130, 246, 0.4); box-shadow: 0 0 10px rgba(59, 130, 246, 0.1); }
+    50% { border-color: rgba(59, 130, 246, 1); box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+    100% { border-color: rgba(59, 130, 246, 0.4); box-shadow: 0 0 10px rgba(59, 130, 246, 0.1); }
 }
 
 @keyframes slot-pop {
@@ -104,6 +104,17 @@ body {
 
 .choice-card.selected .check-icon {
     opacity: 1;
+}
+
+/* Click Pulse Effect */
+.click-pulse {
+    animation: clickPulse 0.3s ease-out forwards;
+}
+
+@keyframes clickPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.98); background-color: #3b82f6; }
+    100% { transform: scale(1); }
 }
 
 /* Tooltip Styles */
@@ -215,6 +226,44 @@ body {
 @keyframes shine {
     from { background-position: -200% 0; }
     to { background-position: 200% 0; }
+}
+
+.animate-text-shine {
+    background-size: 200% auto;
+    animation: textShine 4s linear infinite;
+}
+
+@keyframes textShine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.animate-button-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.animate-button-shine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    animation: buttonShine 4s infinite;
+}
+
+@keyframes buttonShine {
+    0%, 30% { left: -100%; }
+    100% { left: 200%; }
 }
 
 /* Scrollbar */
