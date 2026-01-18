@@ -234,7 +234,10 @@ export class Game {
             if (fillContainer) fillContainer.appendChild(mini);
         });
 
-        if (slot) slot.classList.add('filled');
+        if (slot) {
+            slot.classList.add('filled', 'pop-effect');
+            setTimeout(() => slot.classList.remove('pop-effect'), 500);
+        }
         this.updateMeters();
 
         this.phase++;
@@ -328,6 +331,39 @@ export class Game {
         const top5 = sorted.slice(0, 5);
         const winner = parties[top5[0].key];
         const winPct = top5[0].pct;
+
+        // Winner Card Animation
+        const winnerCard = document.querySelector('#screen-result > div > div:first-child');
+        if (winnerCard) {
+            winnerCard.classList.add('animate-victory', 'animate-shine');
+        }
+
+        // Fire Confetti
+        if (typeof confetti === 'function') {
+            const duration = 3000;
+            const end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#3b82f6', '#10b981', '#f59e0b']
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#3b82f6', '#10b981', '#f59e0b']
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
 
         document.getElementById('res-party').innerText = winner.name;
         document.getElementById('res-party').className = `text-4xl md:text-6xl font-extrabold mb-5 drop-shadow-lg leading-tight ${winner.color}`;
