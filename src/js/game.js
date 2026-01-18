@@ -121,7 +121,10 @@ export class Game {
         const grid = document.getElementById('choices-grid');
         if (grid) {
             grid.innerHTML = '';
-            p.options.forEach(opt => {
+            // Shuffle options for fairness
+            const shuffledOptions = [...p.options].sort(() => Math.random() - 0.5);
+            
+            shuffledOptions.forEach(opt => {
                 const card = document.createElement('div');
                 card.id = `card-${opt.id}`;
                 card.className = "choice-card bg-slate-800 border border-slate-700 p-5 rounded-xl flex items-start gap-4 hover:bg-slate-750 has-tooltip group";
