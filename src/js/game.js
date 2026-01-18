@@ -6,7 +6,7 @@ export class Game {
         this.phase = 0;
         this.scores = {};
         this.maxScores = {};
-        this.stats = { eco: 50, soc: 50 };
+        this.stats = { eco: 50, soc: 50, lib: 50 };
         this.history = [];
         this.choices = [];
         this.currentSelection = new Set();
@@ -147,6 +147,10 @@ export class Game {
                                 <span class="flex items-center gap-2"><i class="fa-solid fa-users text-blue-400 w-4 text-center"></i> สังคม</span>
                                 <span class="${opt.stats.soc >= 0 ? 'text-blue-400' : 'text-red-400'} font-mono font-bold">${opt.stats.soc > 0 ? '+' : ''}${opt.stats.soc}</span>
                             </div>
+                            <div class="flex justify-between items-center text-xs text-slate-300">
+                                <span class="flex items-center gap-2"><i class="fa-solid fa-scale-balanced text-orange-400 w-4 text-center"></i> ปชต.</span>
+                                <span class="${(opt.stats.lib || 0) >= 0 ? 'text-orange-400' : 'text-red-400'} font-mono font-bold">${(opt.stats.lib || 0) > 0 ? '+' : ''}${opt.stats.lib || 0}</span>
+                            </div>
                             <div class="flex justify-between items-center text-xs text-slate-400 border-t border-slate-700 pt-1.5 mt-1.5">
                                 <span class="flex items-center gap-2"><i class="fa-solid fa-hand-shake w-4 text-center"></i> พรรคที่หนุน</span>
                                 <span class="text-white font-mono font-bold">${opt.party.length}</span>
@@ -216,8 +220,9 @@ export class Game {
                 if (this.scores[p] !== undefined) this.scores[p] += 5;
             });
 
-            this.stats.eco = Math.min(100, Math.max(0, this.stats.eco + opt.stats.eco));
-            this.stats.soc = Math.min(100, Math.max(0, this.stats.soc + opt.stats.soc));
+            this.stats.eco = Math.min(100, Math.max(0, this.stats.eco + (opt.stats.eco || 0)));
+            this.stats.soc = Math.min(100, Math.max(0, this.stats.soc + (opt.stats.soc || 0)));
+            this.stats.lib = Math.min(100, Math.max(0, this.stats.lib + (opt.stats.lib || 0)));
             this.choices.push(opt.label);
 
             const mini = document.createElement('div');
@@ -290,6 +295,8 @@ export class Game {
         document.getElementById('bar-eco').style.width = `${this.stats.eco}%`;
         document.getElementById('val-soc').innerText = this.stats.soc;
         document.getElementById('bar-soc').style.width = `${this.stats.soc}%`;
+        document.getElementById('val-lib').innerText = this.stats.lib;
+        document.getElementById('bar-lib').style.width = `${this.stats.lib}%`;
     }
 
     finish() {
@@ -326,6 +333,21 @@ export class Game {
 
         // Display Percentage
         document.getElementById('res-percent').innerText = `${Math.floor(winPct)}%`;
+
+        // Update National Status Card
+        const statusCard = document.getElementById('res-status');
+        if (statusCard) {
+            statusCard.classList.remove('hidden');
+            
+            document.getElementById('end-eco').innerText = `${this.stats.eco}/100`;
+            document.getElementById('end-bar-eco').style.width = `${this.stats.eco}%`;
+            
+            document.getElementById('end-soc').innerText = `${this.stats.soc}/100`;
+            document.getElementById('end-bar-soc').style.width = `${this.stats.soc}%`;
+            
+            document.getElementById('end-lib').innerText = `${this.stats.lib}/100`;
+            document.getElementById('end-bar-lib').style.width = `${this.stats.lib}%`;
+        }
 
         const runnerContainer = document.getElementById('res-runners');
         runnerContainer.innerHTML = '';
