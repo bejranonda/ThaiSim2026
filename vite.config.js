@@ -7,6 +7,10 @@ export default defineConfig({
     minify: 'terser',
     sourcemap: false,
     rollupOptions: {
+      input: {
+        main: 'index.html',
+        results: 'results.html',
+      },
       output: {
         manualChunks: undefined,
       },

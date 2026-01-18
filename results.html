@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ผลโหวต Sim-Thailand 2569</title>
+
+    <!-- External Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 min-h-screen flex flex-col font-sans text-slate-200">
+
+    <!-- HEADER -->
+    <header class="fixed top-0 w-full z-40 bg-slate-900/95 backdrop-blur border-b border-slate-800 shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='/'">
+                <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg">
+                    <i class="fa-solid fa-city text-white text-sm"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-sm sm:text-base text-white leading-tight">Sim-Thailand 2569</h1>
+                    <p class="text-xs text-slate-400">Live Results</p>
+                </div>
+            </div>
+            
+            <a href="/" class="text-sm text-slate-400 hover:text-white transition flex items-center gap-2">
+                <i class="fa-solid fa-play"></i> เล่นเกม
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow flex flex-col items-center justify-start w-full max-w-4xl mx-auto px-4 pt-24 pb-12">
+        
+        <div class="text-center mb-10">
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
+                ผลโหวต <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">มหาชน</span>
+            </h1>
+            <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto">
+                คะแนนเสียงจริงจากผู้เล่น Sim-Thailand 2569 (ไม่รวมผลจากการจำลอง)
+            </p>
+        </div>
+
+        <div id="results-container" class="w-full bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-2xl backdrop-blur-sm">
+            <div class="text-center py-10">
+                <i class="fa-solid fa-spinner fa-spin text-4xl text-blue-500 mb-4"></i>
+                <p class="text-slate-500">กำลังโหลดข้อมูลล่าสุด...</p>
+            </div>
+        </div>
+
+        <div class="mt-8 text-center">
+            <p class="text-xs text-slate-600 font-mono">
+                Update Real-time from Firebase Firestore
+            </p>
+        </div>
+
+    </main>
+
+    <script type="module" src="/src/js/results.js"></script>
+</body>
+</html>

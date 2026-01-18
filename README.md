@@ -5,10 +5,10 @@ Thai Political Simulation Game - Experience governance through real policy choic
 ## 🎮 About
 
 Sim-Thailand 2569 is an interactive simulation that allows users to:
-- Make policy choices across 6 critical areas (Economy, Agriculture, Welfare, Anti-Corruption, National Security, Education)
-- Get matched with a political party based on their selections
-- Vote for their actual preference
-- See aggregate voting results
+- **Simulate**: Make policy choices across 6 critical areas (Economy, Agriculture, Welfare, Anti-Corruption, National Security, Education).
+- **Match**: Get matched with a political party based on policy alignment.
+- **Vote**: Cast a manual vote for your preferred party after the simulation.
+- **Track**: View aggregate voting results in real-time via the **Live Results Dashboard**.
 
 **Reference Materials**: Political campaign data and debate transcripts are organized in the `/Campaign2569` folder for reference and research purposes.
 
@@ -20,24 +20,26 @@ ThaiSim2569/
 │   ├── js/
 │   │   ├── config.js      # Firebase configuration
 │   │   ├── data.js        # Political parties and phases data
-│   │   ├── game.js        # Game logic and class
-│   │   └── main.js        # Entry point
+│   │   ├── game.js        # Core game simulation logic
+│   │   ├── main.js        # Main entry point for the game
+│   │   └── results.js     # Logic for the live results dashboard
 │   └── css/
-│       └── styles.css     # Application styles
+│       └── styles.css     # Tailwind CSS styles
 ├── Campaign2569/          # Political campaign reference files
 │   ├── Nation_Debate2569.md
 │   ├── party.md
 │   ├── Campaign_2569.md
 │   └── Campaign_Party2569.md
 ├── public/                # Static assets
-├── index.html             # Main HTML file
+├── index.html             # Main Simulation Game
+├── results.html           # Live Results Dashboard
 ├── package.json           # Dependencies and scripts
 ├── vite.config.js         # Vite build configuration
+├── tailwind.config.js     # Tailwind CSS configuration
 ├── netlify.toml           # Netlify deployment config
 ├── vercel.json            # Vercel deployment config
-├── .env                   # Environment variables (not committed)
 ├── .env.example           # Environment variables template
-└── .gitignore             # Git ignore rules
+└── firestore.rules        # Firebase security rules
 ```
 
 ## 🚀 Getting Started
@@ -83,7 +85,8 @@ Run the development server:
 npm run dev
 ```
 
-The app will be available at `http://localhost:3000`
+- **Game**: `http://localhost:3000`
+- **Results**: `http://localhost:3000/results.html`
 
 ### Build
 
@@ -128,13 +131,7 @@ npm run deploy:netlify
    - Build command: `npm run build`
    - Publish directory: `dist`
 6. Add environment variables in Netlify dashboard (Site settings > Environment variables):
-   - `VITE_FIREBASE_API_KEY`
-   - `VITE_FIREBASE_AUTH_DOMAIN`
-   - `VITE_FIREBASE_PROJECT_ID`
-   - `VITE_FIREBASE_STORAGE_BUCKET`
-   - `VITE_FIREBASE_MESSAGING_SENDER_ID`
-   - `VITE_FIREBASE_APP_ID`
-   - `VITE_FIREBASE_MEASUREMENT_ID`
+   - `VITE_FIREBASE_API_KEY`, etc.
 7. Click "Deploy site"
 
 ### Deploying to Vercel
@@ -166,56 +163,31 @@ npm run deploy:vercel
    - Framework Preset: Vite
    - Build Command: `npm run build`
    - Output Directory: `dist`
-6. Add environment variables:
-   - `VITE_FIREBASE_API_KEY`
-   - `VITE_FIREBASE_AUTH_DOMAIN`
-   - `VITE_FIREBASE_PROJECT_ID`
-   - `VITE_FIREBASE_STORAGE_BUCKET`
-   - `VITE_FIREBASE_MESSAGING_SENDER_ID`
-   - `VITE_FIREBASE_APP_ID`
-   - `VITE_FIREBASE_MEASUREMENT_ID`
+6. Add environment variables.
 7. Click "Deploy"
-
-### Deploying to GitHub Pages
-
-1. Install gh-pages:
-```bash
-npm install --save-dev gh-pages
-```
-
-2. Add to package.json:
-```json
-"scripts": {
-  "deploy:gh-pages": "npm run build && gh-pages -d dist"
-}
-```
-
-3. Deploy:
-```bash
-npm run deploy:gh-pages
-```
 
 ## 🔒 Security
 
 - **Environment Variables**: Never commit `.env` file to Git. Use `.env.example` as a template.
-- **Firebase Rules**: Ensure your Firebase security rules are properly configured.
+- **Firebase Rules**: Ensure your Firebase security rules are properly configured to allow write access for anonymous users to specific collections only (`sim_results_v7`, `poll_votes_v7`) and read access where appropriate.
 - **API Keys**: While Firebase API keys are safe to expose in client-side code, always use Firebase Security Rules to protect your data.
 
 ## 🛠️ Technologies
 
-- **Frontend**: HTML, CSS (Tailwind CSS), JavaScript (ES6+)
+- **Frontend**: HTML, CSS (Tailwind CSS), JavaScript (ES6+ Modules)
 - **Build Tool**: Vite
 - **Backend**: Firebase (Authentication & Firestore)
-- **Deployment**: Netlify/Vercel/GitHub Pages
+- **Deployment**: Netlify / Vercel
 
 ## 📝 Development Notes
 
 ### Firebase Configuration
 
 The app uses Firebase for:
-- Anonymous authentication
-- Storing simulation results
-- Collecting and displaying poll votes
+- **Anonymous Authentication**: To allow secure database writes without requiring user login.
+- **Firestore**:
+    - `sim_results_v7`: Stores the outcome of user simulations.
+    - `poll_votes_v7`: Stores manual user votes (displayed in `/results.html`).
 
 ### Data Structure
 
