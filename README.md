@@ -5,10 +5,14 @@ Thai Political Simulation Game - Experience governance through real policy choic
 ## 🎮 About
 
 Sim-Thailand 2569 is an interactive simulation that allows users to:
-- **Simulate**: Make policy choices across 6 critical areas (Economy, Agriculture, Welfare, Anti-Corruption, National Security, Education).
-- **Match**: Get matched with a political party based on policy alignment.
+- **Simulate**: Make policy choices across 6 critical phases with three tracking metrics:
+  - 📊 **Economy (ศก.)**: Economic and fiscal policy
+  - 🤝 **Welfare (สังคม)**: Social welfare and quality of life
+  - ⚖️ **Democracy (ปชต.)**: Democratic values and governance
+- **Match**: Get matched with a political party based on policy alignment across all metrics.
 - **Vote**: Cast a manual vote for your preferred party after the simulation.
 - **Track**: View aggregate voting results in real-time via the **Live Results Dashboard**.
+- **Monitor**: Track national status across all three pillars in detailed results view.
 
 **Reference Materials**: Political campaign data and debate transcripts are organized in the `/Campaign2569` folder for reference and research purposes.
 
@@ -191,10 +195,19 @@ The app uses Firebase for:
 
 ### Data Structure
 
-- **Parties**: 16 Thai political parties with their policies
-- **Phases**: 6 policy areas with 8 options each
-- **Scoring**: Each choice adds points to matching parties
-- **Results**: Top 5 parties are displayed based on user choices
+- **Parties**: 16 Thai political parties with their policies and platforms
+- **Phases**: 6 critical policy areas with multiple options each
+- **Metrics**: Three tracked dimensions:
+  - **Economy**: Fiscal and economic policies (0-100 scale)
+  - **Welfare**: Social policies and quality of life (0-100 scale)
+  - **Democracy**: Democratic governance and values (0-100 scale)
+- **Scoring**: Each policy choice:
+  - Adds points to matching parties (determines winner)
+  - Adjusts national status metrics (shows governance impact)
+- **Results**:
+  - Top 5 parties displayed based on alignment score
+  - Final national status across all three pillars
+  - Live voting dashboard with real-time aggregation
 
 ## 🤝 Contributing
 
