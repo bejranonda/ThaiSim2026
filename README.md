@@ -1,6 +1,6 @@
-# Sim-Thailand 2569 🇹🇭
+# ThaiSim2026 🇹🇭
 
-Thai Political Simulation Game - Experience governance through real policy choices from 16 political parties across 6 critical phases.
+Thai Political Simulation Game - Experience governance through real policy choices from 16 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
 ## 🎮 About
 
@@ -19,7 +19,7 @@ Sim-Thailand 2569 is an interactive simulation that allows users to:
 ## 🏗️ Project Structure
 
 ```
-ThaiSim2569/
+ThaiSim2026/
 ├── src/
 │   ├── js/
 │   │   ├── config.js      # Firebase configuration
@@ -57,8 +57,8 @@ ThaiSim2569/
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd ThaiSim2569
+git clone https://github.com/bejranonda/ThaiSim2026.git
+cd ThaiSim2026
 ```
 
 2. Install dependencies:
