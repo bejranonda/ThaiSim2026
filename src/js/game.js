@@ -124,7 +124,7 @@ export class Game {
             p.options.forEach(opt => {
                 const card = document.createElement('div');
                 card.id = `card-${opt.id}`;
-                card.className = "choice-card bg-slate-800 border border-slate-700 p-5 rounded-xl flex items-start gap-4 hover:bg-slate-750";
+                card.className = "choice-card bg-slate-800 border border-slate-700 p-5 rounded-xl flex items-start gap-4 hover:bg-slate-750 has-tooltip group";
                 card.onclick = () => this.toggleOption(opt);
                 card.innerHTML = `
                     <div class="mt-1 w-7 h-7 rounded-full border-2 border-slate-500 flex items-center justify-center flex-shrink-0 check-circle">
@@ -133,6 +133,25 @@ export class Game {
                     <div>
                         <h3 class="text-base font-bold text-slate-200 mb-2 leading-tight">${opt.label}</h3>
                         <p class="text-sm text-slate-400 leading-relaxed">${opt.desc}</p>
+                    </div>
+
+                    <!-- Tooltip -->
+                    <div class="tooltip-content w-56 pointer-events-none z-50">
+                        <div class="font-bold text-blue-400 text-xs mb-2 border-b border-slate-600 pb-1">ข้อมูลเชิงลึก (Insight)</div>
+                        <div class="space-y-1.5">
+                             <div class="flex justify-between items-center text-xs text-slate-300">
+                                <span class="flex items-center gap-2"><i class="fa-solid fa-chart-line text-emerald-400 w-4 text-center"></i> เศรษฐกิจ</span>
+                                <span class="${opt.stats.eco >= 0 ? 'text-emerald-400' : 'text-red-400'} font-mono font-bold">${opt.stats.eco > 0 ? '+' : ''}${opt.stats.eco}</span>
+                            </div>
+                            <div class="flex justify-between items-center text-xs text-slate-300">
+                                <span class="flex items-center gap-2"><i class="fa-solid fa-users text-blue-400 w-4 text-center"></i> สังคม</span>
+                                <span class="${opt.stats.soc >= 0 ? 'text-blue-400' : 'text-red-400'} font-mono font-bold">${opt.stats.soc > 0 ? '+' : ''}${opt.stats.soc}</span>
+                            </div>
+                            <div class="flex justify-between items-center text-xs text-slate-400 border-t border-slate-700 pt-1.5 mt-1.5">
+                                <span class="flex items-center gap-2"><i class="fa-solid fa-hand-shake w-4 text-center"></i> พรรคที่หนุน</span>
+                                <span class="text-white font-mono font-bold">${opt.party.length}</span>
+                            </div>
+                        </div>
                     </div>
                 `;
                 grid.appendChild(card);
