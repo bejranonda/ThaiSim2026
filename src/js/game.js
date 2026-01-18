@@ -109,10 +109,10 @@ export class Game {
         const currentSlot = document.getElementById(`slot-${this.phase}`);
         if (currentSlot) currentSlot.classList.add('active');
 
-        const btnUndo = document.getElementById('btn-undo');
-        if (btnUndo) {
-            btnUndo.disabled = (this.phase === 0);
-            btnUndo.style.opacity = (this.phase === 0) ? 0.3 : 1;
+        const btnBack = document.getElementById('btn-back');
+        if (btnBack) {
+            btnBack.disabled = (this.phase === 0);
+            btnBack.style.opacity = (this.phase === 0) ? 0.3 : 1;
         }
 
         this.currentSelection.clear();
