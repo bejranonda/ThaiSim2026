@@ -370,10 +370,10 @@ export class Game {
 
         opts.forEach(o => {
             container.innerHTML += `
-                <label class="cursor-pointer bg-slate-800 border border-slate-700 rounded-lg p-3 flex items-center gap-3 hover:bg-slate-700 transition has-[:checked]:bg-blue-900/40 has-[:checked]:border-blue-500 relative has-tooltip group">
+                <label class="cursor-pointer bg-slate-800 border border-slate-700 rounded-lg p-4 flex items-center gap-3 hover:bg-slate-700 transition has-[:checked]:bg-blue-900/40 has-[:checked]:border-blue-500 relative has-tooltip group">
                     <input type="radio" name="poll" value="${o.id}" class="hidden" onchange="game.manualVote='${o.id}'">
-                    <i class="fa-solid ${o.icon} ${o.color} text-sm w-5 text-center"></i>
-                    <span class="text-xs font-bold text-slate-300 truncate">${o.name}</span>
+                    <i class="fa-solid ${o.icon} ${o.color} text-base w-6 text-center"></i>
+                    <span class="text-sm font-bold text-slate-200 truncate">${o.name}</span>
 
                     <div class="tooltip-content">
                         <div class="font-bold text-blue-400 mb-1 border-b border-slate-600 pb-1">${o.name}</div>
@@ -469,7 +469,7 @@ export class Game {
 
                 resultsContainer.innerHTML += `
                     <div class="mb-3">
-                        <div class="flex justify-between text-xs text-slate-300 mb-1.5">
+                        <div class="flex justify-between text-sm text-slate-300 mb-1.5">
                             <span>${pInfo.name}</span>
                             <span>${pct}%</span>
                         </div>
@@ -494,10 +494,11 @@ export class Game {
 
     share() {
         const winnerName = document.getElementById('res-party').innerText;
+        const shareUrl = "http://thalay.eu/poll2569";
         if (navigator.share) {
-            navigator.share({ title: 'Sim-Thailand 2569', text: `ผลลัพธ์เมืองในฝันของฉันคือ "${winnerName}"`, url: window.location.href });
+            navigator.share({ title: 'Sim-Thailand 2569', text: `ผลลัพธ์เมืองในฝันของฉันคือ "${winnerName}"`, url: shareUrl });
         } else {
-            alert(`คัดลอก: ผลลัพธ์เมืองในฝันของฉันคือ "${winnerName}"`);
+            alert(`คัดลอก: ผลลัพธ์เมืองในฝันของฉันคือ "${winnerName}" \nลิงก์: ${shareUrl}`);
         }
     }
 }
