@@ -521,9 +521,9 @@ export class Game {
         const winnerName = document.getElementById('res-party').innerText;
         const shareUrl = "http://thalay.eu/poll2569";
         if (navigator.share) {
-            navigator.share({ title: 'Sim-Thailand 2569', text: `ผลลัพธ์เมืองในฝันของฉันคือ "${winnerName}"`, url: shareUrl });
+            navigator.share({ title: 'Sim-Thailand 2569', text: `ผลลัพธ์ประเทศในฝันของฉันคือ "${winnerName}"`, url: shareUrl });
         } else {
-            alert(`คัดลอก: ผลลัพธ์เมืองในฝันของฉันคือ "${winnerName}" \nลิงก์: ${shareUrl}`);
+            alert(`คัดลอก: ผลลัพธ์ประเทศในฝันของฉันคือ "${winnerName}" \nลิงก์: ${shareUrl}`);
         }
     }
 }

@@ -4,7 +4,7 @@ Thai Political Simulation Game - Experience governance through real policy choic
 
 ## 🎮 About
 
-Sim-Thailand 2569 is an interactive simulation that allows users to:
+ThaiSim2026 is an interactive political simulation that allows users to:
 - **Simulate**: Make policy choices across 6 critical phases with three tracking metrics:
   - 📊 **Economy (ศก.)**: Economic and fiscal policy
   - 🤝 **Welfare (สังคม)**: Social welfare and quality of life
