@@ -1,0 +1,3 @@
+# Vercel deployment config
+# These are public Firebase credentials, not secrets
+# They're bundled into the client-side app and are protected by Firebase Security Rules
