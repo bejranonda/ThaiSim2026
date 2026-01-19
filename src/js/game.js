@@ -425,7 +425,7 @@ export class Game {
             document.getElementById('end-bar-lib').style.width = `${this.stats.lib}%`;
 
             const budgetPct = Math.max(0, Math.min(100, this.stats.budget));
-            document.getElementById('end-budget').innerText = this.stats.budget;
+            document.getElementById('end-budget').innerText = `${this.stats.budget}%`;
             document.getElementById('end-bar-budget').style.width = `${budgetPct}%`;
             if (this.stats.budget < 0) {
                 document.getElementById('end-bar-budget').style.backgroundColor = '#f87171';
