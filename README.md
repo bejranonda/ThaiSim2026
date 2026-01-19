@@ -131,7 +131,7 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 ### v1.3.0 (January 19, 2569/2026)
 - 📸 **Save Result Image**: Added feature to save the simulation result card as an image.
-- 🏷️ **Watermark**: Added "thalay.eu/test2569" watermark to the result card.
+- 🏷️ **Watermark**: Added "thalay.eu/sim2569" watermark to the result card.
 - 📦 **Dependencies**: Added `html2canvas` for client-side screenshot generation.
 
 ### v1.2 (January 19, 2569/2026)
