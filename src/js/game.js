@@ -6,7 +6,7 @@ export class Game {
         this.phase = 0;
         this.scores = {};
         this.maxScores = {};
-        this.stats = { eco: 50, soc: 50, lib: 50 };
+        this.stats = { eco: 30, soc: 30, lib: 30 };
         this.history = [];
         this.choices = [];
         this.currentSelection = new Set();

@@ -13,22 +13,29 @@
 
     <!-- HEADER -->
     <header class="fixed top-0 w-full z-40 bg-slate-900/95 backdrop-blur border-b border-slate-800 shadow-lg">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='/'">
-                <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg">
-                    <i class="fa-solid fa-city text-white text-sm"></i>
+        <div class="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center gap-4">
+            <div class="flex items-center gap-3 cursor-pointer shrink-0" onclick="window.location.href='/'">
+                <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <i class="fa-solid fa-city text-white text-lg"></i>
                 </div>
-                <div>
-                    <h1 class="font-bold text-sm sm:text-base text-white leading-tight">Sim-Thailand 2569</h1>
+                <div class="hidden sm:block">
+                    <h1 class="font-bold text-base sm:text-lg text-white leading-tight">Sim-Thailand 2569</h1>
                     <p class="text-xs text-slate-400">Live Results</p>
                 </div>
             </div>
             
-            <a href="/" class="group relative inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold rounded-full shadow-lg shadow-blue-900/30 transition-all hover:scale-105 active:scale-95">
-                <span class="absolute inset-0 rounded-full bg-white/20 animate-ping opacity-0 group-hover:opacity-20"></span>
-                <i class="fa-solid fa-check-to-slot"></i>
-                <span class="text-xs sm:text-sm">ค้นหาพรรคที่ใช่ & ร่วมโหวต</span>
-            </a>
+            <div class="flex items-center gap-3">
+                <a href="https://thalay.eu/policy2569" target="_blank" class="hidden md:inline-flex items-center gap-2 px-5 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl border border-slate-700 transition-all hover:text-white">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>ดูนโยบายทุกพรรค</span>
+                </a>
+
+                <a href="/" class="group relative inline-flex items-center gap-3 px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold rounded-2xl shadow-lg shadow-blue-900/30 transition-all hover:scale-105 active:scale-95 ring-2 ring-blue-500/20 hover:ring-blue-400/50">
+                    <span class="absolute inset-0 rounded-2xl bg-white/20 animate-ping opacity-0 group-hover:opacity-20"></span>
+                    <i class="fa-solid fa-check-to-slot text-lg md:text-xl animate-pulse"></i>
+                    <span class="text-sm md:text-lg">ค้นหาพรรคที่ใช่ & ร่วมโหวต</span>
+                </a>
+            </div>
         </div>
     </header>
 
