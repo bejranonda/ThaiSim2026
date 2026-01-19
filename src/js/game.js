@@ -10,6 +10,7 @@ export class Game {
         this.stats = { eco: 30, soc: 30, lib: 30, budget: 100 };
         this.history = [];
         this.choices = [];
+        this.policyChoices = []; // Track policy IDs and labels for statistics
         this.currentSelection = new Set();
         this.manualVote = null;
 
@@ -211,6 +212,7 @@ export class Game {
             scores: {...this.scores},
             stats: {...this.stats},
             choices: [...this.choices],
+            policyChoices: [...this.policyChoices],
             selection: new Set(this.currentSelection)
         });
 
@@ -234,6 +236,7 @@ export class Game {
             this.stats.lib = Math.min(100, Math.max(0, this.stats.lib + (opt.stats.lib || 0)));
             this.stats.budget = this.stats.budget + (opt.stats.budget || 0); // Budget can be negative
             this.choices.push(opt.label);
+            this.policyChoices.push({ id: opt.id, label: opt.label }); // Track for statistics
 
             const mini = document.createElement('div');
             mini.className = "w-6 h-6 bg-slate-900 rounded-full flex items-center justify-center border border-slate-600 pop-in m-[1px]";
@@ -285,6 +288,7 @@ export class Game {
         this.scores = prevState.scores;
         this.stats = prevState.stats;
         this.choices = prevState.choices;
+        this.policyChoices = prevState.policyChoices || []; // Restore policy choices
 
         this.phase--;
 
@@ -494,13 +498,14 @@ export class Game {
                 await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'sim_results_v7'), {
                     winner: winner,
                     choices: this.choices,
+                    policyChoices: this.policyChoices,
                     stats: this.stats,
                     timestamp: new Date()
                 });
             }
-        } catch(e) { 
+        } catch(e) {
             console.error("saveSimResult failed. Path:", `artifacts/${appId}/public/data/sim_results_v7`);
-            console.error(e); 
+            console.error(e);
         }
     }
 
