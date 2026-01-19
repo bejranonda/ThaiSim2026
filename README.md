@@ -1,10 +1,12 @@
-# ThaiSim2026 🇹🇭
+# Sim-Thailand 2569 (ThaiSim2026) 🇹🇭
 
 Thai Political Simulation Game - Experience governance through real policy choices from 16 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
+**Latest Release**: [v1.2 - GitHub Release](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.2) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+
 ## 🎮 About
 
-ThaiSim2026 is an interactive political simulation that allows users to:
+**Sim-Thailand 2569** is an interactive political simulation that allows users to:
 - **Simulate**: Make policy choices across 6 critical phases with three tracking metrics:
   - 📊 **Economy (ศก.)**: Economic and fiscal policy
   - 🤝 **Welfare (สังคม)**: Social welfare and quality of life
@@ -14,7 +16,16 @@ ThaiSim2026 is an interactive political simulation that allows users to:
 - **Track**: View aggregate voting results in real-time via the **Live Results Dashboard**.
 - **Monitor**: Track national status across all three pillars in detailed results view.
 
-**Reference Materials**: Political campaign data and debate transcripts are organized in the `/Campaign2569` folder for reference and research purposes.
+### 📚 Educational Content
+
+**Reference Materials**: Political campaign data and debate transcripts are organized in the `/Campaign2569` folder for reference and research purposes. All policies are sourced from the 2569 Election Debates to ensure accuracy and educational value.
+
+### 🎯 Features
+- **16 Political Parties**: Complete with real policy platforms
+- **6 Critical Phases**: Cover major policy areas
+- **Real-Time Results**: Live dashboard showing voting trends
+- **Educational Tool**: Learn about Thai political landscape through interactive simulation
+- **No Login Required**: Anonymous play with optional result sharing
 
 ## 🏗️ Project Structure
 
@@ -227,4 +238,26 @@ For questions or support, please open an issue in the repository.
 
 ---
 
+## 📜 Version History
+
+### v1.2 (January 19, 2025)
+- ✨ Add GitHub repository link to intro screen release section
+- 🎨 Improve UI layout with separate line for release information
+- 🔗 Direct link to [GitHub Repository](https://github.com/bejranonda/ThaiSim2026)
+
+### v1.1 (January 15, 2025)
+- 🎭 Enhance game animations and visual effects
+- ✍️ Improve developer credits styling
+
+### v1.0 (January 10, 2025)
+- 🎮 Initial release with core game simulation
+- 📊 Three-pillar tracking system (Economy, Welfare, Democracy)
+- 🗳️ Live results dashboard
+- 🎯 Party matching algorithm
+
+---
+
 **Note**: This is a simulation tool for educational purposes. The policies and data are based on the Nation Election DEBATE and may not represent complete or current party platforms.
+
+**Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
+**Developed by**: [thalay.eu](https://thalay.eu/)
