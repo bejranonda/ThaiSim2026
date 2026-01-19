@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 16 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v1.4](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.4) | **Data Updated**: 19 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v1.5.1](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.1) | **Data Updated**: 19 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -135,6 +135,11 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 ## 📜 Version History
 
+### v1.5.1 (January 19, 2569/2026)
+- 📚 **Policy Access**: Replaced "Play Game" button on intro screen with direct "View all policies" link (`thalay.eu/policy2569`) to prioritize information access.
+- 🗣️ **Wording Update**: Updated "View results" button text to "ดูผลโหวตพรรค และ นโยบายที่คนชอบ" (View party votes and policies people like) for clarity and engagement.
+- 🔗 **Consistent Navigation**: Ensured consistent button links and terminology across Intro, Results, and Policy Explore pages.
+
 ### v1.4 (January 19, 2569/2026)
 - 📊 **Consistent Metrics Format**: All National Status metrics now display uniformly with percentage symbols (e.g., "30%", "-20%")
 - 🎯 **Enhanced Visual Hierarchy**: Increased visual overlap between National Status and Your Real Vote sections for stronger connection
@@ -178,4 +183,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v1.4 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.4)
+**Latest Release**: [v1.5.1 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.1)
