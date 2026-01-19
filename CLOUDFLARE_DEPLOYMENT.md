@@ -3,6 +3,8 @@
 ## Overview
 This guide explains how to deploy Sim-Thailand 2569 to Cloudflare Pages with proper environment variable configuration.
 
+**TL;DR**: Connect your GitHub repo to Cloudflare Pages → Set Firebase env variables → Done! Automatic deployment on every push.
+
 ## Prerequisites
 - GitHub account with the repository pushed
 - Cloudflare account (free or paid)
@@ -149,14 +151,16 @@ Map these to the environment variables:
 
 ## Step 5: Deploy
 
-### Option A: Automatic (Recommended)
+### Option A: Automatic (Recommended) ⭐
 Push to your GitHub repository on the `master` branch, and Cloudflare will automatically:
 1. Detect the push
 2. Build the project with environment variables
 3. Deploy to Cloudflare Pages
 4. Give you a URL like: `https://thaisim2569.pages.dev`
 
-### Option B: Manual CLI Deployment
+**That's it!** No additional steps needed. Cloudflare will rebuild and redeploy on every push.
+
+### Option B: Manual Deployment (Using Wrangler CLI)
 
 1. Install Wrangler CLI:
 ```bash
@@ -179,10 +183,12 @@ cp .env.example .env
 npm run build
 ```
 
-5. Deploy:
+5. Deploy to Cloudflare Pages:
 ```bash
 wrangler pages deploy dist --project-name thaisim2569
 ```
+
+**Note:** Using GitHub integration (Option A) is recommended as it's simpler and doesn't require local `.env` files.
 
 ## Step 6: Configure Custom Domain (Optional)
 
