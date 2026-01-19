@@ -333,6 +333,7 @@ export class Game {
         document.getElementById('hud').classList.add('hidden');
         document.getElementById('screen-result').classList.remove('hidden');
         document.getElementById('vote-section').classList.remove('hidden');
+        document.getElementById('result-actions').classList.remove('hidden');
         document.getElementById('result-footer').classList.remove('hidden');
         document.getElementById('result-credit').classList.remove('hidden');
         window.scrollTo({ top: 0 });
