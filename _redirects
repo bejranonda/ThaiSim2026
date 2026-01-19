@@ -1,0 +1,12 @@
+# Cloudflare Pages redirect rules for Sim-Thailand 2569
+# This file ensures proper SPA (Single Page Application) routing
+
+# Catch-all redirect for SPA
+/*    /index.html   200
+
+# Cache control headers
+/index.html   200
+/*            /index.html   200
+
+# Static assets (set cache headers)
+/assets/*     /assets/:splat   200
