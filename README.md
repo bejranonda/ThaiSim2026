@@ -93,9 +93,31 @@ npm run build
 
 ## 🌐 Deployment
 
-This project is configured for easy deployment on **Netlify** or **Vercel**.
-- `netlify.toml` included.
-- `vercel.json` included.
+This project supports deployment on multiple platforms:
+
+### **Cloudflare Pages** (Recommended)
+Deploy with automatic GitHub integration and Firebase environment variables.
+- `wrangler.toml` included
+- `_redirects` file for SPA routing
+- GitHub Actions workflow for automatic deployment
+- **See**: [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMENT.md) for detailed guide
+
+### **Netlify**
+- `netlify.toml` included
+- Easy integration with GitHub
+
+### **Vercel**
+- `vercel.json` included
+- Zero-config deployment
+
+### Quick Start: Cloudflare Pages
+1. Push your code to GitHub
+2. Go to [Cloudflare Pages](https://pages.cloudflare.com)
+3. Connect your GitHub repo
+4. Set Firebase environment variables in dashboard
+5. Deploy automatically on each push!
+
+For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMENT.md)
 
 ## 🛠️ Technologies
 
