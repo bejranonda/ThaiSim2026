@@ -160,35 +160,22 @@ Push to your GitHub repository on the `master` branch, and Cloudflare will autom
 
 **That's it!** No additional steps needed. Cloudflare will rebuild and redeploy on every push.
 
-### Option B: Manual Deployment (Using Wrangler CLI)
+### ⚠️ WARNING: Do NOT Use Wrangler CLI
 
-1. Install Wrangler CLI:
-```bash
-npm install -g wrangler
-```
+**Do NOT use** `wrangler pages deploy` or any Wrangler CLI commands for this project.
 
-2. Authenticate with Cloudflare:
-```bash
-wrangler login
-```
+**Why?**
+- This is a static site, not a Cloudflare Worker
+- Wrangler expects Worker configuration that doesn't apply here
+- You will get build errors like "expected output file not found"
+- GitHub integration (Option A) is much simpler and more secure
 
-3. Create `.env` file in your local project:
-```bash
-cp .env.example .env
-# Edit .env with your actual Firebase credentials
-```
-
-4. Build the project:
-```bash
-npm run build
-```
-
-5. Deploy to Cloudflare Pages:
-```bash
-wrangler pages deploy dist --project-name thaisim2569
-```
-
-**Note:** Using GitHub integration (Option A) is recommended as it's simpler and doesn't require local `.env` files.
+**Always Use Option A (GitHub Integration):**
+- ✅ Automatic deployment on every push
+- ✅ Credentials stored securely in Cloudflare dashboard
+- ✅ No local `.env` files needed
+- ✅ No Wrangler CLI installation required
+- ✅ Perfect for static sites like this project
 
 ## Step 6: Configure Custom Domain (Optional)
 

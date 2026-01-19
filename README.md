@@ -95,11 +95,12 @@ npm run build
 
 This project supports deployment on multiple platforms:
 
-### **Cloudflare Pages** (Recommended)
+### **Cloudflare Pages** (Recommended) ⭐
 Deploy with automatic GitHub integration and Firebase environment variables.
-- `wrangler.toml` included
 - `_redirects` file for SPA routing
 - GitHub Actions workflow for automatic deployment
+- No complex configuration needed!
+- **See**: [CLOUDFLARE_QUICK_START.md](./CLOUDFLARE_QUICK_START.md) for Thai guide
 - **See**: [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMENT.md) for detailed guide
 
 ### **Netlify**
