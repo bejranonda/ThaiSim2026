@@ -177,7 +177,7 @@
 
 <script>
         (function () {
-            // --- 1. ข้อมูลพรรคการเมือง (16 พรรค) ---
+            // --- 1. ข้อมูลพรรคการเมือง (17 พรรค) ---
             const parties = {
                 "PTP": { name: "เพื่อไทย", color: "#e11d23", candidate: "ศ.ดร.ยศชนัน วงศ์สวัสดิ์", role: "แคนดิเดตนายกฯ", link: "https://ptp.or.th", bio: "นักวิชาการด้านวิศวกรรมชีวการแพทย์ ผู้เชี่ยวชาญด้านนวัตกรรมสมอง (Brain-Computer Interface) มุ่งเน้นการนำเทคโนโลยีขั้นสูงมาปรับโครงสร้างเศรษฐกิจไทย", stance: "High Value Economy & Wellness Hub" },
                 "PP": { name: "ประชาชน", color: "#f47524", candidate: "ณัฐพงษ์ เรืองปัญญาวุฒิ", role: "แคนดิเดตนายกฯ", link: "https://peoplesparty.or.th", bio: "อดีตวิศวกรคอมพิวเตอร์และนักธุรกิจ Cloud Computing ผู้ผลักดันระบบรัฐสภาโปร่งใส (Open Parliament) และการกระจายอำนาจ", stance: "ทลายทุนผูกขาด & สวัสดิการถ้วนหน้า" },
@@ -187,14 +187,14 @@
                 "PCC": { name: "ประชาชาติ", color: "#783e0e", candidate: "พ.ต.อ.ทวี สอดส่อง", role: "แคนดิเดตนายกฯ", link: "https://prachachat.org", bio: "อดีตเลขาธิการ ศอ.บต. และอธิบดี DSI ผู้มีบทบาทสำคัญในการสร้างสันติภาพชายแดนใต้และการคืนความยุติธรรม", stance: "พหุวัฒนธรรม & ล้างหนี้ กยศ." },
                 "TST": { name: "ไทยสร้างไทย", color: "#3e0e64", candidate: "คุณหญิงสุดารัตน์ เกยุราพันธุ์", role: "แคนดิเดตนายกฯ", link: "https://thaisangthai.org", bio: "นักบริหารมืออาชีพ อดีต รมว.สาธารณสุข ผู้ผลักดันโครงการ 30 บาทรักษาทุกโรคในยุคเริ่มต้น", stance: "บำนาญประชาชน & แขวนกฎหมาย" },
                 "TKM": { name: "ไทยก้าวใหม่", color: "#06b6d4", candidate: "ดร.สุชัชวีร์ สุวรรณสวัสดิ์", role: "แคนดิเดตนายกฯ", link: "https://thaikaomai.or.th", bio: "วิศวกรผู้เชี่ยวชาญด้านโครงสร้างพื้นฐาน อดีตอธิการบดี สจล. เจ้าของฉายา 'The Disruptor' ทางการศึกษา", stance: "การศึกษาทันยุค & ปราบสแกมเมอร์" },
-                "OKM": { name: "โอกาสใหม่", color: "#10b981", candidate: "จตุพร บุรุษพัฒน์", role: "แคนดิเดตนายกฯ", link: "#", bio: "อดีตปลัดกระทรวงทรัพยากรธรรมชาติฯ ผู้เชี่ยวชาญด้านการบริหารราชการแผ่นดินและการจัดการสิ่งแวดล้อม", stance: "บริหารงบประมาณฉับไว & โอกาสเท่าเทียม" },
-                "KLA": { name: "กล้าธรรม", color: "#9333ea", candidate: "ร.อ.ธรรมนัส พรหมเผ่า", role: "แกนนำพรรค", link: "#", bio: "ผู้มีอิทธิพลในพื้นที่ภาคเหนือและกลุ่มเกษตรกร เชี่ยวชาญการแก้ปัญหาที่ดินทำกินและการเจรจา", stance: "เปลี่ยน ส.ป.ก. เป็นโฉนด & แก้หนี้" },
-                "RAK": { name: "รักชาติ", color: "#6366f1", candidate: "ชัยวุฒิ ธนาคมานุสรณ์", role: "แกนนำพรรค", link: "#", bio: "อดีต รมว.ดีอีเอส ผู้ผลักดันนโยบายเศรษฐกิจดิจิทัลและการปราบปรามอาชญากรรมออนไลน์", stance: "Smart Card ใบเดียว & รัฐรวมซื้อ" },
-                "ECO": { name: "เศรษฐกิจ", color: "#22c55e", candidate: "คริส โปตระนันทน์", role: "หัวหน้าพรรค", link: "#", bio: "นักกฎหมายรุ่นใหม่และนักเศรษฐศาสตร์ ผู้ร่วมก่อตั้งกลุ่มเส้นด้าย เน้นการตรวจสอบการทุจริตแบบกัดไม่ปล่อย", stance: "Zero Corruption & ทลายทุนผูกขาด" },
-                "CTP": { name: "ชาติไทยพัฒนา", color: "#ec4899", candidate: "วราวุธ ศิลปอาชา", role: "หัวหน้าพรรค", link: "#", bio: "นักการเมืองรุ่นใหม่ ใส่ใจสิ่งแวดล้อม อดีต รมว.ทรัพยากรฯ ผู้ผลักดัน Carbon Neutrality", stance: "Green Economy & น้ำบาดาล" },
-                "CP": { name: "ชาติพัฒนา", color: "#fb923c", candidate: "สุวัจน์ ลิปตพัลลภ", role: "ประธานพรรค", link: "#", bio: "นักการเมืองลายคราม ผู้เชี่ยวชาญด้านเศรษฐกิจและการกีฬา เจ้าของสโลแกน 'No Problem'", stance: "โคราชโนมิกส์ & มอเตอร์เวย์ทั่วไทย" },
-                "SRT": { name: "เสรีรวมไทย", color: "#eab308", candidate: "พล.ต.อ.เสรีพิศุทธ์ เตมียเวส", role: "หัวหน้าพรรค", link: "#", bio: "วีรบุรุษนาแก อดีต ผบ.ตร. มือปราบตงฉิน ผู้มีจุดยืนต่อต้านการทุจริตและการรัฐประหาร", stance: "ปราบโกงทั้งแผ่นดิน & ยึดทรัพย์" },
-                "FAIR": { name: "เป็นธรรม", color: "#d8b4fe", candidate: "ปิติพงศ์ เต็มเจริญ", role: "หัวหน้าพรรค", link: "#", bio: "นักกฎหมายสิทธิมนุษยชน ผู้ผลักดันการกระจายอำนาจและสิทธิความหลากหลายทางเพศ", stance: "จังหวัดจัดการตนเอง & สิทธิมนุษยชน" },
+                "OKM": { name: "โอกาสใหม่", color: "#10b981", candidate: "จตุพร บุรุษพัฒน์", role: "แคนดิเดตนายกฯ", link: "https://www.facebook.com/search/top?q=พรรคโอกาสใหม่", bio: "อดีตปลัดกระทรวงทรัพยากรธรรมชาติฯ ผู้เชี่ยวชาญด้านการบริหารราชการแผ่นดินและการจัดการสิ่งแวดล้อม", stance: "บริหารงบประมาณฉับไว & โอกาสเท่าเทียม" },
+                "KLA": { name: "กล้าธรรม", color: "#9333ea", candidate: "ร.อ.ธรรมนัส พรหมเผ่า", role: "แกนนำพรรค", link: "https://klathamparty.com", bio: "ผู้มีอิทธิพลในพื้นที่ภาคเหนือและกลุ่มเกษตรกร เชี่ยวชาญการแก้ปัญหาที่ดินทำกินและการเจรจา", stance: "เปลี่ยน ส.ป.ก. เป็นโฉนด & แก้หนี้" },
+                "RAK": { name: "รักชาติ", color: "#6366f1", candidate: "ชัยวุฒิ ธนาคมานุสรณ์", role: "แกนนำพรรค", link: "https://www.facebook.com/search/top?q=พรรครักชาติ", bio: "อดีต รมว.ดีอีเอส ผู้ผลักดันนโยบายเศรษฐกิจดิจิทัลและการปราบปรามอาชญากรรมออนไลน์", stance: "Smart Card ใบเดียว & รัฐรวมซื้อ" },
+                "ECO": { name: "เศรษฐกิจ", color: "#22c55e", candidate: "คริส โปตระนันทน์", role: "หัวหน้าพรรค", link: "https://www.facebook.com/search/top?q=พรรคเศรษฐกิจ", bio: "นักกฎหมายรุ่นใหม่และนักเศรษฐศาสตร์ ผู้ร่วมก่อตั้งกลุ่มเส้นด้าย เน้นการตรวจสอบการทุจริตแบบกัดไม่ปล่อย", stance: "Zero Corruption & ทลายทุนผูกขาด" },
+                "CTP": { name: "ชาติไทยพัฒนา", color: "#ec4899", candidate: "วราวุธ ศิลปอาชา", role: "หัวหน้าพรรค", link: "https://www.chartthaipattana.or.th", bio: "นักการเมืองรุ่นใหม่ ใส่ใจสิ่งแวดล้อม อดีต รมว.ทรัพยากรฯ ผู้ผลักดัน Carbon Neutrality", stance: "Green Economy & น้ำบาดาล" },
+                "CP": { name: "ชาติพัฒนา", color: "#fb923c", candidate: "สุวัจน์ ลิปตพัลลภ", role: "ประธานพรรค", link: "https://chartpattana.or.th", bio: "นักการเมืองลายคราม ผู้เชี่ยวชาญด้านเศรษฐกิจและการกีฬา เจ้าของสโลแกน 'No Problem'", stance: "โคราชโนมิกส์ & มอเตอร์เวย์ทั่วไทย" },
+                "SRT": { name: "เสรีรวมไทย", color: "#eab308", candidate: "พล.ต.อ.เสรีพิศุทธ์ เตมียเวส", role: "หัวหน้าพรรค", link: "https://sereeruamthai.or.th", bio: "วีรบุรุษนาแก อดีต ผบ.ตร. มือปราบตงฉิน ผู้มีจุดยืนต่อต้านการทุจริตและการรัฐประหาร", stance: "ปราบโกงทั้งแผ่นดิน & ยึดทรัพย์" },
+                "FAIR": { name: "เป็นธรรม", color: "#d8b4fe", candidate: "ปิติพงศ์ เต็มเจริญ", role: "หัวหน้าพรรค", link: "https://fair-party.com", bio: "นักกฎหมายสิทธิมนุษยชน ผู้ผลักดันการกระจายอำนาจและสิทธิความหลากหลายทางเพศ", stance: "จังหวัดจัดการตนเอง & สิทธิมนุษยชน" },
                 "PPRP": { name: "พลังประชารัฐ", color: "#1e40af", candidate: "พล.อ.ประวิตร วงษ์สุวรรณ", role: "หัวหน้าพรรค", link: "https://pprp.or.th", bio: "ผู้มากบารมีทางการเมือง เน้นการก้าวข้ามความขัดแย้งและดูแลสวัสดิการผู้สูงอายุ", stance: "ก้าวข้ามความขัดแย้ง & บัตรประชารัฐ" }
             };
 
@@ -306,19 +306,19 @@
                 { id: 903, party: "OKM", cat: "security", title: "ไม่ร่วมกับผู้ก้าวล่วง", desc: "จุดยืนชัดเจนในการปกป้องสถาบันหลักของชาติ ไม่ร่วมรัฐบาลกับพรรคที่ก้าวล่วง", ref: "Nation Debate", url: "https://www.youtube.com/live/mUTZk_DtlrM", verify: true },
                 { id: 904, party: "OKM", cat: "economy", title: "จ้างงานท้องถิ่น", desc: "บังคับให้โครงการรัฐต้องจ้างแรงงานและบริษัทในพื้นที่เท่านั้น", ref: "Nation Debate", url: "https://www.youtube.com/live/mUTZk_DtlrM", verify: true },
                 { id: 905, party: "OKM", cat: "education", title: "ประชาธิปไตยในโรงเรียน", desc: "ฝึกอบรมเยาวชนให้มีส่วนร่วมทางการเมืองอย่างถูกต้อง", ref: "Policy Watch", url: "https://thaipbs.or.th/election69", verify: true },
-                { id: 906, party: "OKM", cat: "environment", title: "One Vision One Team", desc: "บูรณาการหน่วยงานสิ่งแวดล้อมเป็นหนึ่งเดียว เพื่อการจัดการที่รวดเร็ว", ref: "วิสัยทัศน์หัวหน้าพรรค", url: "#", verify: true },
-                { id: 907, party: "OKM", cat: "politics", title: "Happy Organization", desc: "ปฏิรูประบบราชการให้เป็นองค์กรแห่งความสุข ประชาชนได้รับบริการที่ดี", ref: "วิสัยทัศน์หัวหน้าพรรค", url: "#", verify: true },
-                { id: 908, party: "OKM", cat: "environment", title: "รุกขจรกรรุกป่า", desc: "เพิ่มเจ้าหน้าที่ดูแลป่าและเทคโนโลยีป้องกันไฟป่าเชิงรุก", ref: "นโยบายสิ่งแวดล้อม", url: "#", verify: true },
+                { id: 906, party: "OKM", cat: "environment", title: "One Vision One Team", desc: "บูรณาการหน่วยงานสิ่งแวดล้อมเป็นหนึ่งเดียว เพื่อการจัดการที่รวดเร็ว", ref: "วิสัยทัศน์หัวหน้าพรรค", url: "https://www.facebook.com/search/top?q=พรรคโอกาสใหม่", verify: true },
+                { id: 907, party: "OKM", cat: "politics", title: "Happy Organization", desc: "ปฏิรูประบบราชการให้เป็นองค์กรแห่งความสุข ประชาชนได้รับบริการที่ดี", ref: "วิสัยทัศน์หัวหน้าพรรค", url: "https://www.facebook.com/search/top?q=พรรคโอกาสใหม่", verify: true },
+                { id: 908, party: "OKM", cat: "environment", title: "รุกขจรกรรุกป่า", desc: "เพิ่มเจ้าหน้าที่ดูแลป่าและเทคโนโลยีป้องกันไฟป่าเชิงรุก", ref: "นโยบายสิ่งแวดล้อม", url: "https://www.facebook.com/search/top?q=พรรคโอกาสใหม่", verify: true },
 
                 // --- กล้าธรรม (KLA) ---
                 { id: 1001, party: "KLA", cat: "social", title: "ส.ป.ก. เป็นโฉนดทองคำ", desc: "เปลี่ยนเอกสารสิทธิ์ ส.ป.ก. ให้ซื้อขายจำนองได้ เพิ่มมูลค่าที่ดินเกษตรกร", ref: "เวทีปราศรัยร้อยเอ็ด", url: "https://www.youtube.com/watch?v=gWBWtbGCLDk", verify: true },
-                { id: 1002, party: "KLA", cat: "economy", title: "แก้หนี้เบ็ดเสร็จ", desc: "ตั้งกองทุนซื้อหนี้เกษตรกรและปรับโครงสร้างหนี้ระยะยาว", ref: "นโยบายพรรค", url: "#", verify: true },
-                { id: 1003, party: "KLA", cat: "economy", title: "น้ำชุมชน", desc: "จัดหาแหล่งน้ำเพื่อการเกษตรทุกหมู่บ้าน แก้แล้งซ้ำซาก", ref: "นโยบายพรรค", url: "#", verify: true },
-                { id: 1004, party: "KLA", cat: "social", title: "ปราบผู้มีอิทธิพล", desc: "จัดการกลุ่มมาเฟียท้องถิ่นและยาเสพติดอย่างเด็ดขาด", ref: "จุดยืนพรรค", url: "#", verify: true },
-                { id: 1005, party: "KLA", cat: "social", title: "โฉนดครุฑแดง", desc: "ยกระดับเอกสารสิทธิ์ที่ดินรัฐให้เป็นโฉนดเต็มรูปแบบ", ref: "เวทีปราศรัย", url: "#", verify: true },
-                { id: 1006, party: "KLA", cat: "environment", title: "แผนที่น้ำทุกจังหวัด", desc: "บริหารจัดการน้ำท่วม-น้ำแล้งด้วยระบบแผนที่น้ำรายจังหวัด", ref: "นโยบายเกษตร", url: "#", verify: true },
-                { id: 1007, party: "KLA", cat: "economy", title: "ธนาคารเกษตรเพื่อประชาชน", desc: "ตั้งสถาบันการเงินเฉพาะกิจเพื่อเกษตรกร เข้าถึงทุนง่าย ดอกเบี้ยต่ำ", ref: "นโยบายเศรษฐกิจ", url: "#", verify: true },
-                { id: 1008, party: "KLA", cat: "security", title: "สงครามสินค้าเถื่อน", desc: "ปราบปรามการลักลอบนำเข้าสินค้าเกษตรทำลายราคาตลาด", ref: "นโยบายความมั่นคง", url: "#", verify: true },
+                { id: 1002, party: "KLA", cat: "economy", title: "แก้หนี้เบ็ดเสร็จ", desc: "ตั้งกองทุนซื้อหนี้เกษตรกรและปรับโครงสร้างหนี้ระยะยาว", ref: "นโยบายพรรค", url: "https://klathamparty.com", verify: true },
+                { id: 1003, party: "KLA", cat: "economy", title: "น้ำชุมชน", desc: "จัดหาแหล่งน้ำเพื่อการเกษตรทุกหมู่บ้าน แก้แล้งซ้ำซาก", ref: "นโยบายพรรค", url: "https://klathamparty.com", verify: true },
+                { id: 1004, party: "KLA", cat: "social", title: "ปราบผู้มีอิทธิพล", desc: "จัดการกลุ่มมาเฟียท้องถิ่นและยาเสพติดอย่างเด็ดขาด", ref: "จุดยืนพรรค", url: "https://klathamparty.com", verify: true },
+                { id: 1005, party: "KLA", cat: "social", title: "โฉนดครุฑแดง", desc: "ยกระดับเอกสารสิทธิ์ที่ดินรัฐให้เป็นโฉนดเต็มรูปแบบ", ref: "เวทีปราศรัย", url: "https://klathamparty.com", verify: true },
+                { id: 1006, party: "KLA", cat: "environment", title: "แผนที่น้ำทุกจังหวัด", desc: "บริหารจัดการน้ำท่วม-น้ำแล้งด้วยระบบแผนที่น้ำรายจังหวัด", ref: "นโยบายเกษตร", url: "https://klathamparty.com", verify: true },
+                { id: 1007, party: "KLA", cat: "economy", title: "ธนาคารเกษตรเพื่อประชาชน", desc: "ตั้งสถาบันการเงินเฉพาะกิจเพื่อเกษตรกร เข้าถึงทุนง่าย ดอกเบี้ยต่ำ", ref: "นโยบายเศรษฐกิจ", url: "https://klathamparty.com", verify: true },
+                { id: 1008, party: "KLA", cat: "security", title: "สงครามสินค้าเถื่อน", desc: "ปราบปรามการลักลอบนำเข้าสินค้าเกษตรทำลายราคาตลาด", ref: "นโยบายความมั่นคง", url: "https://klathamparty.com", verify: true },
 
                 // --- รักชาติ (RAK) ---
                 { id: 1101, party: "RAK", cat: "social", title: "Smart Card ใบเดียวจบ", desc: "บัตรประชาชนใบเดียวใช้ รักษา/เรียน/รับสวัสดิการ และเป็นส่วนลดร้านค้า", ref: "เปิดตัว Smart Nation", url: "https://www.facebook.com/search/top?q=พรรครักชาติ", verify: true },
@@ -335,9 +335,9 @@
                 { id: 1202, party: "ECO", cat: "economy", title: "ทลายทุนผูกขาด", desc: "แก้กฎหมายที่เอื้อนายทุนใหญ่ เปิดเสรีสุราและพลังงาน", ref: "The Standard Economic Battle", url: "https://www.youtube.com/@TheStandardNews", verify: true },
                 { id: 1203, party: "ECO", cat: "politics", title: "เลือกตั้งออนไลน์", desc: "ผลักดันระบบเลือกตั้งผ่าน Blockchain เพื่อความโปร่งใสและสะดวก", ref: "นโยบายพรรค", url: "https://www.facebook.com/search/top?q=พรรคเศรษฐกิจ", verify: true },
                 { id: 1204, party: "ECO", cat: "economy", title: "Ocean Link", desc: "สร้างท่าเรือน้ำลึกและระบบขนส่งเชื่อมโยงสองฝั่งทะเล", ref: "Mega Projects", url: "https://www.facebook.com/search/top?q=พรรคเศรษฐกิจ", verify: true },
-                { id: 1205, party: "ECO", cat: "economy", title: "ลดภาษีการลงทุน", desc: "ลดภาษีเงินได้นิติบุคคลเพื่อดึงดูดการลงทุนและกระตุ้นเศรษฐกิจ", ref: "นโยบายเศรษฐกิจ", url: "#", verify: true },
-                { id: 1206, party: "ECO", cat: "politics", title: "แยกอำนาจสอบสวน", desc: "ปฏิรูปกระบวนการยุติธรรม แยกอำนาจจับกุมและสอบสวนออกจากกัน", ref: "นโยบายปฏิรูป", url: "#", verify: true },
-                { id: 1207, party: "ECO", cat: "politics", title: "ลดขนาดรัฐ", desc: "ลดจำนวนข้าราชการและขั้นตอนราชการที่ซ้ำซ้อนด้วยเทคโนโลยี", ref: "นโยบายปฏิรูป", url: "#", verify: true },
+                { id: 1205, party: "ECO", cat: "economy", title: "ลดภาษีการลงทุน", desc: "ลดภาษีเงินได้นิติบุคคลเพื่อดึงดูดการลงทุนและกระตุ้นเศรษฐกิจ", ref: "นโยบายเศรษฐกิจ", url: "https://www.facebook.com/search/top?q=พรรคเศรษฐกิจ", verify: true },
+                { id: 1206, party: "ECO", cat: "politics", title: "แยกอำนาจสอบสวน", desc: "ปฏิรูปกระบวนการยุติธรรม แยกอำนาจจับกุมและสอบสวนออกจากกัน", ref: "นโยบายปฏิรูป", url: "https://www.facebook.com/search/top?q=พรรคเศรษฐกิจ", verify: true },
+                { id: 1207, party: "ECO", cat: "politics", title: "ลดขนาดรัฐ", desc: "ลดจำนวนข้าราชการและขั้นตอนราชการที่ซ้ำซ้อนด้วยเทคโนโลยี", ref: "นโยบายปฏิรูป", url: "https://www.facebook.com/search/top?q=พรรคเศรษฐกิจ", verify: true },
 
                 // --- ชาติไทยพัฒนา (CTP) ---
                 { id: 1301, party: "CTP", cat: "economy", title: "Green Economy", desc: "สร้างรายได้จากการขายคาร์บอนเครดิตภาคเกษตร", ref: "WoW Thailand", url: "https://www.chartthaipattana.or.th", verify: true },
