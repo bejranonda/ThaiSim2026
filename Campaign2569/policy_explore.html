@@ -69,6 +69,40 @@
         background: #cbd5e1;
         border-radius: 3px;
     }
+
+    /* Modal Animations */
+    #party-modal {
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    #party-modal-content {
+        animation: slideUp 0.3s ease-out;
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* Modal Close Button */
+    #party-modal.opacity-0 {
+        pointer-events: none;
+    }
 </style>
 
 <div id="policy-explorer-app">
@@ -88,11 +122,10 @@
         class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 mb-6 flex flex-col md:flex-row gap-4 sticky top-4 z-30">
         <div class="flex-1">
             <label class="block text-xs font-bold text-slate-400 uppercase mb-1">คัดกรองตามพรรค</label>
-            <select id="filter-party" onchange="app.filter()"
-                class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white text-slate-700">
-                <option value="all">ทั้งหมด (All Parties)</option>
-                <!-- Options injected via JS -->
-            </select>
+            <button onclick="app.openPartyModal()"
+                class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white text-slate-700 hover:border-blue-400 transition text-left font-medium cursor-pointer">
+                <i class="fa-solid fa-filter mr-2"></i><span id="party-filter-label">ทั้งหมด (17 พรรค)</span>
+            </button>
         </div>
         <div class="flex-1">
             <label class="block text-xs font-bold text-slate-400 uppercase mb-1">หมวดหมู่นโยบาย</label>
@@ -172,6 +205,46 @@
                         <i class="fa-solid fa-globe mr-2"></i> เยี่ยมชมเว็บไซต์พรรค
                     </a>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Party Modal -->
+    <div id="party-modal"
+        class="fixed inset-0 bg-black/50 z-[9998] hidden flex items-center justify-center p-4 backdrop-blur-sm opacity-0 transition-opacity duration-300"
+        style="margin: 0;">
+        <div class="bg-white rounded-2xl w-full max-w-md shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300"
+            id="party-modal-content">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-5 flex justify-between items-center">
+                <h3 class="text-lg font-bold text-white">เลือกพรรคการเมือง</h3>
+                <button onclick="app.closePartyModal()"
+                    class="w-8 h-8 flex items-center justify-center bg-white/30 hover:bg-white/50 text-white rounded-lg transition transform hover:scale-110 cursor-pointer border-none">
+                    <i class="fa-solid fa-xmark text-lg font-bold"></i>
+                </button>
+            </div>
+
+            <!-- Checklist Container -->
+            <div class="px-6 py-4">
+                <div id="party-checklist-modal" class="space-y-2 max-h-96 overflow-y-auto custom-scroll">
+                    <!-- Checkboxes injected via JS -->
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="bg-slate-50 px-6 py-4 flex gap-3 border-t border-slate-200">
+                <button onclick="app.selectAllParties()"
+                    class="flex-1 px-3 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium rounded-lg transition border-none cursor-pointer text-sm">
+                    <i class="fa-solid fa-check-double mr-1"></i> เลือกทั้งหมด
+                </button>
+                <button onclick="app.deselectAllParties()"
+                    class="flex-1 px-3 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium rounded-lg transition border-none cursor-pointer text-sm">
+                    <i class="fa-solid fa-xmark mr-1"></i> ไม่เลือก
+                </button>
+                <button onclick="app.closePartyModal()"
+                    class="flex-1 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition border-none cursor-pointer text-sm">
+                    <i class="fa-solid fa-check mr-1"></i> ยืนยัน
+                </button>
             </div>
         </div>
     </div>
@@ -397,31 +470,60 @@
 
             // --- Application Logic ---
             const app = {
+                selectedParties: new Set(), // Store selected party codes
+
                 init: () => {
-                    app.renderOptions();
-                    app.filter();
+                    app.renderPartyModal();
+                    app.selectAllParties(); // Default: all selected
+                    app.updateFilterLabel();
                 },
 
-                renderOptions: () => {
-                    const select = document.getElementById('filter-party');
+                renderPartyModal: () => {
+                    const checklist = document.getElementById('party-checklist-modal');
                     const sortedKeys = Object.keys(parties).sort((a, b) => {
                         return parties[a].name.localeCompare(parties[b].name, 'th');
                     });
 
                     sortedKeys.forEach(key => {
-                        const opt = document.createElement('option');
-                        opt.value = key;
-                        opt.innerText = parties[key].name;
-                        select.appendChild(opt);
+                        const label = document.createElement('label');
+                        label.className = "flex items-center gap-3 p-2 hover:bg-blue-50 rounded-lg transition cursor-pointer";
+
+                        const checkbox = document.createElement('input');
+                        checkbox.type = 'checkbox';
+                        checkbox.value = key;
+                        checkbox.className = 'w-4 h-4 rounded border-slate-300 cursor-pointer';
+                        checkbox.checked = true; // Default: all selected
+                        checkbox.id = `party-modal-${key}`;
+                        checkbox.onchange = () => {
+                            if (checkbox.checked) {
+                                app.selectedParties.add(key);
+                            } else {
+                                app.selectedParties.delete(key);
+                            }
+                        };
+
+                        const text = document.createElement('span');
+                        text.className = 'text-sm text-slate-700 flex-grow font-medium';
+                        text.innerText = parties[key].name;
+
+                        const dot = document.createElement('span');
+                        dot.className = 'w-3 h-3 rounded-full flex-shrink-0';
+                        dot.style.backgroundColor = parties[key].color;
+
+                        label.appendChild(checkbox);
+                        label.appendChild(text);
+                        label.appendChild(dot);
+                        checklist.appendChild(label);
+
+                        app.selectedParties.add(key); // Initialize with all selected
                     });
                 },
 
                 filter: () => {
-                    const pFilter = document.getElementById('filter-party').value;
                     const cFilter = document.getElementById('filter-category').value;
 
                     let filtered = policies.filter(p => {
-                        return (pFilter === 'all' || p.party === pFilter) &&
+                        return (app.selectedParties.size === 0 || app.selectedParties.has(p.party)) &&
                             (cFilter === 'all' || p.cat === cFilter);
                     });
 
@@ -441,9 +543,60 @@
                 },
 
                 reset: () => {
-                    document.getElementById('filter-party').value = 'all';
+                    app.selectAllParties();
                     document.getElementById('filter-category').value = 'all';
+                    app.updateFilterLabel();
                     app.filter();
+                },
+
+                updateFilterLabel: () => {
+                    const label = document.getElementById('party-filter-label');
+                    if (app.selectedParties.size === Object.keys(parties).length) {
+                        label.innerText = `ทั้งหมด (${Object.keys(parties).length} พรรค)`;
+                    } else if (app.selectedParties.size === 0) {
+                        label.innerText = 'ไม่เลือกพรรค';
+                    } else {
+                        label.innerText = `${app.selectedParties.size} พรรค`;
+                    }
+                },
+
+                openPartyModal: () => {
+                    const modal = document.getElementById('party-modal');
+                    modal.classList.remove('hidden');
+                    void modal.offsetWidth;
+                    modal.classList.remove('opacity-0');
+                    document.getElementById('party-modal-content').classList.remove('scale-95');
+                    document.getElementById('party-modal-content').classList.add('scale-100');
+                },
+
+                closePartyModal: () => {
+                    const modal = document.getElementById('party-modal');
+                    modal.classList.add('opacity-0');
+                    document.getElementById('party-modal-content').classList.remove('scale-100');
+                    document.getElementById('party-modal-content').classList.add('scale-95');
+                    setTimeout(() => {
+                        modal.classList.add('hidden');
+                    }, 300);
+                    app.updateFilterLabel();
+                    app.filter();
+                },
+
+                selectAllParties: () => {
+                    Object.keys(parties).forEach(key => {
+                        const cb = document.getElementById(`party-modal-${key}`);
+                        if (cb) cb.checked = true;
+                        app.selectedParties.add(key);
+                    });
+                    app.updateFilterLabel();
+                },
+
+                deselectAllParties: () => {
+                    Object.keys(parties).forEach(key => {
+                        const cb = document.getElementById(`party-modal-${key}`);
+                        if (cb) cb.checked = false;
+                    });
+                    app.selectedParties.clear();
+                    app.updateFilterLabel();
                 },
 
                 renderGrid: (data) => {
