@@ -30,6 +30,9 @@
 - **Educational Tool**: Learn about the Thai political landscape through interactive simulation.
 - **Anonymous**: No login required to play.
 
+<img width="1732" height="666" alt="image" src="https://github.com/user-attachments/assets/c2c79657-7d53-4602-8073-c8da1576f58c" />
+
+
 ## 🏗️ Project Structure
 
 ```
