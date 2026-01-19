@@ -334,8 +334,19 @@ export class Game {
         });
 
         const top5 = sorted.slice(0, 5);
-        const winner = parties[top5[0].key];
-        const winPct = top5[0].pct;
+        let winner = parties[top5[0].key];
+        let winPct = top5[0].pct;
+
+        // Special case: If user skipped everything (score 0), show "No Match"
+        if (top5[0].score === 0) {
+            winner = {
+                name: "ยังประเมินไม่ได้",
+                desc: "คุณเลือก 'ข้าม' ทุกข้อ จึงไม่มีข้อมูลเพียงพอที่จะวิเคราะห์ว่านโยบายของคุณตรงกับพรรคใด ลองเริ่มใหม่อีกครั้งและเลือกนโยบายที่คุณชอบนะครับ",
+                icon: "fa-circle-question",
+                color: "text-slate-400"
+            };
+            winPct = 0;
+        }
 
         // Winner Card Animation
         const winnerCard = document.querySelector('#screen-result > div > div:first-child');
