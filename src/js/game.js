@@ -315,6 +315,7 @@ export class Game {
         document.getElementById('screen-game').classList.add('hidden');
         document.getElementById('hud').classList.add('hidden');
         document.getElementById('screen-result').classList.remove('hidden');
+        document.getElementById('vote-section').classList.remove('hidden');
         window.scrollTo({ top: 0 });
 
         // Calculate weighted percentage
