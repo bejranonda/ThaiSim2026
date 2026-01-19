@@ -4,6 +4,9 @@
 
 **Latest Release**: [v1.4](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.4) | **Data Updated**: 19 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
+<img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
+
+
 ## 🎮 About
 
 **Sim-Thailand 2569** is an interactive political simulation designed for the 2569 (2026) Thai General Election context. It allows users to:
@@ -26,6 +29,9 @@
 - **Real-Time Results**: Live dashboard showing voting trends from all users.
 - **Educational Tool**: Learn about the Thai political landscape through interactive simulation.
 - **Anonymous**: No login required to play.
+
+<img width="1732" height="666" alt="image" src="https://github.com/user-attachments/assets/c2c79657-7d53-4602-8073-c8da1576f58c" />
+
 
 ## 🏗️ Project Structure
 
