@@ -74,7 +74,7 @@ async function initResults() {
         html += `
                     </div>
                 </div>
-                
+
                 <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800 flex flex-col items-center justify-center text-center h-full min-h-[250px]">
                     <div class="mb-4 relative">
                         <i class="fa-solid fa-users-viewfinder text-6xl text-slate-700"></i>
@@ -82,7 +82,7 @@ async function initResults() {
                     </div>
                     <h3 class="text-4xl font-extrabold text-white mb-1">${total.toLocaleString()}</h3>
                     <p class="text-sm text-slate-400 uppercase tracking-widest">Total Votes</p>
-                    
+
                     <div class="mt-8 w-full">
                          <p class="text-xs text-slate-500 mb-2 text-left">Top Party Lead:</p>
                          <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
@@ -92,6 +92,67 @@ async function initResults() {
                 </div>
             </div>
         `;
+
+        // Fetch Sim Results for policy statistics
+        try {
+            const simSnapshot = await getDocs(collection(db, 'artifacts', appId, 'public', 'data', 'sim_results_v7'));
+            const policyCounts = {};
+            let totalSims = 0;
+
+            simSnapshot.forEach(doc => {
+                const data = doc.data();
+                if (data.policyChoices && Array.isArray(data.policyChoices)) {
+                    data.policyChoices.forEach(policy => {
+                        const label = policy.label || policy;
+                        policyCounts[label] = (policyCounts[label] || 0) + 1;
+                    });
+                    totalSims++;
+                }
+            });
+
+            if (totalSims > 0) {
+                const sortedPolicies = Object.entries(policyCounts)
+                    .sort((a, b) => b[1] - a[1])
+                    .slice(0, 10); // Top 10 policies
+
+                html += `
+                    <div class="mt-10 w-full">
+                        <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                            <i class="fa-solid fa-list-check text-blue-500"></i> นโยบายที่นักเล่นเลือกมากที่สุด
+                        </h3>
+                        <div class="space-y-3">
+                `;
+
+                sortedPolicies.forEach(([label, count], index) => {
+                    const pct = ((count / totalSims) * 100).toFixed(1);
+                    const barColor = index === 0 ? 'bg-gradient-to-r from-yellow-500 to-amber-500' :
+                                   index === 1 ? 'bg-gradient-to-r from-slate-300 to-slate-400' :
+                                   index === 2 ? 'bg-gradient-to-r from-orange-400 to-orange-500' : 'bg-blue-600';
+
+                    html += `
+                        <div class="relative">
+                            <div class="flex justify-between items-end mb-1">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-xs font-mono text-slate-500 w-5 text-right">#${index + 1}</span>
+                                    <span class="text-sm text-slate-300">${label}</span>
+                                </div>
+                                <span class="text-xs text-slate-400 font-mono">${count.toLocaleString()} (${pct}%)</span>
+                            </div>
+                            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full ${barColor}" style="width: ${pct}%"></div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                html += `
+                        </div>
+                    </div>
+                `;
+            }
+        } catch (e) {
+            console.error("Policy stats fetch error:", e);
+        }
 
         container.innerHTML = html;
 
