@@ -110,6 +110,11 @@ This project is configured for easy deployment on **Netlify** or **Vercel**.
 - 🎨 **UI Enhancement**: Improve layout with separate line for release information
 - 🔗 **Direct Links**: Link to [GitHub Repository](https://github.com/bejranonda/ThaiSim2026)
 
+### v1.1 (January 18, 2569/2026)
+- 🎭 **Animation Enhancements**: Improved game animations and visual effects
+- ✍️ **Developer Credits**: Enhanced styling for developer credits on intro and results screens
+- 🎨 **UI Polish**: Advanced UI polish with interactive effects
+
 ### v1.0.0 (January 17, 2569/2026)
 - 🚀 **Official Release**: Sim-Thailand 2569
 - 🔄 **Latest Data**: Policies updated based on Nation Election DEBATE
