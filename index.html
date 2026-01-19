@@ -167,7 +167,7 @@
         <!-- RESULT SCREEN -->
         <div id="screen-result" class="hidden w-full max-w-4xl mx-auto text-center pt-28 pb-24">
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+            <div id="share-content" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <!-- Winner Card -->
                 <div id="result-card" class="md:col-span-2 relative bg-slate-900 border border-slate-800 rounded-3xl p-10 shadow-2xl overflow-hidden slide-up text-center md:text-left flex flex-col justify-center min-h-[350px]">
                     <div class="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-blue-500 via-emerald-500 to-purple-500"></div>
@@ -207,9 +207,10 @@
                         <span>ดูนโยบายทุกพรรคเพิ่มเติม</span>
                     </a>
                 </div>
+            </div>
 
-                <!-- National Status (3 Pillars) -->
-                <div id="res-status" class="hidden md:col-span-3 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 slide-up" style="animation-delay: 0.15s;">
+            <!-- National Status (3 Pillars) -->
+            <div id="res-status" class="hidden w-full bg-slate-900/80 border border-slate-800 rounded-2xl p-6 slide-up mb-10" style="animation-delay: 0.15s;">
                     <h3 class="text-sm text-slate-500 font-bold uppercase mb-6 flex items-center gap-2">
                         <i class="fa-solid fa-chart-pie"></i> สถานะประเทศ (National Status)
                     </h3>
@@ -253,8 +254,8 @@
 
             <div class="flex justify-center gap-6 text-base font-medium text-slate-400 pb-8">
                 <button onclick="location.reload()" class="hover:text-white transition flex items-center gap-2 bg-slate-800 px-8 py-4 rounded-full"><i class="fa-solid fa-rotate-right"></i> เริ่มใหม่</button>
-                <button onclick="game.saveResultImage(this)" class="hover:text-emerald-400 transition flex items-center gap-2 bg-slate-800 px-8 py-4 rounded-full"><i class="fa-solid fa-image"></i> บันทึกรูป</button>
-                <button onclick="game.share()" class="hover:text-blue-400 transition flex items-center gap-2 bg-slate-800 px-8 py-4 rounded-full"><i class="fa-solid fa-share-nodes"></i> แชร์</button>
+                <button onclick="game.saveResultImage(this)" class="hover:text-emerald-400 transition flex items-center gap-2 bg-slate-800 px-8 py-4 rounded-full"><i class="fa-solid fa-image"></i> แชร์รูปผลลัพธ์</button>
+                <button onclick="game.share()" class="hover:text-blue-400 transition flex items-center gap-2 bg-slate-800 px-8 py-4 rounded-full"><i class="fa-solid fa-share-nodes"></i> แชร์ลิงก์</button>
             </div>
 
             <div class="flex flex-col items-center gap-3 opacity-70 hover:opacity-100 transition-opacity pb-12">

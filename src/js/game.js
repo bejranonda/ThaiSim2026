@@ -581,12 +581,12 @@ export class Game {
     }
 
     async saveResultImage(btn) {
-        const element = document.getElementById('result-card');
+        const element = document.getElementById('share-content');
         if (!element) return;
 
-        const originalText = btn ? btn.innerHTML : 'บันทึกรูป';
+        const originalText = btn ? btn.innerHTML : 'แชร์รูปผลลัพธ์';
         if(btn) {
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> กำลังสร้าง...';
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> กำลังสร้างรูป...';
             btn.disabled = true;
         }
 
@@ -598,18 +598,43 @@ export class Game {
                 useCORS: true
             });
 
-            const link = document.createElement('a');
-            link.download = `sim-thailand-result-${Date.now()}.png`;
-            link.href = canvas.toDataURL('image/png');
-            link.click();
+            canvas.toBlob(async (blob) => {
+                if (!blob) throw new Error("Canvas to Blob failed");
+                const file = new File([blob], `sim-thailand-result-${Date.now()}.png`, { type: "image/png" });
+
+                // Try Web Share API Level 2 (File Share)
+                if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                    try {
+                        await navigator.share({
+                            files: [file],
+                            title: 'Sim-Thailand 2569',
+                            text: 'ผลลัพธ์ประเทศในฝันของฉันจาก Sim-Thailand 2569'
+                        });
+                        return; // Shared successfully
+                    } catch (shareError) {
+                        console.warn("Share failed or cancelled:", shareError);
+                        // Fallback to download if share failed (e.g. user cancelled)
+                    }
+                }
+
+                // Fallback: Download
+                const link = document.createElement('a');
+                link.download = file.name;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
 
         } catch (e) {
             console.error("Screenshot failed:", e);
             alert("ขออภัย เกิดข้อผิดพลาดในการสร้างรูปภาพ");
         } finally {
             if(btn) {
-                btn.innerHTML = originalText;
-                btn.disabled = false;
+                // Restore original text after a short delay so user sees "Done" if needed, 
+                // but usually just restoring is fine.
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 1000);
             }
         }
     }
