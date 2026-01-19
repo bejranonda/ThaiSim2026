@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 16 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v1.3.0](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.3.0) | **Data Updated**: 17 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v1.3.1](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.3.1) | **Data Updated**: 19 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 ## 🎮 About
 
@@ -129,6 +129,13 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 ## 📜 Version History
 
+### v1.3.1 (January 19, 2569/2026)
+- 💰 **Budget Factor Optimization**: Reduced budget impact multiplier from 1.5x to 1.05x for better gameplay balance and more sustainable policy choices across all 48 policies
+- 🎯 **Navigation Improvements**: Moved "Your Real Vote" section closer to National Status results to encourage voting and reduce user forgetfulness
+- 🔘 **CTA Consistency**: Updated call-to-action buttons across results page and policy explorer with consistent messaging "เล่นเกมเพื่อดูพรรคไหนเหมาะกับคุณ" and play icon
+- 📊 **Results Dashboard Enhancement**: Added new results button linking to poll results and policy statistics (https://thalay.eu/poll2569)
+- 🎨 **UI Polish**: Improved spacing between major sections for better visual hierarchy and user experience
+
 ### v1.3.0 (January 19, 2569/2026)
 - 📸 **Save Result Image**: Added feature to save the simulation result card as an image.
 - 🏷️ **Watermark**: Added "thalay.eu/sim2569" watermark to the result card.
@@ -159,4 +166,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v1.2 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.2)
+**Latest Release**: [v1.3.1 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.3.1)
