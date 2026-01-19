@@ -415,13 +415,13 @@ export class Game {
         if (statusCard) {
             statusCard.classList.remove('hidden');
 
-            document.getElementById('end-eco').innerText = `${this.stats.eco}/100`;
+            document.getElementById('end-eco').innerText = `${this.stats.eco}%`;
             document.getElementById('end-bar-eco').style.width = `${this.stats.eco}%`;
 
-            document.getElementById('end-soc').innerText = `${this.stats.soc}/100`;
+            document.getElementById('end-soc').innerText = `${this.stats.soc}%`;
             document.getElementById('end-bar-soc').style.width = `${this.stats.soc}%`;
 
-            document.getElementById('end-lib').innerText = `${this.stats.lib}/100`;
+            document.getElementById('end-lib').innerText = `${this.stats.lib}%`;
             document.getElementById('end-bar-lib').style.width = `${this.stats.lib}%`;
 
             const budgetPct = Math.max(0, Math.min(100, this.stats.budget));
