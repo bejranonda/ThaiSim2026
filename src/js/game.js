@@ -1,5 +1,6 @@
 import { parties, phases } from './data.js';
 import { auth, db, appId, signInAnonymously, collection, addDoc, getDocs } from './config.js';
+import html2canvas from 'html2canvas';
 
 export class Game {
     constructor() {
@@ -576,6 +577,40 @@ export class Game {
             navigator.share({ title: 'Sim-Thailand 2569', text: `ผลลัพธ์ประเทศในฝันของฉันคือ "${winnerName}"`, url: shareUrl });
         } else {
             alert(`คัดลอก: ผลลัพธ์ประเทศในฝันของฉันคือ "${winnerName}" \nลิงก์: ${shareUrl}`);
+        }
+    }
+
+    async saveResultImage(btn) {
+        const element = document.getElementById('result-card');
+        if (!element) return;
+
+        const originalText = btn ? btn.innerHTML : 'บันทึกรูป';
+        if(btn) {
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> กำลังสร้าง...';
+            btn.disabled = true;
+        }
+
+        try {
+            const canvas = await html2canvas(element, {
+                backgroundColor: '#0f172a', // slate-950
+                scale: 2,
+                logging: false,
+                useCORS: true
+            });
+
+            const link = document.createElement('a');
+            link.download = `sim-thailand-result-${Date.now()}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+
+        } catch (e) {
+            console.error("Screenshot failed:", e);
+            alert("ขออภัย เกิดข้อผิดพลาดในการสร้างรูปภาพ");
+        } finally {
+            if(btn) {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
         }
     }
 }
