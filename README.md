@@ -1,12 +1,12 @@
-# Sim-Thailand 2569 (ThaiSim2026) 🇹🇭
+# Sim-Thailand 2569 (ThaiSim2569) 🇹🇭
 
-Thai Political Simulation Game - Experience governance through real policy choices from 16 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
+**Thai Political Simulation Game** - Experience governance through real policy choices from 16 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v1.2 - GitHub Release](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.2) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v1.2](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.2) | **Data Updated**: 17 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 ## 🎮 About
 
-**Sim-Thailand 2569** is an interactive political simulation that allows users to:
+**Sim-Thailand 2569** is an interactive political simulation designed for the 2569 (2026) Thai General Election context. It allows users to:
 - **Simulate**: Make policy choices across 6 critical phases with three tracking metrics:
   - 📊 **Economy (ศก.)**: Economic and fiscal policy
   - 🤝 **Welfare (สังคม)**: Social welfare and quality of life
@@ -18,19 +18,19 @@ Thai Political Simulation Game - Experience governance through real policy choic
 
 ### 📚 Educational Content
 
-**Reference Materials**: Political campaign data and debate transcripts are organized in the `/Campaign2569` folder for reference and research purposes. All policies are sourced from the 2569 Election Debates to ensure accuracy and educational value.
+**Reference Materials**: Political campaign data and debate transcripts are organized in the `/Campaign2569` folder. All policies are sourced from the **Nation Election DEBATE** (Updated: 17 January 2569) to ensure accuracy and educational value.
 
 ### 🎯 Features
-- **16 Political Parties**: Complete with real policy platforms
-- **6 Critical Phases**: Cover major policy areas
-- **Real-Time Results**: Live dashboard showing voting trends
-- **Educational Tool**: Learn about Thai political landscape through interactive simulation
-- **No Login Required**: Anonymous play with optional result sharing
+- **16 Political Parties**: Complete with real policy platforms from the 2569 election cycle.
+- **6 Critical Phases**: Cover major policy areas like Economy, Land/Agriculture, Welfare, Anti-Corruption, National Security, and Future/Education.
+- **Real-Time Results**: Live dashboard showing voting trends from all users.
+- **Educational Tool**: Learn about the Thai political landscape through interactive simulation.
+- **Anonymous**: No login required to play.
 
 ## 🏗️ Project Structure
 
 ```
-ThaiSim2026/
+ThaiSim2569/
 ├── src/
 │   ├── js/
 │   │   ├── config.js      # Firebase configuration
@@ -41,20 +41,11 @@ ThaiSim2026/
 │   └── css/
 │       └── styles.css     # Tailwind CSS styles
 ├── Campaign2569/          # Political campaign reference files
-│   ├── Nation_Debate2569.md
-│   ├── party.md
-│   ├── Campaign_2569.md
-│   └── Campaign_Party2569.md
 ├── public/                # Static assets
 ├── index.html             # Main Simulation Game
 ├── results.html           # Live Results Dashboard
 ├── package.json           # Dependencies and scripts
-├── vite.config.js         # Vite build configuration
-├── tailwind.config.js     # Tailwind CSS configuration
-├── netlify.toml           # Netlify deployment config
-├── vercel.json            # Vercel deployment config
-├── .env.example           # Environment variables template
-└── firestore.rules        # Firebase security rules
+└── vite.config.js         # Vite build configuration
 ```
 
 ## 🚀 Getting Started
@@ -68,8 +59,8 @@ ThaiSim2026/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/bejranonda/ThaiSim2026.git
-cd ThaiSim2026
+git clone https://github.com/bejranonda/ThaiSim2569.git
+cd ThaiSim2569
 ```
 
 2. Install dependencies:
@@ -81,17 +72,7 @@ npm install
 ```bash
 cp .env.example .env
 ```
-
-4. Edit `.env` and fill in your Firebase credentials:
-```env
-VITE_FIREBASE_API_KEY=your_api_key
-VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
-VITE_FIREBASE_PROJECT_ID=your_project_id
-VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-VITE_FIREBASE_APP_ID=your_app_id
-VITE_FIREBASE_MEASUREMENT_ID=your_measurement_id
-```
+*(Configure your Firebase credentials in the `.env` file)*
 
 ### Development
 
@@ -110,154 +91,38 @@ Build for production:
 npm run build
 ```
 
-Preview production build:
-```bash
-npm run preview
-```
-
 ## 🌐 Deployment
 
-### Deploying to Netlify
-
-#### Option 1: Using Netlify CLI
-
-1. Install Netlify CLI:
-```bash
-npm install -g netlify-cli
-```
-
-2. Login to Netlify:
-```bash
-netlify login
-```
-
-3. Deploy:
-```bash
-npm run deploy:netlify
-```
-
-#### Option 2: Using Netlify UI
-
-1. Push your code to GitHub/GitLab
-2. Go to [Netlify](https://app.netlify.com)
-3. Click "New site from Git"
-4. Select your repository
-5. Configure build settings:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-6. Add environment variables in Netlify dashboard (Site settings > Environment variables):
-   - `VITE_FIREBASE_API_KEY`, etc.
-7. Click "Deploy site"
-
-### Deploying to Vercel
-
-#### Option 1: Using Vercel CLI
-
-1. Install Vercel CLI:
-```bash
-npm install -g vercel
-```
-
-2. Login to Vercel:
-```bash
-vercel login
-```
-
-3. Deploy:
-```bash
-npm run deploy:vercel
-```
-
-#### Option 2: Using Vercel UI
-
-1. Push your code to GitHub/GitLab
-2. Go to [Vercel](https://vercel.com)
-3. Click "New Project"
-4. Import your repository
-5. Configure project:
-   - Framework Preset: Vite
-   - Build Command: `npm run build`
-   - Output Directory: `dist`
-6. Add environment variables.
-7. Click "Deploy"
-
-## 🔒 Security
-
-- **Environment Variables**: Never commit `.env` file to Git. Use `.env.example` as a template.
-- **Firebase Rules**: Ensure your Firebase security rules are properly configured to allow write access for anonymous users to specific collections only (`sim_results_v7`, `poll_votes_v7`) and read access where appropriate.
-- **API Keys**: While Firebase API keys are safe to expose in client-side code, always use Firebase Security Rules to protect your data.
+This project is configured for easy deployment on **Netlify** or **Vercel**.
+- `netlify.toml` included.
+- `vercel.json` included.
 
 ## 🛠️ Technologies
 
 - **Frontend**: HTML, CSS (Tailwind CSS), JavaScript (ES6+ Modules)
 - **Build Tool**: Vite
-- **Backend**: Firebase (Authentication & Firestore)
-- **Deployment**: Netlify / Vercel
-
-## 📝 Development Notes
-
-### Firebase Configuration
-
-The app uses Firebase for:
-- **Anonymous Authentication**: To allow secure database writes without requiring user login.
-- **Firestore**:
-    - `sim_results_v7`: Stores the outcome of user simulations.
-    - `poll_votes_v7`: Stores manual user votes (displayed in `/results.html`).
-
-### Data Structure
-
-- **Parties**: 16 Thai political parties with their policies and platforms
-- **Phases**: 6 critical policy areas with multiple options each
-- **Metrics**: Three tracked dimensions:
-  - **Economy**: Fiscal and economic policies (0-100 scale)
-  - **Welfare**: Social policies and quality of life (0-100 scale)
-  - **Democracy**: Democratic governance and values (0-100 scale)
-- **Scoring**: Each policy choice:
-  - Adds points to matching parties (determines winner)
-  - Adjusts national status metrics (shows governance impact)
-- **Results**:
-  - Top 5 parties displayed based on alignment score
-  - Final national status across all three pillars
-  - Live voting dashboard with real-time aggregation
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
-
-## 📄 License
-
-MIT License - see LICENSE file for details
-
-## 📧 Contact
-
-For questions or support, please open an issue in the repository.
-
----
+- **Backend**: Firebase (Authentication & Firestore) for real-time voting data.
 
 ## 📜 Version History
 
-### v1.2 (January 19, 2025)
-- ✨ Add GitHub repository link to intro screen release section
-- 🎨 Improve UI layout with separate line for release information
-- 🔗 Direct link to [GitHub Repository](https://github.com/bejranonda/ThaiSim2026)
+### v1.2 (January 19, 2569/2026)
+- ✨ **GitHub Integration**: Add GitHub repository link to intro screen release section
+- 🎨 **UI Enhancement**: Improve layout with separate line for release information
+- 🔗 **Direct Links**: Link to [GitHub Repository](https://github.com/bejranonda/ThaiSim2026)
 
-### v1.1 (January 15, 2025)
-- 🎭 Enhance game animations and visual effects
-- ✍️ Improve developer credits styling
-
-### v1.0 (January 10, 2025)
-- 🎮 Initial release with core game simulation
-- 📊 Three-pillar tracking system (Economy, Welfare, Democracy)
-- 🗳️ Live results dashboard
-- 🎯 Party matching algorithm
+### v1.0.0 (January 17, 2569/2026)
+- 🚀 **Official Release**: Sim-Thailand 2569
+- 🔄 **Latest Data**: Policies updated based on Nation Election DEBATE
+- ✨ **Features**:
+  - Enhanced UI with separator lines and cleaner footer
+  - "No Match" logic for users who skip all questions
+  - Prominent "Try Simulation" CTA on results page
+  - Live real-time voting results from Firebase
 
 ---
 
-**Note**: This is a simulation tool for educational purposes. The policies and data are based on the Nation Election DEBATE and may not represent complete or current party platforms.
+**Note**: This is a simulation tool for educational purposes. The policies and data are based on public debate information and may not represent complete party platforms.
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
-**Developed by**: [thalay.eu](https://thalay.eu/)
+**Developed by**: [thalay.eu](https://thalay.eu)
+**Latest Release**: [v1.2 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.2)
