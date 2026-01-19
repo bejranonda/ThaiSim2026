@@ -492,7 +492,7 @@
                         const checkbox = document.createElement('input');
                         checkbox.type = 'checkbox';
                         checkbox.value = key;
-                        checkbox.className = 'w-4 h-4 rounded border-slate-300 cursor-pointer';
+                        checkbox.className = 'w-4 h-4 rounded border-slate-300 cursor-pointer flex-shrink-0 mt-0.5';
                         checkbox.checked = true; // Default: all selected
                         checkbox.id = `party-modal-${key}`;
                         checkbox.onchange = () => {
@@ -504,11 +504,11 @@
                         };
 
                         const text = document.createElement('span');
-                        text.className = 'text-sm text-slate-700 flex-grow font-medium';
+                        text.className = 'text-sm text-slate-700 flex-grow font-medium leading-tight';
                         text.innerText = parties[key].name;
 
                         const dot = document.createElement('span');
-                        dot.className = 'w-3 h-3 rounded-full flex-shrink-0';
+                        dot.className = 'w-3 h-3 rounded-full flex-shrink-0 mt-0.5';
                         dot.style.backgroundColor = parties[key].color;
 
                         label.appendChild(checkbox);
