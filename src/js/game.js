@@ -7,7 +7,7 @@ export class Game {
         this.phase = 0;
         this.scores = {};
         this.maxScores = {};
-        this.stats = { eco: 30, soc: 30, lib: 30 };
+        this.stats = { eco: 30, soc: 30, lib: 30, budget: 100 };
         this.history = [];
         this.choices = [];
         this.currentSelection = new Set();
@@ -232,6 +232,7 @@ export class Game {
             this.stats.eco = Math.min(100, Math.max(0, this.stats.eco + (opt.stats.eco || 0)));
             this.stats.soc = Math.min(100, Math.max(0, this.stats.soc + (opt.stats.soc || 0)));
             this.stats.lib = Math.min(100, Math.max(0, this.stats.lib + (opt.stats.lib || 0)));
+            this.stats.budget = this.stats.budget + (opt.stats.budget || 0); // Budget can be negative
             this.choices.push(opt.label);
 
             const mini = document.createElement('div');
@@ -309,6 +310,18 @@ export class Game {
         document.getElementById('bar-soc').style.width = `${this.stats.soc}%`;
         document.getElementById('val-lib').innerText = this.stats.lib;
         document.getElementById('bar-lib').style.width = `${this.stats.lib}%`;
+
+        // Update budget (can be negative, so we need special handling)
+        const budgetPct = Math.max(0, Math.min(100, this.stats.budget)); // Clamp for bar display only
+        document.getElementById('val-budget').innerText = this.stats.budget;
+        document.getElementById('bar-budget').style.width = `${budgetPct}%`;
+        // Change color if negative
+        const budgetBar = document.getElementById('bar-budget');
+        if (this.stats.budget < 0) {
+            budgetBar.style.backgroundColor = '#f87171'; // Red for negative
+        } else {
+            budgetBar.style.backgroundColor = '#34d399'; // Green for positive
+        }
     }
 
     finish() {
@@ -397,15 +410,24 @@ export class Game {
         const statusCard = document.getElementById('res-status');
         if (statusCard) {
             statusCard.classList.remove('hidden');
-            
+
             document.getElementById('end-eco').innerText = `${this.stats.eco}/100`;
             document.getElementById('end-bar-eco').style.width = `${this.stats.eco}%`;
-            
+
             document.getElementById('end-soc').innerText = `${this.stats.soc}/100`;
             document.getElementById('end-bar-soc').style.width = `${this.stats.soc}%`;
-            
+
             document.getElementById('end-lib').innerText = `${this.stats.lib}/100`;
             document.getElementById('end-bar-lib').style.width = `${this.stats.lib}%`;
+
+            const budgetPct = Math.max(0, Math.min(100, this.stats.budget));
+            document.getElementById('end-budget').innerText = this.stats.budget;
+            document.getElementById('end-bar-budget').style.width = `${budgetPct}%`;
+            if (this.stats.budget < 0) {
+                document.getElementById('end-bar-budget').style.backgroundColor = '#f87171';
+            } else {
+                document.getElementById('end-bar-budget').style.backgroundColor = '#34d399';
+            }
         }
 
         const runnerContainer = document.getElementById('res-runners');

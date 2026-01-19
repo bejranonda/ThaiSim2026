@@ -39,6 +39,10 @@
                     <div class="flex justify-between text-[10px] sm:text-xs mb-1 font-bold text-slate-400"><span>ปชต. (Dem)</span><span id="val-lib">30</span></div>
                     <div class="h-1.5 sm:h-2 bg-slate-800 rounded-full overflow-hidden"><div id="bar-lib" class="meter-bar bg-orange-500" style="width: 30%"></div></div>
                 </div>
+                <div class="w-20 sm:w-24 md:w-28">
+                    <div class="flex justify-between text-[10px] sm:text-xs mb-1 font-bold text-slate-400"><span>งบประมาณ</span><span id="val-budget">100</span></div>
+                    <div class="h-1.5 sm:h-2 bg-slate-800 rounded-full overflow-hidden"><div id="bar-budget" class="meter-bar bg-green-500" style="width: 100%"></div></div>
+                </div>
             </div>
         </div>
     </header>
@@ -214,7 +218,7 @@
                     <h3 class="text-sm text-slate-500 font-bold uppercase mb-6 flex items-center gap-2">
                         <i class="fa-solid fa-chart-pie"></i> สถานะประเทศ (National Status)
                     </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div>
                             <div class="flex justify-between text-sm text-slate-300 mb-2"><span>เศรษฐกิจ (Economy)</span><span id="end-eco">0/100</span></div>
                             <div class="h-4 bg-slate-800 rounded-full overflow-hidden"><div id="end-bar-eco" class="h-full bg-emerald-500 transition-all duration-1000" style="width: 0%"></div></div>
@@ -226,6 +230,10 @@
                         <div>
                             <div class="flex justify-between text-sm text-slate-300 mb-2"><span>ประชาธิปไตย (Democracy)</span><span id="end-lib">0/100</span></div>
                             <div class="h-4 bg-slate-800 rounded-full overflow-hidden"><div id="end-bar-lib" class="h-full bg-orange-500 transition-all duration-1000" style="width: 0%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm text-slate-300 mb-2"><span>งบประมาณ</span><span id="end-budget">100</span></div>
+                            <div class="h-4 bg-slate-800 rounded-full overflow-hidden"><div id="end-bar-budget" class="h-full bg-green-500 transition-all duration-1000" style="width: 100%"></div></div>
                         </div>
                     </div>
                 </div>
