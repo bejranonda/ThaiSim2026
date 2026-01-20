@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 16 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v1.5.7](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.7) | **Data Updated**: 20 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v1.5.8](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.8) | **Data Updated**: 20 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -135,6 +135,15 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 ## 📜 Version History
 
+### v1.5.8 (January 20, 2569/2026)
+- 🎨 **UI Enhancement - Party Name Consistency**:
+  - Removed "พรรค" prefix from all political party names in the voting section
+  - Party names now display uniformly (e.g., "ประชาชน" instead of "พรรคประชาชน")
+  - Exception: "พรรคอื่นๆ" (Other Parties) retains the prefix for clarity
+- 📝 **Improved User Experience**:
+  - Cleaner, more concise party name display in the "เสียงจริงของคุณ" (Your Real Vote) section
+  - Consistent naming across all 16 political parties
+
 ### v1.5.7 (January 20, 2569/2026)
 - 🐛 **Bug Fix - Scroll Indicator Visibility**:
   - Fixed scroll indicator incorrectly appearing on Intro page in Desktop view
@@ -242,4 +251,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v1.5.7 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.7)
+**Latest Release**: [v1.5.8 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.8)

@@ -1,22 +1,22 @@
 // Political Parties Data
 export const parties = {
-    "PP": { name: "พรรคประชาชน", color: "text-orange-500", icon: "fa-people-group", desc: "เน้นสวัสดิการถ้วนหน้า หวยใบเสร็จ ปลดล็อกที่ดิน และไม่ร่วมกับพรรคสืบทอดอำนาจ" },
-    "PTP": { name: "พรรคเพื่อไทย", color: "text-red-500", icon: "fa-chart-line", desc: "เน้นเศรษฐกิจดิจิทัล รัฐร่วมจ่าย 70% ประกันกำไรเกษตรกร และ Wellness Economy" },
-    "BJT": { name: "พรรคภูมิใจไทย", color: "text-blue-500", icon: "fa-hand-holding-heart", desc: "เน้นพักหนี้ 3 ปี กู้ฉุกเฉิน 50,000 บาท และฟรีโซล่าเซลล์ลดค่าไฟ" },
+    "PP": { name: "ประชาชน", color: "text-orange-500", icon: "fa-people-group", desc: "เน้นสวัสดิการถ้วนหน้า หวยใบเสร็จ ปลดล็อกที่ดิน และไม่ร่วมกับพรรคสืบทอดอำนาจ" },
+    "PTP": { name: "เพื่อไทย", color: "text-red-500", icon: "fa-chart-line", desc: "เน้นเศรษฐกิจดิจิทัล รัฐร่วมจ่าย 70% ประกันกำไรเกษตรกร และ Wellness Economy" },
+    "BJT": { name: "ภูมิใจไทย", color: "text-blue-500", icon: "fa-hand-holding-heart", desc: "เน้นพักหนี้ 3 ปี กู้ฉุกเฉิน 50,000 บาท และฟรีโซล่าเซลล์ลดค่าไฟ" },
     "UTN": { name: "รวมไทยสร้างชาติ", color: "text-blue-700", icon: "fa-flag", desc: "เน้นรื้อกฎหมาย กองทุนฉุกเฉิน ประหารคนโกง และยกเลิก MOU44" },
-    "DEM": { name: "พรรคประชาธิปัตย์", color: "text-cyan-500", icon: "fa-seedling", desc: "เน้นประกันรายได้เกษตรกร แพลตฟอร์มส่องรัฐปราบโกง และทหารอาสา" },
-    "PPRP": { name: "พรรคพลังประชารัฐ", color: "text-blue-600", icon: "fa-id-card", desc: "เน้นบัตรประชารัฐ 700+ เบี้ยผู้สูงอายุขั้นบันได และน้ำมันประชาชน" },
-    "KLA": { name: "พรรคกล้าธรรม", color: "text-purple-600", icon: "fa-file-signature", desc: "เน้นเปลี่ยน ส.ป.ก. เป็นโฉนดทองคำ แก้หนี้เบ็ดเสร็จ และน้ำชุมชน" },
-    "PCC": { name: "พรรคประชาชาติ", color: "text-orange-600", icon: "fa-hands-praying", desc: "เน้นล้างหนี้ กยศ. ลดราคาน้ำมันลิตรละ 20 บาท และสันติภาพชายแดนใต้" },
+    "DEM": { name: "ประชาธิปัตย์", color: "text-cyan-500", icon: "fa-seedling", desc: "เน้นประกันรายได้เกษตรกร แพลตฟอร์มส่องรัฐปราบโกง และทหารอาสา" },
+    "PPRP": { name: "พลังประชารัฐ", color: "text-blue-600", icon: "fa-id-card", desc: "เน้นบัตรประชารัฐ 700+ เบี้ยผู้สูงอายุขั้นบันได และน้ำมันประชาชน" },
+    "KLA": { name: "กล้าธรรม", color: "text-purple-600", icon: "fa-file-signature", desc: "เน้นเปลี่ยน ส.ป.ก. เป็นโฉนดทองคำ แก้หนี้เบ็ดเสร็จ และน้ำชุมชน" },
+    "PCC": { name: "ประชาชาติ", color: "text-orange-600", icon: "fa-hands-praying", desc: "เน้นล้างหนี้ กยศ. ลดราคาน้ำมันลิตรละ 20 บาท และสันติภาพชายแดนใต้" },
     "CTP": { name: "ชาติไทยพัฒนา", color: "text-pink-500", icon: "fa-leaf", desc: "เน้น Green Economy ขายคาร์บอนเครดิต และน้ำบาดาลขนาดใหญ่ทุกตำบล" },
     "TST": { name: "ไทยสร้างไทย", color: "text-purple-400", icon: "fa-person-cane", desc: "เน้นบำนาญ 3,000 บาท แขวนกฎหมายที่เป็นอุปสรรค และกองทุนคนตัวเล็ก" },
     "CP": { name: "ชาติพัฒนา", color: "text-orange-400", icon: "fa-road", desc: "เน้นโคราชโนมิกส์ มอเตอร์เวย์ทั่วไทย และอุตสาหกรรมกีฬา" },
     "SRT": { name: "เสรีรวมไทย", color: "text-yellow-500", icon: "fa-handcuffs", desc: "เน้นปราบโกงทั้งแผ่นดิน ยึดทรัพย์คนโกง และปฏิรูปตำรวจ" },
-    "FAIR": { name: "พรรคเป็นธรรม", color: "text-purple-300", icon: "fa-dove", desc: "เน้นสันติภาพปาตานี จังหวัดจัดการตนเอง และสิทธิมนุษยชน" },
-    "RAK": { name: "พรรครักชาติ", color: "text-indigo-500", icon: "fa-sim-card", desc: "เน้น Smart Card Max ใบเดียวจบ และรัฐรวมซื้อ (Collective Buying)" },
-    "TKM": { name: "พรรคไทยก้าวใหม่", color: "text-cyan-400", icon: "fa-graduation-cap", desc: "เน้นธนู 4 ดอก การศึกษาจบไว และปราบสแกมเมอร์ใน 60 วัน" },
-    "OKM": { name: "พรรคโอกาสใหม่", color: "text-emerald-400", icon: "fa-door-open", desc: "เน้นอัดฉีดงบลงทุนเข้าระบบทันที จ้างงานท้องถิ่น และปกป้องสถาบันฯ" },
-    "ECO": { name: "พรรคเศรษฐกิจ", color: "text-green-500", icon: "fa-train-subway", desc: "เน้น Zero Corruption ทลายทุนผูกขาด และ Mega Projects" }
+    "FAIR": { name: "เป็นธรรม", color: "text-purple-300", icon: "fa-dove", desc: "เน้นสันติภาพปาตานี จังหวัดจัดการตนเอง และสิทธิมนุษยชน" },
+    "RAK": { name: "รักชาติ", color: "text-indigo-500", icon: "fa-sim-card", desc: "เน้น Smart Card Max ใบเดียวจบ และรัฐรวมซื้อ (Collective Buying)" },
+    "TKM": { name: "ไทยก้าวใหม่", color: "text-cyan-400", icon: "fa-graduation-cap", desc: "เน้นธนู 4 ดอก การศึกษาจบไว และปราบสแกมเมอร์ใน 60 วัน" },
+    "OKM": { name: "โอกาสใหม่", color: "text-emerald-400", icon: "fa-door-open", desc: "เน้นอัดฉีดงบลงทุนเข้าระบบทันที จ้างงานท้องถิ่น และปกป้องสถาบันฯ" },
+    "ECO": { name: "เศรษฐกิจ", color: "text-green-500", icon: "fa-train-subway", desc: "เน้น Zero Corruption ทลายทุนผูกขาด และ Mega Projects" }
 };
 
 // Game Phases Data
