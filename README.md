@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 16 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v1.5.2](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.2) | **Data Updated**: 20 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v1.5.3](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.3) | **Data Updated**: 20 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -135,6 +135,11 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 ## 📜 Version History
 
+### v1.5.3 (January 20, 2569/2026)
+- 🎮 **Gameplay Balance**: Reduced initial stat values from 30 to 10 for Economy (Eco), Society (Soc), and Democracy (Dem/Lib) to show more dramatic progress as players choose policies
+- 💰 **Budget Stability**: Maintained budget at 100 to avoid negative values too easily during gameplay
+- 📊 **Enhanced Progression**: Lower baseline stats make policy choices more impactful and visual progress more apparent throughout the simulation
+
 ### v1.5.2 (January 20, 2569/2026)
 - 🎨 **Poll Results Page Improvements**:
   - Moved "ดูนโยบายทุกพรรค" button from topbar to bottom section (before "เล่นเกม" button) for better UX flow
@@ -194,4 +199,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v1.5.2 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.2)
+**Latest Release**: [v1.5.3 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.3)

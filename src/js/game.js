@@ -7,7 +7,7 @@ export class Game {
         this.phase = 0;
         this.scores = {};
         this.maxScores = {};
-        this.stats = { eco: 30, soc: 30, lib: 30, budget: 100 };
+        this.stats = { eco: 10, soc: 10, lib: 10, budget: 100 };
         this.history = [];
         this.choices = [];
         this.policyChoices = []; // Track policy IDs and labels for statistics
