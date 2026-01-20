@@ -132,7 +132,7 @@ async function initResults() {
             if (totalSims > 0) {
                 const sortedPolicies = Object.entries(policyCounts)
                     .sort((a, b) => b[1] - a[1])
-                    .slice(0, 15); // Top 15 policies
+                    .slice(0, 20); // Top 20 policies
 
                 html += `
                     <div class="mt-10 w-full">
