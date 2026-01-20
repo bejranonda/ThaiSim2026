@@ -495,7 +495,8 @@ export class Game {
     async saveSimResult(winner) {
         try {
             const user = auth && auth.currentUser;
-            if(user && db) {
+            // Only save if user has selected at least one policy
+            if(user && db && this.policyChoices.length > 0) {
                 await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'sim_results_v7'), {
                     winner: winner,
                     choices: this.choices,
@@ -503,6 +504,8 @@ export class Game {
                     stats: this.stats,
                     timestamp: new Date()
                 });
+            } else if (this.policyChoices.length === 0) {
+                console.log("Skipping save: No policies selected");
             }
         } catch(e) {
             console.error("saveSimResult failed. Path:", `artifacts/${appId}/public/data/sim_results_v7`);
