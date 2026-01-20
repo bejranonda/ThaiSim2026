@@ -332,6 +332,16 @@ export class Game {
         document.getElementById('screen-game').classList.add('hidden');
         document.getElementById('hud').classList.add('hidden');
         document.getElementById('screen-result').classList.remove('hidden');
+        // Show scroll indicators - remove hidden and add flex for proper display
+        const mobileIndicator = document.getElementById('scroll-indicator-mobile');
+        if (mobileIndicator) {
+            mobileIndicator.classList.remove('hidden');
+        }
+        const desktopIndicator = document.getElementById('scroll-indicator-desktop');
+        if (desktopIndicator) {
+            desktopIndicator.classList.remove('hidden');
+            desktopIndicator.classList.add('flex');
+        }
         document.getElementById('vote-section').classList.remove('hidden');
         document.getElementById('result-actions').classList.remove('hidden');
         document.getElementById('result-footer').classList.remove('hidden');

@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 16 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v1.5.6](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.6) | **Data Updated**: 20 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v1.5.7](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.7) | **Data Updated**: 20 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -135,6 +135,17 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 ## 📜 Version History
 
+### v1.5.7 (January 20, 2569/2026)
+- 🐛 **Bug Fix - Scroll Indicator Visibility**:
+  - Fixed scroll indicator incorrectly appearing on Intro page in Desktop view
+  - Changed "อย่าลื่น" (slip) to "อย่าลืม" (forget) for correct Thai spelling
+  - Added proper JavaScript control for both mobile and desktop scroll indicators
+  - Scroll indicators now only appear on Results page as intended
+- 🔧 **Technical Improvements**:
+  - Added unique IDs (`scroll-indicator-mobile`, `scroll-indicator-desktop`) to scroll indicators
+  - Implemented explicit show/hide logic in JavaScript for better control
+  - Removed conflicting CSS classes (`md:flex`) that caused visibility issues
+
 ### v1.5.6 (January 20, 2569/2026)
 - 🧹 **Data Quality Enhancement**:
   - Added validation to prevent saving simulation results without any policy selections to Firebase
@@ -231,4 +242,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v1.5.6 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.6)
+**Latest Release**: [v1.5.7 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.7)
