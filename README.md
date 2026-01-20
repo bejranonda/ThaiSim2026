@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 16 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v1.5.9](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.9) | **Data Updated**: 20 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v1.6.0](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.6.0) | **Data Updated**: 20 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -135,6 +135,13 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 ## 📜 Version History
 
+### v1.6.0 (January 20, 2569/2026)
+- 🎨 **Scroll Indicator Visual Enhancement**:
+  - Changed reminder text from "อย่าลืม!" to "ยังไม่เสร็จ! อย่าลืมลงมา..." for clearer messaging
+  - Updated color scheme from blue to neon fuchsia (pink) with glow effect
+  - Added custom CSS animation `text-glow-pink` for pulsing neon glow on reminder text
+  - Applied consistent fuchsia color to chevron-down icons
+
 ### v1.5.9 (January 20, 2569/2026)
 - 📊 **Policy Statistics Enhancement**:
   - Increased policy rankings display from top 15 to top 20 most selected policies
@@ -257,4 +264,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v1.5.9 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.9)
+**Latest Release**: [v1.6.0 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.6.0)

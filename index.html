@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sim-Thailand 2569: สร้างประเทศในฝัน</title>
 
     <!-- External Libraries -->
-    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
+
 <body class="bg-slate-950 min-h-screen flex flex-col font-sans text-slate-200">
 
     <!-- HEADER / HUD -->
-    <header id="hud" class="fixed top-0 w-full z-40 bg-slate-900/95 backdrop-blur border-b border-slate-800 shadow-lg hidden transition-transform duration-300">
+    <header id="hud"
+        class="fixed top-0 w-full z-40 bg-slate-900/95 backdrop-blur border-b border-slate-800 shadow-lg hidden transition-transform duration-300">
         <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg">
+                <div
+                    class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg">
                     <i class="fa-solid fa-city text-white text-sm"></i>
                 </div>
                 <div>
@@ -32,28 +38,37 @@
                         <span class="text-xs sm:text-sm md:text-base lg:text-lg font-bold flex-shrink-0">ศก.</span>
                         <span id="val-eco" class="text-xs sm:text-sm md:text-base font-bold leading-none pr-2">10</span>
                     </div>
-                    <div class="h-1.5 sm:h-2 bg-slate-800 rounded-full overflow-hidden"><div id="bar-eco" class="meter-bar bg-emerald-500" style="width: 10%"></div></div>
+                    <div class="h-1.5 sm:h-2 bg-slate-800 rounded-full overflow-hidden">
+                        <div id="bar-eco" class="meter-bar bg-emerald-500" style="width: 10%"></div>
+                    </div>
                 </div>
                 <div class="w-14 sm:w-20 md:w-24 lg:w-28 flex-shrink-0">
                     <div class="flex justify-between items-center mb-1 text-slate-400">
                         <span class="text-xs sm:text-sm md:text-base lg:text-lg font-bold flex-shrink-0">สังคม</span>
                         <span id="val-soc" class="text-xs sm:text-sm md:text-base font-bold leading-none pr-2">10</span>
                     </div>
-                    <div class="h-1.5 sm:h-2 bg-slate-800 rounded-full overflow-hidden"><div id="bar-soc" class="meter-bar bg-blue-500" style="width: 10%"></div></div>
+                    <div class="h-1.5 sm:h-2 bg-slate-800 rounded-full overflow-hidden">
+                        <div id="bar-soc" class="meter-bar bg-blue-500" style="width: 10%"></div>
+                    </div>
                 </div>
                 <div class="w-14 sm:w-20 md:w-24 lg:w-28 flex-shrink-0">
                     <div class="flex justify-between items-center mb-1 text-slate-400">
                         <span class="text-xs sm:text-sm md:text-base lg:text-lg font-bold flex-shrink-0">ปชต.</span>
                         <span id="val-lib" class="text-xs sm:text-sm md:text-base font-bold leading-none pr-2">10</span>
                     </div>
-                    <div class="h-1.5 sm:h-2 bg-slate-800 rounded-full overflow-hidden"><div id="bar-lib" class="meter-bar bg-orange-500" style="width: 10%"></div></div>
+                    <div class="h-1.5 sm:h-2 bg-slate-800 rounded-full overflow-hidden">
+                        <div id="bar-lib" class="meter-bar bg-orange-500" style="width: 10%"></div>
+                    </div>
                 </div>
                 <div class="w-14 sm:w-20 md:w-24 lg:w-28 flex-shrink-0">
                     <div class="flex justify-between items-center mb-1 text-slate-400">
                         <span class="text-xs sm:text-sm md:text-base lg:text-lg font-bold flex-shrink-0">งบ</span>
-                        <span id="val-budget" class="text-xs sm:text-sm md:text-base font-bold leading-none pr-2">100</span>
+                        <span id="val-budget"
+                            class="text-xs sm:text-sm md:text-base font-bold leading-none pr-2">100</span>
                     </div>
-                    <div class="h-1.5 sm:h-2 bg-slate-800 rounded-full overflow-hidden"><div id="bar-budget" class="meter-bar bg-green-500" style="width: 100%"></div></div>
+                    <div class="h-1.5 sm:h-2 bg-slate-800 rounded-full overflow-hidden">
+                        <div id="bar-budget" class="meter-bar bg-green-500" style="width: 100%"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,42 +78,55 @@
     <main class="flex-grow flex flex-col items-center justify-center w-full max-w-5xl mx-auto px-4">
 
         <!-- INTRO SCREEN -->
-        <div id="screen-intro" class="flex flex-col items-center text-center w-full max-w-xl slide-up py-10 min-h-screen justify-center">
+        <div id="screen-intro"
+            class="flex flex-col items-center text-center w-full max-w-xl slide-up py-10 min-h-screen justify-center">
             <div class="mb-8 floating inline-block relative animate-float">
                 <div class="absolute inset-0 bg-blue-500 blur-[60px] opacity-20 rounded-full animate-pulse"></div>
-                <i class="fa-solid fa-map-location-dot text-8xl md:text-9xl text-slate-200 drop-shadow-2xl relative z-10"></i>
+                <i
+                    class="fa-solid fa-map-location-dot text-8xl md:text-9xl text-slate-200 drop-shadow-2xl relative z-10"></i>
             </div>
             <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-8 leading-tight tracking-tight">
-                Sim-Thailand <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-emerald-400 to-blue-400 animate-text-shine">2569</span>
+                Sim-Thailand <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-emerald-400 to-blue-400 animate-text-shine">2569</span>
             </h1>
             <p class="text-slate-400 text-base md:text-lg mb-8 leading-relaxed font-light px-4">
                 จำลองการบริหารประเทศผ่าน 6 วาระเร่งด่วน<br>
                 จากนโยบายจริงของ 16 พรรคการเมือง
             </p>
-            
+
             <div class="mb-10 p-4 bg-amber-500/10 border border-amber-500/20 rounded-2xl max-w-md mx-auto">
                 <p class="text-amber-200/80 text-xs leading-relaxed">
                     <i class="fa-solid fa-circle-exclamation mr-1"></i>
-                    <strong>คำเตือน:</strong> ผลลัพธ์จากการจำลองนี้อ้างอิงจากข้อมูลนโยบายและสถิติที่รวบรวมจากอินเทอร์เน็ต เพื่อวัตถุประสงค์ทางการศึกษาและการเปรียบเทียบเท่านั้น ไม่ใช่การชี้นำหรือการตัดสินใจทางการเมืองอย่างเป็นทางการ
+                    <strong>คำเตือน:</strong>
+                    ผลลัพธ์จากการจำลองนี้อ้างอิงจากข้อมูลนโยบายและสถิติที่รวบรวมจากอินเทอร์เน็ต
+                    เพื่อวัตถุประสงค์ทางการศึกษาและการเปรียบเทียบเท่านั้น
+                    ไม่ใช่การชี้นำหรือการตัดสินใจทางการเมืองอย่างเป็นทางการ
                 </p>
             </div>
 
             <!-- Background Particles -->
             <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-500 rounded-full animate-float opacity-50" style="animation-delay: 0s;"></div>
-                <div class="absolute top-3/4 left-3/4 w-3 h-3 bg-emerald-500 rounded-full animate-float opacity-40" style="animation-delay: 1s;"></div>
-                <div class="absolute top-1/2 left-1/2 w-2 h-2 bg-orange-500 rounded-full animate-float opacity-30" style="animation-delay: 2s;"></div>
-                <div class="absolute top-1/3 right-1/4 w-4 h-4 bg-purple-500 rounded-full animate-float opacity-20" style="animation-delay: 3s;"></div>
+                <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-500 rounded-full animate-float opacity-50"
+                    style="animation-delay: 0s;"></div>
+                <div class="absolute top-3/4 left-3/4 w-3 h-3 bg-emerald-500 rounded-full animate-float opacity-40"
+                    style="animation-delay: 1s;"></div>
+                <div class="absolute top-1/2 left-1/2 w-2 h-2 bg-orange-500 rounded-full animate-float opacity-30"
+                    style="animation-delay: 2s;"></div>
+                <div class="absolute top-1/3 right-1/4 w-4 h-4 bg-purple-500 rounded-full animate-float opacity-20"
+                    style="animation-delay: 3s;"></div>
             </div>
 
-            <button onclick="game.start()" class="group relative overflow-hidden px-12 py-5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-full shadow-2xl shadow-blue-900/40 transition-all hover:scale-105 active:scale-95 text-xl w-full sm:w-auto z-10 animate-[pulse_3s_ease-in-out_infinite] animate-button-shine">
-                <span class="absolute inset-0 rounded-full bg-white/20 animate-ping opacity-0 group-hover:opacity-30"></span>
+            <button onclick="game.start()"
+                class="group relative overflow-hidden px-12 py-5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-full shadow-2xl shadow-blue-900/40 transition-all hover:scale-105 active:scale-95 text-xl w-full sm:w-auto z-10 animate-[pulse_3s_ease-in-out_infinite] animate-button-shine">
+                <span
+                    class="absolute inset-0 rounded-full bg-white/20 animate-ping opacity-0 group-hover:opacity-30"></span>
                 <span class="flex items-center justify-center gap-2 relative">
                     <i class="fa-solid fa-play"></i> เริ่มสร้างประเทศ
                 </span>
             </button>
             <p class="mt-6 text-slate-400 text-sm md:text-base max-w-sm mx-auto opacity-80 leading-relaxed">
-                มาลอง เริ่มสร้างประเทศ เพื่อดูว่านโยบายที่คุณชอบ<br class="hidden sm:block"> เหมาะกับพรรคไหน และเลือกโหวตพรรคของคุณ
+                มาลอง เริ่มสร้างประเทศ เพื่อดูว่านโยบายที่คุณชอบ<br class="hidden sm:block"> เหมาะกับพรรคไหน
+                และเลือกโหวตพรรคของคุณ
             </p>
 
             <div class="flex flex-col sm:flex-row gap-3 justify-center mt-6">
@@ -119,19 +147,25 @@
             <div class="flex flex-col items-center gap-8">
                 <!-- Data Reference & Version -->
                 <div class="text-xs text-slate-600 font-mono text-center space-y-2">
-                    <div class="bg-slate-900/30 px-4 py-2 rounded-lg border border-slate-800/50 inline-block backdrop-blur-sm">
+                    <div
+                        class="bg-slate-900/30 px-4 py-2 rounded-lg border border-slate-800/50 inline-block backdrop-blur-sm">
                         <i class="fa-solid fa-database mr-2 text-slate-500"></i>อ้างอิงข้อมูลล่าสุด: 17 มกราคม 2569
                     </div>
                 </div>
                 <div class="text-xs text-slate-600 font-mono text-center">
-                    <a href="https://github.com/bejranonda/ThaiSim2026" target="_blank" class="opacity-40 hover:opacity-100 transition-opacity cursor-pointer select-none hover:text-blue-400">Release: Sim-Thailand 2569 v1.5.9 <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i></a>
+                    <a href="https://github.com/bejranonda/ThaiSim2026" target="_blank"
+                        class="opacity-40 hover:opacity-100 transition-opacity cursor-pointer select-none hover:text-blue-400">Release:
+                        Sim-Thailand 2569 v1.6.0 <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i></a>
                 </div>
-                
+
                 <!-- Developer Credit -->
-                <div class="flex flex-col items-center gap-2 opacity-40 hover:opacity-100 transition-all duration-500 grayscale hover:grayscale-0">
+                <div
+                    class="flex flex-col items-center gap-2 opacity-40 hover:opacity-100 transition-all duration-500 grayscale hover:grayscale-0">
                     <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Developed by</span>
-                    <a href="https://thalay.eu/" target="_blank" class="hover:scale-105 transition-transform duration-300">
-                        <img src="https://thalay.eu/wp-content/uploads/2021/04/Thalay.eu3-Transparent150.png" alt="สมาคม thalay.eu" class="h-8 w-auto">
+                    <a href="https://thalay.eu/" target="_blank"
+                        class="hover:scale-105 transition-transform duration-300">
+                        <img src="https://thalay.eu/wp-content/uploads/2021/04/Thalay.eu3-Transparent150.png"
+                            alt="สมาคม thalay.eu" class="h-8 w-auto">
                     </a>
                 </div>
             </div>
@@ -143,9 +177,11 @@
             <div class="flex flex-col md:flex-row gap-8 items-start">
                 <!-- LEFT: City Visualization -->
                 <div class="w-full md:w-1/3 flex flex-col items-center md:sticky md:top-28 order-1">
-                    <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800 shadow-xl w-full max-w-sm mx-auto">
+                    <div
+                        class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800 shadow-xl w-full max-w-sm mx-auto">
                         <div class="flex justify-between items-center mb-4 px-1">
-                            <h3 class="text-lg font-bold text-slate-300 uppercase tracking-widest">แผนผังประเทศจำลอง (Simulation)</h3>
+                            <h3 class="text-lg font-bold text-slate-300 uppercase tracking-widest">แผนผังประเทศจำลอง
+                                (Simulation)</h3>
                         </div>
                         <div class="city-grid" id="city-container">
                             <!-- Slots generated by JS -->
@@ -157,7 +193,8 @@
                 <div class="w-full md:w-2/3 order-2 flex flex-col">
                     <div class="mb-6 fade-enter bg-slate-900/50 p-6 rounded-2xl border border-slate-800/50">
                         <div class="flex items-center gap-4 mb-3">
-                            <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-blue-400 text-2xl shadow-lg border border-slate-700">
+                            <div
+                                class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-blue-400 text-2xl shadow-lg border border-slate-700">
                                 <i id="q-icon" class="fa-solid fa-question"></i>
                             </div>
                             <h2 class="text-2xl font-bold text-white leading-tight" id="q-title">...</h2>
@@ -172,16 +209,20 @@
             </div>
 
             <!-- Bottom Action Bar (Fixed) -->
-            <div class="fixed bottom-0 left-0 w-full bg-slate-900/95 backdrop-blur border-t border-slate-800 p-5 z-50 shadow-[0_-5px_20px_rgba(0,0,0,0.5)]">
+            <div
+                class="fixed bottom-0 left-0 w-full bg-slate-900/95 backdrop-blur border-t border-slate-800 p-5 z-50 shadow-[0_-5px_20px_rgba(0,0,0,0.5)]">
                 <div class="max-w-5xl mx-auto flex justify-between items-center gap-4">
-                    <button onclick="game.skip()" class="text-slate-500 hover:text-slate-300 text-sm font-bold px-6 py-3 rounded-xl transition hover:bg-slate-800">
+                    <button onclick="game.skip()"
+                        class="text-slate-500 hover:text-slate-300 text-sm font-bold px-6 py-3 rounded-xl transition hover:bg-slate-800">
                         ข้ามข้อนี้
                     </button>
                     <div class="flex gap-4 flex-grow justify-end">
-                        <button onclick="game.undo()" id="btn-back" disabled class="bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed font-bold py-4 px-6 rounded-xl transition shadow-lg text-base flex items-center justify-center gap-2">
-                             <i class="fa-solid fa-arrow-left"></i>
+                        <button onclick="game.undo()" id="btn-back" disabled
+                            class="bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed font-bold py-4 px-6 rounded-xl transition shadow-lg text-base flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-arrow-left"></i>
                         </button>
-                        <button onclick="game.confirm()" id="btn-confirm" disabled class="flex-grow md:flex-grow-0 bg-blue-600 hover:bg-blue-500 disabled:bg-slate-800 disabled:text-slate-600 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-xl shadow-lg transition transform active:scale-95 text-base flex items-center justify-center gap-2 w-full md:w-auto min-w-[120px]">
+                        <button onclick="game.confirm()" id="btn-confirm" disabled
+                            class="flex-grow md:flex-grow-0 bg-blue-600 hover:bg-blue-500 disabled:bg-slate-800 disabled:text-slate-600 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-xl shadow-lg transition transform active:scale-95 text-base flex items-center justify-center gap-2 w-full md:w-auto min-w-[120px]">
                             <span>ถัดไป</span>
                             <span id="confirm-count" class="bg-white/20 px-2 py-0.5 rounded text-xs hidden">0</span>
                             <i class="fa-solid fa-arrow-right"></i>
@@ -196,50 +237,65 @@
 
             <div id="share-content" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <!-- Winner Card -->
-                <div id="result-card" class="md:col-span-2 relative bg-slate-900 border border-slate-800 rounded-3xl p-10 shadow-2xl overflow-hidden slide-up text-center md:text-left flex flex-col justify-center min-h-[350px]">
-                    <div class="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-blue-500 via-emerald-500 to-purple-500"></div>
+                <div id="result-card"
+                    class="md:col-span-2 relative bg-slate-900 border border-slate-800 rounded-3xl p-10 shadow-2xl overflow-hidden slide-up text-center md:text-left flex flex-col justify-center min-h-[350px]">
+                    <div
+                        class="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-blue-500 via-emerald-500 to-purple-500">
+                    </div>
                     <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl"></div>
-                    <div class="absolute bottom-3 right-5 text-[10px] text-slate-600 font-mono z-20">thalay.eu/sim2569</div>
+                    <div class="absolute bottom-3 right-5 text-[10px] text-slate-600 font-mono z-20">thalay.eu/sim2569
+                    </div>
 
                     <div class="flex flex-col md:flex-row items-center gap-8 relative z-10">
                         <div class="relative flex-shrink-0">
-                            <div class="w-36 h-36 bg-slate-800 rounded-full flex items-center justify-center border-4 border-slate-700 shadow-xl">
+                            <div
+                                class="w-36 h-36 bg-slate-800 rounded-full flex items-center justify-center border-4 border-slate-700 shadow-xl">
                                 <i id="res-icon" class="fa-solid fa-flag text-7xl text-white"></i>
                             </div>
-                            <div class="absolute -bottom-4 -right-4 bg-emerald-500 text-slate-900 text-base font-bold px-4 py-1.5 rounded-full border-4 border-slate-900 shadow-lg">
+                            <div
+                                class="absolute -bottom-4 -right-4 bg-emerald-500 text-slate-900 text-base font-bold px-4 py-1.5 rounded-full border-4 border-slate-900 shadow-lg">
                                 Match <span id="res-percent">--%</span>
                             </div>
                         </div>
 
                         <div class="flex-grow">
-                            <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-3">ผลลัพธ์การจำลอง (Simulation Result)</p>
+                            <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-3">ผลลัพธ์การจำลอง
+                                (Simulation Result)</p>
                             <h2 class="text-xl text-slate-300 mb-2">พรรคที่นโยบายตรงใจคุณที่สุด</h2>
-                            <h1 id="res-party" class="text-4xl md:text-6xl font-extrabold text-white mb-5 drop-shadow-lg leading-tight">...</h1>
-                            <p id="res-desc" class="text-slate-300 text-base leading-relaxed bg-slate-800/50 p-5 rounded-xl border border-slate-700/50 inline-block text-left w-full">...</p>
+                            <h1 id="res-party"
+                                class="text-4xl md:text-6xl font-extrabold text-white mb-5 drop-shadow-lg leading-tight">
+                                ...</h1>
+                            <p id="res-desc"
+                                class="text-slate-300 text-base leading-relaxed bg-slate-800/50 p-5 rounded-xl border border-slate-700/50 inline-block text-left w-full">
+                                ...</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Scroll Indicator - Mobile Only (before Runners Up) -->
-                <div id="scroll-indicator-mobile" class="md:hidden flex flex-col items-center justify-center py-2 animate-pulse mb-1">
-                    <p class="text-blue-400 font-bold text-base mb-1 text-center px-4">
-                        👇 อย่าลืม! ลงมาโหวตพรรคที่คุณจะเลือกจริงด้านล่าง 👇
+                <div id="scroll-indicator-mobile"
+                    class="md:hidden flex flex-col items-center justify-center py-2 animate-pulse mb-1">
+                    <p class="text-fuchsia-400 font-bold text-base mb-1 text-center px-4 neon-pink-glow">
+                        👇 ยังไม่เสร็จ! อย่าลืมลงมาโหวตพรรคที่คุณจะเลือกจริงด้านล่าง 👇
                     </p>
                     <div class="animate-bounce">
-                        <i class="fa-solid fa-chevron-down text-blue-400 text-2xl"></i>
+                        <i class="fa-solid fa-chevron-down text-fuchsia-400 text-2xl"></i>
                     </div>
                 </div>
 
                 <!-- Runners Up List -->
-                <div class="md:col-span-1 bg-slate-900/80 border border-slate-800 rounded-2xl p-5 slide-up overflow-hidden flex flex-col" style="animation-delay: 0.1s;">
-                    <h3 class="text-sm text-slate-500 font-bold uppercase mb-4 py-3 border-b border-slate-800 flex items-center gap-2">
+                <div class="md:col-span-1 bg-slate-900/80 border border-slate-800 rounded-2xl p-5 slide-up overflow-hidden flex flex-col"
+                    style="animation-delay: 0.1s;">
+                    <h3
+                        class="text-sm text-slate-500 font-bold uppercase mb-4 py-3 border-b border-slate-800 flex items-center gap-2">
                         <i class="fa-solid fa-chart-bar"></i> 5 อันดับรองลงมา
                     </h3>
                     <div id="res-runners" class="space-y-3 mb-4">
                         <!-- Injected JS -->
                     </div>
-                    
-                    <a href="https://thalay.eu/policy2569" target="_blank" class="mt-auto w-full flex items-center justify-center gap-2 px-4 py-3 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white rounded-xl border border-dashed border-slate-600 hover:border-slate-500 transition-all text-sm group">
+
+                    <a href="https://thalay.eu/policy2569" target="_blank"
+                        class="mt-auto w-full flex items-center justify-center gap-2 px-4 py-3 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white rounded-xl border border-dashed border-slate-600 hover:border-slate-500 transition-all text-sm group">
                         <i class="fa-solid fa-book-open group-hover:scale-110 transition-transform"></i>
                         <span>ดูนโยบายทุกพรรคเพิ่มเติม</span>
                     </a>
@@ -247,130 +303,160 @@
             </div>
 
             <!-- National Status (3 Pillars) -->
-            <div id="res-status" class="hidden w-full bg-slate-900/80 border border-slate-800 rounded-2xl p-6 slide-up" style="animation-delay: 0.15s;">
-                    <h3 class="text-sm text-slate-500 font-bold uppercase mb-6 flex items-center gap-2">
-                        <i class="fa-solid fa-chart-pie"></i> สถานะประเทศของคุณ (Your National Status)
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div>
-                            <div class="flex justify-between items-start text-slate-300 mb-2">
-                                <div>
-                                    <div class="text-sm font-semibold">เศรษฐกิจ</div>
-                                    <div class="text-xs text-slate-500">(Economy)</div>
-                                </div>
-                                <span id="end-eco" class="text-sm">0%</span>
+            <div id="res-status" class="hidden w-full bg-slate-900/80 border border-slate-800 rounded-2xl p-6 slide-up"
+                style="animation-delay: 0.15s;">
+                <h3 class="text-sm text-slate-500 font-bold uppercase mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-chart-pie"></i> สถานะประเทศจากนโยบายของคุณ (Status from your policies)
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div>
+                        <div class="flex justify-between items-start text-slate-300 mb-2">
+                            <div>
+                                <div class="text-sm font-semibold">เศรษฐกิจ</div>
+                                <div class="text-xs text-slate-500">(Economy)</div>
                             </div>
-                            <div class="h-4 bg-slate-800 rounded-full overflow-hidden"><div id="end-bar-eco" class="h-full bg-emerald-500 transition-all duration-1000" style="width: 0%"></div></div>
+                            <span id="end-eco" class="text-sm">0%</span>
                         </div>
-                        <div>
-                            <div class="flex justify-between items-start text-slate-300 mb-2">
-                                <div>
-                                    <div class="text-sm font-semibold">สวัสดิการ</div>
-                                    <div class="text-xs text-slate-500">(Welfare)</div>
-                                </div>
-                                <span id="end-soc" class="text-sm">0%</span>
-                            </div>
-                            <div class="h-4 bg-slate-800 rounded-full overflow-hidden"><div id="end-bar-soc" class="h-full bg-blue-500 transition-all duration-1000" style="width: 0%"></div></div>
+                        <div class="h-4 bg-slate-800 rounded-full overflow-hidden">
+                            <div id="end-bar-eco" class="h-full bg-emerald-500 transition-all duration-1000"
+                                style="width: 0%"></div>
                         </div>
-                        <div>
-                            <div class="flex justify-between items-start text-slate-300 mb-2">
-                                <div>
-                                    <div class="text-sm font-semibold">ประชาธิปไตย</div>
-                                    <div class="text-xs text-slate-500">(Democracy)</div>
-                                </div>
-                                <span id="end-lib" class="text-sm">0%</span>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-start text-slate-300 mb-2">
+                            <div>
+                                <div class="text-sm font-semibold">สวัสดิการ</div>
+                                <div class="text-xs text-slate-500">(Welfare)</div>
                             </div>
-                            <div class="h-4 bg-slate-800 rounded-full overflow-hidden"><div id="end-bar-lib" class="h-full bg-orange-500 transition-all duration-1000" style="width: 0%"></div></div>
+                            <span id="end-soc" class="text-sm">0%</span>
                         </div>
-                        <div>
-                            <div class="flex justify-between items-start text-slate-300 mb-2">
-                                <div>
-                                    <div class="text-sm font-semibold">งบประมาณ</div>
-                                    <div class="text-xs text-slate-500">(Budget)</div>
-                                </div>
-                                <span id="end-budget" class="text-sm">100</span>
+                        <div class="h-4 bg-slate-800 rounded-full overflow-hidden">
+                            <div id="end-bar-soc" class="h-full bg-blue-500 transition-all duration-1000"
+                                style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-start text-slate-300 mb-2">
+                            <div>
+                                <div class="text-sm font-semibold">ประชาธิปไตย</div>
+                                <div class="text-xs text-slate-500">(Democracy)</div>
                             </div>
-                            <div class="h-4 bg-slate-800 rounded-full overflow-hidden"><div id="end-bar-budget" class="h-full bg-green-500 transition-all duration-1000" style="width: 100%"></div></div>
+                            <span id="end-lib" class="text-sm">0%</span>
+                        </div>
+                        <div class="h-4 bg-slate-800 rounded-full overflow-hidden">
+                            <div id="end-bar-lib" class="h-full bg-orange-500 transition-all duration-1000"
+                                style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-start text-slate-300 mb-2">
+                            <div>
+                                <div class="text-sm font-semibold">งบประมาณ</div>
+                                <div class="text-xs text-slate-500">(Budget)</div>
+                            </div>
+                            <span id="end-budget" class="text-sm">100</span>
+                        </div>
+                        <div class="h-4 bg-slate-800 rounded-full overflow-hidden">
+                            <div id="end-bar-budget" class="h-full bg-green-500 transition-all duration-1000"
+                                style="width: 100%"></div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Scroll Indicator - Desktop Only (after National Status, before Vote Section) -->
-            <div id="scroll-indicator-desktop" class="hidden flex-col items-center justify-center -mt-12 pb-6 animate-pulse">
-                <p class="text-blue-400 font-bold text-lg mb-2 text-center px-4">
-                    👇 อย่าลืม! ลงมาโหวตพรรคที่คุณจะเลือกจริงด้านล่าง 👇
+        <!-- Scroll Indicator - Desktop Only (after National Status, before Vote Section) -->
+        <div id="scroll-indicator-desktop"
+            class="hidden flex-col items-center justify-center -mt-12 pb-6 animate-pulse">
+            <p class="text-fuchsia-400 font-bold text-lg mb-2 text-center px-4 neon-pink-glow">
+                👇 ยังไม่เสร็จ! อย่าลืมลงมาโหวตพรรคที่คุณจะเลือกจริงด้านล่าง 👇
+            </p>
+            <div class="animate-bounce">
+                <i class="fa-solid fa-chevron-down text-fuchsia-400 text-3xl"></i>
+            </div>
+        </div>
+
+        <!-- Manual Poll -->
+        <div id="vote-section"
+            class="hidden relative bg-gradient-to-br from-blue-900/50 to-slate-900 border-2 border-blue-500 rounded-3xl p-8 mb-10 text-left slide-up backdrop-blur-sm shadow-2xl -mt-8 overflow-hidden"
+            style="animation-delay: 0.2s;">
+            <!-- Glow pulse background effect -->
+            <div class="absolute inset-0 bg-blue-500/5 pointer-events-none"
+                style="animation: glow-pulse 3s ease-in-out infinite;"></div>
+
+            <!-- Important Badge - Top Right -->
+            <div
+                class="absolute -top-2 -right-2 bg-red-500 text-white font-bold px-5 py-2 rounded-full shadow-lg animate-pulse z-10 text-sm">
+                ⚠️ ขั้นตอนสุดท้าย
+            </div>
+
+            <!-- Header -->
+            <div class="text-center mb-6 relative z-10">
+                <h3 class="text-white font-bold text-3xl mb-2 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-check-to-slot text-blue-400 text-2xl"></i>
+                    เสียงจริงของคุณ
+                </h3>
+                <p class="text-yellow-400 font-bold text-lg mb-4">
+                    ยังไม่เสร็จ! ลงมาโหวตพรรคที่คุณจะเลือกจริง
                 </p>
-                <div class="animate-bounce">
-                    <i class="fa-solid fa-chevron-down text-blue-400 text-3xl"></i>
-                </div>
-            </div>
-
-            <!-- Manual Poll -->
-            <div id="vote-section" class="hidden relative bg-gradient-to-br from-blue-900/50 to-slate-900 border-2 border-blue-500 rounded-3xl p-8 mb-10 text-left slide-up backdrop-blur-sm shadow-2xl -mt-8 overflow-hidden" style="animation-delay: 0.2s;">
-                <!-- Glow pulse background effect -->
-                <div class="absolute inset-0 bg-blue-500/5 pointer-events-none" style="animation: glow-pulse 3s ease-in-out infinite;"></div>
-
-                <!-- Important Badge - Top Right -->
-                <div class="absolute -top-2 -right-2 bg-red-500 text-white font-bold px-5 py-2 rounded-full shadow-lg animate-pulse z-10 text-sm">
-                    ⚠️ ขั้นตอนสุดท้าย
-                </div>
-
-                <!-- Header -->
-                <div class="text-center mb-6 relative z-10">
-                    <h3 class="text-white font-bold text-3xl mb-2 flex items-center justify-center gap-3">
-                        <i class="fa-solid fa-check-to-slot text-blue-400 text-2xl"></i>
-                        เสียงจริงของคุณ
-                    </h3>
-                    <p class="text-yellow-400 font-bold text-lg mb-4">
-                        ยังไม่เสร็จ! ลงมาโหวตพรรคที่คุณจะเลือกจริง
+                <div class="bg-blue-600/20 border border-blue-500/50 rounded-xl p-4 mx-auto max-w-2xl">
+                    <p class="text-blue-200 text-sm font-bold">
+                        เกมจำลองเสร็จแล้ว แต่อย่าลืมลงมาโหวตพรรคที่คุณจะเลือกจริงในวันเลือกตั้ง!
                     </p>
-                    <div class="bg-blue-600/20 border border-blue-500/50 rounded-xl p-4 mx-auto max-w-2xl">
-                        <p class="text-blue-200 text-sm font-bold">
-                            เกมจำลองเสร็จแล้ว แต่อย่าลืมลงมาโหวตพรรคที่คุณจะเลือกจริงในวันเลือกตั้ง!
-                        </p>
-                    </div>
                 </div>
-
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-8 p-1" id="poll-container">
-                    <!-- Poll options -->
-                </div>
-
-                <div id="poll-results" class="hidden space-y-4 pt-4 pb-6 relative z-10">
-                    <!-- Progress Bars -->
-                </div>
-
-                <button onclick="game.submitVote()" id="btn-vote" class="w-full relative z-10 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold py-6 rounded-xl transition text-lg shadow-xl flex items-center justify-center gap-3 mt-6 hover:scale-105 transform">
-                    <i class="fa-solid fa-paper-plane text-xl"></i>
-                    <span class="text-xl">ยืนยันการโหวต</span>
-                </button>
             </div>
 
-            <div id="result-actions" class="hidden flex flex-col sm:flex-row justify-center gap-4 mb-12 px-4 slide-up" style="animation-delay: 0.3s;">
-                <a href="https://thalay.eu/poll2569" target="_blank" class="flex-grow sm:flex-grow-0 group relative overflow-hidden inline-flex items-center justify-center gap-3 px-8 py-5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-2xl shadow-xl transition-all hover:scale-105 active:scale-95">
-                    <i class="fa-solid fa-chart-pie text-xl"></i>
-                    <span class="text-lg">ดูผลโหวตพรรค และ นโยบายที่คนชอบ</span>
-                </a>
-                <a href="https://thalay.eu/policy2569" target="_blank" class="flex-grow sm:flex-grow-0 group relative overflow-hidden inline-flex items-center justify-center gap-3 px-8 py-5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-2xl shadow-xl transition-all hover:scale-105 active:scale-95">
-                    <i class="fa-solid fa-book-open text-xl"></i>
-                    <span class="text-lg">ดูนโยบายทุกพรรค</span>
-                </a>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-8 p-1" id="poll-container">
+                <!-- Poll options -->
             </div>
 
-            <div id="result-footer" class="hidden flex justify-center gap-6 text-base font-medium text-slate-400 pb-8">
-                <button onclick="location.reload()" class="hover:text-white transition flex items-center gap-2 bg-slate-800 px-8 py-4 rounded-full"><i class="fa-solid fa-rotate-right"></i> เริ่มใหม่</button>
-                <button onclick="game.saveResultImage(this)" class="hover:text-emerald-400 transition flex items-center gap-2 bg-slate-800 px-8 py-4 rounded-full"><i class="fa-solid fa-image"></i> แชร์รูปผลลัพธ์</button>
-                <button onclick="game.share()" class="hover:text-blue-400 transition flex items-center gap-2 bg-slate-800 px-8 py-4 rounded-full"><i class="fa-solid fa-share-nodes"></i> แชร์ลิงก์</button>
+            <div id="poll-results" class="hidden space-y-4 pt-4 pb-6 relative z-10">
+                <!-- Progress Bars -->
             </div>
 
+            <button onclick="game.submitVote()" id="btn-vote"
+                class="w-full relative z-10 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold py-6 rounded-xl transition text-lg shadow-xl flex items-center justify-center gap-3 mt-6 hover:scale-105 transform">
+                <i class="fa-solid fa-paper-plane text-xl"></i>
+                <span class="text-xl">ยืนยันการโหวต</span>
+            </button>
+        </div>
+
+        <div id="result-actions" class="hidden flex flex-col sm:flex-row justify-center gap-4 mb-12 px-4 slide-up"
+            style="animation-delay: 0.3s;">
+            <a href="https://thalay.eu/poll2569" target="_blank"
+                class="flex-grow sm:flex-grow-0 group relative overflow-hidden inline-flex items-center justify-center gap-3 px-8 py-5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-2xl shadow-xl transition-all hover:scale-105 active:scale-95">
+                <i class="fa-solid fa-chart-pie text-xl"></i>
+                <span class="text-lg">ดูผลโหวตพรรค และ นโยบายที่คนชอบ</span>
+            </a>
+            <a href="https://thalay.eu/policy2569" target="_blank"
+                class="flex-grow sm:flex-grow-0 group relative overflow-hidden inline-flex items-center justify-center gap-3 px-8 py-5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-2xl shadow-xl transition-all hover:scale-105 active:scale-95">
+                <i class="fa-solid fa-book-open text-xl"></i>
+                <span class="text-lg">ดูนโยบายทุกพรรค</span>
+            </a>
+        </div>
+
+        <div id="result-footer" class="hidden flex justify-center gap-6 text-base font-medium text-slate-400 pb-8">
+            <button onclick="location.reload()"
+                class="hover:text-white transition flex items-center gap-2 bg-slate-800 px-8 py-4 rounded-full"><i
+                    class="fa-solid fa-rotate-right"></i> เริ่มใหม่</button>
+            <button onclick="game.saveResultImage(this)"
+                class="hover:text-emerald-400 transition flex items-center gap-2 bg-slate-800 px-8 py-4 rounded-full"><i
+                    class="fa-solid fa-image"></i> แชร์รูปผลลัพธ์</button>
+            <button onclick="game.share()"
+                class="hover:text-blue-400 transition flex items-center gap-2 bg-slate-800 px-8 py-4 rounded-full"><i
+                    class="fa-solid fa-share-nodes"></i> แชร์ลิงก์</button>
+        </div>
 
 
-            <div id="result-credit" class="hidden flex flex-col items-center gap-3 opacity-70 hover:opacity-100 transition-opacity pb-12">
-                <span class="text-xs text-slate-400 font-medium">พัฒนาโดย</span>
-                <a href="https://thalay.eu/" target="_blank" class="hover:scale-105 transition-transform duration-300">
-                    <img src="https://thalay.eu/wp-content/uploads/2021/04/Thalay.eu3-Transparent150.png" alt="สมาคม thalay.eu" class="h-12 w-auto opacity-90 hover:opacity-100 transition-opacity">
-                </a>
-            </div>
+
+        <div id="result-credit"
+            class="hidden flex flex-col items-center gap-3 opacity-70 hover:opacity-100 transition-opacity pb-12">
+            <span class="text-xs text-slate-400 font-medium">พัฒนาโดย</span>
+            <a href="https://thalay.eu/" target="_blank" class="hover:scale-105 transition-transform duration-300">
+                <img src="https://thalay.eu/wp-content/uploads/2021/04/Thalay.eu3-Transparent150.png"
+                    alt="สมาคม thalay.eu" class="h-12 w-auto opacity-90 hover:opacity-100 transition-opacity">
+            </a>
+        </div>
         </div>
 
     </main>
@@ -378,4 +464,5 @@
     <!-- Main JavaScript -->
     <script type="module" src="/src/js/main.js"></script>
 </body>
+
 </html>

@@ -307,6 +307,24 @@ body {
     animation: glow-pulse 3s ease-in-out infinite;
 }
 
+/* Neon Pink Glow Animation for Scroll Indicator Text */
+@keyframes text-glow-pink {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(232, 121, 249, 0.5),
+                     0 0 20px rgba(232, 121, 249, 0.3),
+                     0 0 30px rgba(232, 121, 249, 0.2);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(232, 121, 249, 0.8),
+                     0 0 30px rgba(232, 121, 249, 0.5),
+                     0 0 45px rgba(232, 121, 249, 0.3);
+    }
+}
+
+.neon-pink-glow {
+    animation: text-glow-pink 2s ease-in-out infinite;
+}
+
 /* Smooth scroll behavior */
 html {
     scroll-behavior: smooth;
