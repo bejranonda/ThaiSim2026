@@ -26,44 +26,32 @@
             </div>
 
             <!-- Status Bars -->
-            <div class="flex gap-3 md:gap-4">
-                <div class="w-20 sm:w-24 md:w-28">
-                    <div class="flex justify-between items-start mb-1 text-slate-400">
-                        <div class="text-center flex-1">
-                            <div class="text-[10px] sm:text-xs font-bold">ศก.</div>
-                            <div class="text-[8px] sm:text-[9px]">(Eco)</div>
-                        </div>
-                        <span id="val-eco" class="text-[10px] sm:text-xs font-bold">10</span>
+            <div class="flex gap-1.5 sm:gap-3 md:gap-4 flex-1 justify-end">
+                <div class="w-14 sm:w-20 md:w-24 lg:w-28 flex-shrink-0">
+                    <div class="flex justify-between items-center mb-1 text-slate-400">
+                        <span class="text-xs sm:text-sm md:text-base lg:text-lg font-bold flex-shrink-0">ศก.</span>
+                        <span id="val-eco" class="text-xs sm:text-sm md:text-base font-bold leading-none pr-2">10</span>
                     </div>
                     <div class="h-1.5 sm:h-2 bg-slate-800 rounded-full overflow-hidden"><div id="bar-eco" class="meter-bar bg-emerald-500" style="width: 10%"></div></div>
                 </div>
-                <div class="w-20 sm:w-24 md:w-28">
-                    <div class="flex justify-between items-start mb-1 text-slate-400">
-                        <div class="text-center flex-1">
-                            <div class="text-[10px] sm:text-xs font-bold">สังคม</div>
-                            <div class="text-[8px] sm:text-[9px]">(Soc)</div>
-                        </div>
-                        <span id="val-soc" class="text-[10px] sm:text-xs font-bold">10</span>
+                <div class="w-14 sm:w-20 md:w-24 lg:w-28 flex-shrink-0">
+                    <div class="flex justify-between items-center mb-1 text-slate-400">
+                        <span class="text-xs sm:text-sm md:text-base lg:text-lg font-bold flex-shrink-0">สังคม</span>
+                        <span id="val-soc" class="text-xs sm:text-sm md:text-base font-bold leading-none pr-2">10</span>
                     </div>
                     <div class="h-1.5 sm:h-2 bg-slate-800 rounded-full overflow-hidden"><div id="bar-soc" class="meter-bar bg-blue-500" style="width: 10%"></div></div>
                 </div>
-                <div class="w-20 sm:w-24 md:w-28">
-                    <div class="flex justify-between items-start mb-1 text-slate-400">
-                        <div class="text-center flex-1">
-                            <div class="text-[10px] sm:text-xs font-bold">ปชต.</div>
-                            <div class="text-[8px] sm:text-[9px]">(Dem)</div>
-                        </div>
-                        <span id="val-lib" class="text-[10px] sm:text-xs font-bold">10</span>
+                <div class="w-14 sm:w-20 md:w-24 lg:w-28 flex-shrink-0">
+                    <div class="flex justify-between items-center mb-1 text-slate-400">
+                        <span class="text-xs sm:text-sm md:text-base lg:text-lg font-bold flex-shrink-0">ปชต.</span>
+                        <span id="val-lib" class="text-xs sm:text-sm md:text-base font-bold leading-none pr-2">10</span>
                     </div>
                     <div class="h-1.5 sm:h-2 bg-slate-800 rounded-full overflow-hidden"><div id="bar-lib" class="meter-bar bg-orange-500" style="width: 10%"></div></div>
                 </div>
-                <div class="w-20 sm:w-24 md:w-28">
-                    <div class="flex justify-between items-start mb-1 text-slate-400">
-                        <div class="text-center flex-1">
-                            <div class="text-[10px] sm:text-xs font-bold">งบประมาณ</div>
-                            <div class="text-[8px] sm:text-[9px]">(Budget)</div>
-                        </div>
-                        <span id="val-budget" class="text-[10px] sm:text-xs font-bold">100</span>
+                <div class="w-14 sm:w-20 md:w-24 lg:w-28 flex-shrink-0">
+                    <div class="flex justify-between items-center mb-1 text-slate-400">
+                        <span class="text-xs sm:text-sm md:text-base lg:text-lg font-bold flex-shrink-0">งบ</span>
+                        <span id="val-budget" class="text-xs sm:text-sm md:text-base font-bold leading-none pr-2">100</span>
                     </div>
                     <div class="h-1.5 sm:h-2 bg-slate-800 rounded-full overflow-hidden"><div id="bar-budget" class="meter-bar bg-green-500" style="width: 100%"></div></div>
                 </div>
