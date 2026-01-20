@@ -289,3 +289,25 @@ body {
 .poll-bar {
     transition: width 1s ease-out;
 }
+
+/* Vote Section Animations */
+@keyframes glow-pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        border-color: rgba(59, 130, 246, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+        border-color: rgba(59, 130, 246, 0.8);
+    }
+}
+
+/* Apply glow-pulse to vote section */
+#vote-section {
+    animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}

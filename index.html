@@ -124,7 +124,7 @@
                     </div>
                 </div>
                 <div class="text-xs text-slate-600 font-mono text-center">
-                    <a href="https://github.com/bejranonda/ThaiSim2026" target="_blank" class="opacity-40 hover:opacity-100 transition-opacity cursor-pointer select-none hover:text-blue-400">Release: Sim-Thailand 2569 v1.5.4 <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i></a>
+                    <a href="https://github.com/bejranonda/ThaiSim2026" target="_blank" class="opacity-40 hover:opacity-100 transition-opacity cursor-pointer select-none hover:text-blue-400">Release: Sim-Thailand 2569 v1.5.5 <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i></a>
                 </div>
                 
                 <!-- Developer Credit -->
@@ -220,6 +220,16 @@
                     </div>
                 </div>
 
+                <!-- Scroll Indicator - Mobile Only (before Runners Up) -->
+                <div class="md:hidden flex flex-col items-center justify-center py-2 animate-pulse mb-1">
+                    <p class="text-blue-400 font-bold text-base mb-1 text-center px-4">
+                        👇 อย่าลื่น! ลงมาโหวตพรรคที่คุณจะเลือกจริงด้านล่าง 👇
+                    </p>
+                    <div class="animate-bounce">
+                        <i class="fa-solid fa-chevron-down text-blue-400 text-2xl"></i>
+                    </div>
+                </div>
+
                 <!-- Runners Up List -->
                 <div class="md:col-span-1 bg-slate-900/80 border border-slate-800 rounded-2xl p-5 slide-up overflow-hidden flex flex-col" style="animation-delay: 0.1s;">
                     <h3 class="text-sm text-slate-500 font-bold uppercase mb-4 py-3 border-b border-slate-800 flex items-center gap-2">
@@ -239,7 +249,7 @@
             <!-- National Status (3 Pillars) -->
             <div id="res-status" class="hidden w-full bg-slate-900/80 border border-slate-800 rounded-2xl p-6 slide-up" style="animation-delay: 0.15s;">
                     <h3 class="text-sm text-slate-500 font-bold uppercase mb-6 flex items-center gap-2">
-                        <i class="fa-solid fa-chart-pie"></i> สถานะประเทศ (National Status)
+                        <i class="fa-solid fa-chart-pie"></i> สถานะประเทศของคุณ (Your National Status)
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div>
@@ -286,24 +296,53 @@
                 </div>
             </div>
 
+            <!-- Scroll Indicator - Desktop Only (after National Status, before Vote Section) -->
+            <div class="hidden md:flex flex-col items-center justify-center -mt-12 pb-6 animate-pulse">
+                <p class="text-blue-400 font-bold text-lg mb-2 text-center px-4">
+                    👇 อย่าลื่น! ลงมาโหวตพรรคที่คุณจะเลือกจริงด้านล่าง 👇
+                </p>
+                <div class="animate-bounce">
+                    <i class="fa-solid fa-chevron-down text-blue-400 text-3xl"></i>
+                </div>
+            </div>
+
             <!-- Manual Poll -->
-            <div id="vote-section" class="hidden bg-slate-900/80 border border-slate-800 rounded-2xl p-8 mb-10 text-left slide-up backdrop-blur-sm shadow-xl -mt-8" style="animation-delay: 0.2s;">
-                <h3 class="text-white font-bold mb-3 flex items-center gap-3 text-xl">
-                    <i class="fa-solid fa-check-to-slot text-blue-500"></i>
-                    เสียงจริงของคุณ (Your Real Vote)
-                </h3>
-                <p class="text-sm text-slate-400 mb-8">ผลลัพธ์ข้างบนมาจากการคำนวณนโยบาย แต่ในความเป็นจริง... คุณอยากเลือกใคร?</p>
+            <div id="vote-section" class="hidden relative bg-gradient-to-br from-blue-900/50 to-slate-900 border-2 border-blue-500 rounded-3xl p-8 mb-10 text-left slide-up backdrop-blur-sm shadow-2xl -mt-8 overflow-hidden" style="animation-delay: 0.2s;">
+                <!-- Glow pulse background effect -->
+                <div class="absolute inset-0 bg-blue-500/5 pointer-events-none" style="animation: glow-pulse 3s ease-in-out infinite;"></div>
+
+                <!-- Important Badge - Top Right -->
+                <div class="absolute -top-2 -right-2 bg-red-500 text-white font-bold px-5 py-2 rounded-full shadow-lg animate-pulse z-10 text-sm">
+                    ⚠️ ขั้นตอนสุดท้าย
+                </div>
+
+                <!-- Header -->
+                <div class="text-center mb-6 relative z-10">
+                    <h3 class="text-white font-bold text-3xl mb-2 flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-check-to-slot text-blue-400 text-2xl"></i>
+                        เสียงจริงของคุณ
+                    </h3>
+                    <p class="text-yellow-400 font-bold text-lg mb-4">
+                        ยังไม่เสร็จ! ลงมาโหวตพรรคที่คุณจะเลือกจริง
+                    </p>
+                    <div class="bg-blue-600/20 border border-blue-500/50 rounded-xl p-4 mx-auto max-w-2xl">
+                        <p class="text-blue-200 text-sm font-bold">
+                            เกมจำลองเสร็จแล้ว แต่อย่าลืมลงมาโหวตพรรคที่คุณจะเลือกจริงในวันเลือกตั้ง!
+                        </p>
+                    </div>
+                </div>
 
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-8 p-1" id="poll-container">
                     <!-- Poll options -->
                 </div>
 
-                <div id="poll-results" class="hidden space-y-4 pt-4 pb-6">
+                <div id="poll-results" class="hidden space-y-4 pt-4 pb-6 relative z-10">
                     <!-- Progress Bars -->
                 </div>
 
-                <button onclick="game.submitVote()" id="btn-vote" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-5 rounded-xl transition text-base shadow-lg flex items-center justify-center gap-2 mt-6">
-                    <i class="fa-solid fa-paper-plane"></i> ยืนยันการโหวต
+                <button onclick="game.submitVote()" id="btn-vote" class="w-full relative z-10 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold py-6 rounded-xl transition text-lg shadow-xl flex items-center justify-center gap-3 mt-6 hover:scale-105 transform">
+                    <i class="fa-solid fa-paper-plane text-xl"></i>
+                    <span class="text-xl">ยืนยันการโหวต</span>
                 </button>
             </div>
 

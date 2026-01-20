@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 16 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v1.5.4](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.4) | **Data Updated**: 20 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v1.5.5](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.5) | **Data Updated**: 20 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -135,6 +135,20 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 ## 📜 Version History
 
+### v1.5.5 (January 20, 2569/2026)
+- 📢 **Vote Section Awareness Enhancement**:
+  - Added prominent scroll indicator with animated arrow and text "👇 อย่าลื่น! ลงมาโหวตพรรคที่คุณจะเลือกจริงด้านล่าง 👇"
+  - Responsive positioning: shows before "5 อันดับรองลงมา" on mobile, after "สถานะประเทศของคุณ" on desktop
+  - Optimized spacing for maximum visibility while maintaining clean layout
+- 🎨 **Enhanced Vote Section Visual**:
+  - Added gradient border (border-blue-500) with glow pulse animation
+  - Added red badge "⚠️ ขั้นตอนสุดท้าย" with pulsing effect
+  - Enlarged headline to text-3xl with icon
+  - Added CTA banner with clear messaging "เกมจำลองเสร็จแล้ว แต่อย่าลืมลงมาโหวตพรรคที่คุณจะเลือกจริงในวันเลือกตั้ง!"
+  - Enhanced vote button with gradient, larger size (py-6), and hover scale animation
+- 🌐 **Language Update**: Changed "สถานะประเทศ" to "สถานะประเทศของคุณ (Your National Status)" for better user engagement
+- ✨ **CSS Animations**: Added glow-pulse keyframe animation for vote section emphasis
+
 ### v1.5.4 (January 20, 2569/2026)
 - 📱 **Mobile HUD Improvements**:
   - Increased Thai label font sizes on mobile for better readability (text-xs to lg:text-lg)
@@ -208,4 +222,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v1.5.4 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.4)
+**Latest Release**: [v1.5.5 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.5)
