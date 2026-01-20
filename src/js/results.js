@@ -45,12 +45,31 @@ async function initResults() {
         sorted.forEach(([key, count], index) => {
             const p = parties[key] || {name: key === 'OTHER' ? 'พรรคอื่นๆ' : 'ไม่ประสงค์ลงคะแนน', color: 'text-slate-400', icon: 'fa-circle-question'};
             const pct = ((count / total) * 100).toFixed(1);
-            
+
             // Highlight top 3
             const rankStyle = index < 3 ? 'font-bold text-white' : 'text-slate-400';
-            const barColor = index === 0 ? 'bg-gradient-to-r from-yellow-500 to-amber-500' : 
-                             index === 1 ? 'bg-gradient-to-r from-slate-300 to-slate-400' : 
-                             index === 2 ? 'bg-gradient-to-r from-orange-400 to-orange-500' : 'bg-slate-700';
+            // Use party color for bar - use inline style with specific color for better compatibility
+            const partyColorMap = {
+                'text-orange-500': '#f97316',
+                'text-red-500': '#ef4444',
+                'text-blue-500': '#3b82f6',
+                'text-blue-700': '#1d4ed8',
+                'text-cyan-500': '#06b6d4',
+                'text-blue-600': '#2563eb',
+                'text-purple-600': '#9333ea',
+                'text-orange-600': '#ea580c',
+                'text-pink-500': '#ec4899',
+                'text-purple-400': '#a855f7',
+                'text-orange-400': '#fb923c',
+                'text-yellow-500': '#eab308',
+                'text-purple-300': '#d8b4fe',
+                'text-indigo-500': '#6366f1',
+                'text-cyan-400': '#22d3ee',
+                'text-emerald-400': '#34d399',
+                'text-green-500': '#22c55e',
+                'text-slate-400': '#94a3b8'
+            };
+            const barColorStyle = partyColorMap[p.color] || '#94a3b8';
 
             html += `
                 <div class="relative group">
@@ -65,7 +84,7 @@ async function initResults() {
                         <span class="text-xs text-slate-400 font-mono">${count.toLocaleString()} (${pct}%)</span>
                     </div>
                     <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
-                        <div class="h-full ${barColor} rounded-full" style="width: ${pct}%"></div>
+                        <div class="h-full rounded-full" style="width: ${pct}%; background-color: ${barColorStyle}"></div>
                     </div>
                 </div>
             `;
@@ -117,17 +136,37 @@ async function initResults() {
 
                 html += `
                     <div class="mt-10 w-full">
-                        <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                            <i class="fa-solid fa-list-check text-blue-500"></i> นโยบายที่นักเล่นเลือกมากที่สุด
+                        <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-list-check text-blue-500"></i> นโยบายที่ผู้เล่นเลือกมากที่สุด
                         </h3>
+                        <p class="text-xs text-slate-500 mb-6">จากผู้เล่นทั้งหมด ${totalSims.toLocaleString()} คน</p>
                         <div class="space-y-3">
                 `;
 
                 sortedPolicies.forEach(([label, count], index) => {
                     const pct = ((count / totalSims) * 100).toFixed(1);
-                    const barColor = index === 0 ? 'bg-gradient-to-r from-yellow-500 to-amber-500' :
-                                   index === 1 ? 'bg-gradient-to-r from-slate-300 to-slate-400' :
-                                   index === 2 ? 'bg-gradient-to-r from-orange-400 to-orange-500' : 'bg-blue-600';
+                    // Heatmap color based on percentage - finer scale for 20-50% range
+                    const pctNum = parseFloat(pct);
+                    let barColor;
+                    if (pctNum >= 45) {
+                        barColor = 'bg-gradient-to-r from-red-500 to-red-600';
+                    } else if (pctNum >= 35) {
+                        barColor = 'bg-gradient-to-r from-red-400 to-orange-500';
+                    } else if (pctNum >= 28) {
+                        barColor = 'bg-gradient-to-r from-orange-500 to-orange-600';
+                    } else if (pctNum >= 22) {
+                        barColor = 'bg-gradient-to-r from-orange-400 to-orange-500';
+                    } else if (pctNum >= 18) {
+                        barColor = 'bg-gradient-to-r from-amber-500 to-yellow-500';
+                    } else if (pctNum >= 14) {
+                        barColor = 'bg-gradient-to-r from-yellow-500 to-amber-500';
+                    } else if (pctNum >= 10) {
+                        barColor = 'bg-gradient-to-r from-lime-500 to-lime-600';
+                    } else if (pctNum >= 6) {
+                        barColor = 'bg-gradient-to-r from-green-500 to-green-600';
+                    } else {
+                        barColor = 'bg-gradient-to-r from-emerald-500 to-emerald-600';
+                    }
 
                     html += `
                         <div class="relative">

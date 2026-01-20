@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 16 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v1.5.1](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.1) | **Data Updated**: 19 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v1.5.2](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.2) | **Data Updated**: 20 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -135,6 +135,17 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 ## 📜 Version History
 
+### v1.5.2 (January 20, 2569/2026)
+- 🎨 **Poll Results Page Improvements**:
+  - Moved "ดูนโยบายทุกพรรค" button from topbar to bottom section (before "เล่นเกม" button) for better UX flow
+  - Added "พัฒนาโดย..." footer with thalay.eu logo at bottom of results page for proper attribution
+  - Changed poll result bar colors to use actual party colors instead of generic medal colors for better visual clarity
+  - Changed section title from "นักเล่น" to "ผู้เล่น" for more appropriate Thai language usage
+- 📊 **Policy Statistics Enhancements**:
+  - Added player count display ("จากผู้เล่นทั้งหมด X คน") in policy statistics section for context
+  - Improved color scale for policy heatmap with finer gradients for 20-50% range (red-orange-yellow-lime-green-emerald)
+- 🎯 **Button Interaction Fix**: Added `overflow-hidden` class to buttons to prevent animate-ping from intercepting mouse events on adjacent elements
+
 ### v1.5.1 (January 19, 2569/2026)
 - 📚 **Policy Access**: Replaced "Play Game" button on intro screen with direct "View all policies" link (`thalay.eu/policy2569`) to prioritize information access.
 - 🗣️ **Wording Update**: Updated "View results" button text to "ดูผลโหวตพรรค และ นโยบายที่คนชอบ" (View party votes and policies people like) for clarity and engagement.
@@ -183,4 +194,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v1.5.1 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.1)
+**Latest Release**: [v1.5.2 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.5.2)
