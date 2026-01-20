@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 16 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v1.6.0](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.6.0) | **Data Updated**: 20 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v1.6.1](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.6.1) | **Data Updated**: 20 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -135,6 +135,17 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 ## 📜 Version History
 
+### v1.6.1 (January 20, 2569/2026)
+- 🔍 **Policy Explorer with Search Bar**:
+  - Added new file `policy_explore_with_search.html` with search functionality
+  - Search bar positioned at the top of the page before existing filters
+  - Real-time search across policy titles, descriptions, and party names
+  - Clear button (X) appears when typing, resets search on click
+  - Escape key support to clear search
+  - Search works in combination with existing party and category filters
+  - Helper text explaining search scope: "ค้นหาจากชื่อนโยบาย คำอธิบาย และชื่อพรรคการเมือง"
+  - Original `policy_explore.html` remains unchanged for backward compatibility
+
 ### v1.6.0 (January 20, 2569/2026)
 - 🎨 **Scroll Indicator Visual Enhancement**:
   - Changed reminder text from "อย่าลืม!" to "ยังไม่เสร็จ! อย่าลืมลงมา..." for clearer messaging
@@ -264,4 +275,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v1.6.0 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.6.0)
+**Latest Release**: [v1.6.1 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.6.1)
