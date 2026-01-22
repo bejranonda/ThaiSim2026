@@ -2,9 +2,6 @@ import { parties } from './data.js';
 import { db, appId, collection, getDocs } from './config.js';
 import '../css/styles.css';
 
-function findPartyKeyByName(name) {
-    return Object.keys(parties).find(key => parties[key].name === name);
-}
 
 async function initResults() {
     const container = document.getElementById('results-container');
@@ -230,20 +227,23 @@ ${sorted.map(([key, count]) => {
 
             winnerSnapshot.forEach(doc => {
                 const data = doc.data();
-                if (data.winner && data.winner.name) {
-                    const partyKey = findPartyKeyByName(data.winner.name);
-                    if (partyKey) {
+                if (data.winner && data.winner) {
+                    // The winner field contains the party code directly (e.g., "PPRP")
+                    const partyKey = data.winner;
+                    if (parties[partyKey]) {
                         winnerCounts[partyKey] = (winnerCounts[partyKey] || 0) + 1;
                         totalWinners++;
                     }
                 }
             });
 
+            
             if (totalWinners > 0) {
                 const sortedWinners = Object.entries(winnerCounts)
                     .sort((a, b) => b[1] - a[1])
                     .slice(0, 10);
 
+                
                 // Generate Card Grid HTML
                 html += `
                     <div class="mt-10 w-full">
@@ -273,6 +273,8 @@ ${sorted.map(([key, count]) => {
                         </div>
                     </div>
                 `;
+            } else {
+                console.log('No simulation results found yet');
             }
         } catch (e) {
             console.error("Winner stats error:", e);

@@ -262,5 +262,5 @@ For more information:
 
 ---
 
-**Last Updated**: January 19, 2569 (2026)
-**Version**: v1.2
+**Last Updated**: January 22, 2569 (2026)
+**Version**: v1.7.1

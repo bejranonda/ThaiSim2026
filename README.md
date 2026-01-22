@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 16 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v1.7.0](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.7.0) | **Data Updated**: 22 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v1.7.1](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.7.1) | **Data Updated**: 22 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -134,6 +134,29 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 - **Backend**: Firebase (Authentication & Firestore) for real-time voting data.
 
 ## 📜 Version History
+
+### v1.7.1 (January 22, 2569/2026)
+- 🏆 **Winner Statistics Dashboard**:
+  - Added new section showing top 10 parties from all simulations
+  - Card grid layout displaying party icons, names, win counts, and percentages
+  - Responsive design (2 columns on mobile, up to 5 columns on desktop)
+  - Real-time updates from Firebase simulation results
+- 📊 **Vote Distribution Visualization**:
+  - Replaced single-party progress bar with stacked bar chart
+  - Shows vote distribution across all parties with matching party colors
+  - Visual representation of proportional vote shares
+- 📝 **Improved Thai Labels**:
+  - Streamlined header text: "คะแนนเสียงจริงจากผู้เล่น Sim-Thailand 2569"
+  - Updated section headers for better clarity:
+    - "พรรคที่ผู้เล่นโหวตให้ (ไม่ใช่ผลการจำลอง)"
+    - "10 พรรคแรกที่นโยบายตรงใจที่สุด (จากการจำลอง)"
+
+### v1.7.0 (January 20, 2569/2026)
+- 🔍 **Policy Statistics Export Tool**:
+  - Added feature to export policy selection statistics as downloadable CSV file
+  - Users can analyze most popular policies across all simulations
+  - Policy export includes frequency rankings and percentages
+  - Enhanced data analysis capabilities for researchers and educators
 
 ### v1.6.1 (January 20, 2569/2026)
 - 🔍 **Policy Explorer with Search Bar**:
