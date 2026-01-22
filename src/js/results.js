@@ -2,6 +2,10 @@ import { parties } from './data.js';
 import { db, appId, collection, getDocs } from './config.js';
 import '../css/styles.css';
 
+function findPartyKeyByName(name) {
+    return Object.keys(parties).find(key => parties[key].name === name);
+}
+
 async function initResults() {
     const container = document.getElementById('results-container');
     if (!container) return;
@@ -37,7 +41,7 @@ async function initResults() {
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                 <div>
                     <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                        <i class="fa-solid fa-chart-simple text-blue-500"></i> อันดับคะแนนรวม
+                        <i class="fa-solid fa-chart-simple text-blue-500"></i> พรรคที่ผู้เล่นโหวตให้ (ไม่ใช่ผลการจำลอง)
                     </h3>
                     <div class="space-y-4">
         `;
@@ -103,10 +107,35 @@ async function initResults() {
                     <p class="text-sm text-slate-400 uppercase tracking-widest">Total Votes</p>
 
                     <div class="mt-8 w-full">
-                         <p class="text-xs text-slate-500 mb-2 text-left">Top Party Lead:</p>
-                         <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                            <div class="h-full bg-blue-500 animate-pulse" style="width: ${((sorted[0][1]/total)*100)}%"></div>
-                         </div>
+                        <p class="text-xs text-slate-500 mb-2">สัดส่วนคะแนนเสียงทุกพรรค:</p>
+                        <div class="w-full bg-slate-800 h-4 rounded-full overflow-hidden flex">
+${sorted.map(([key, count]) => {
+    const p = parties[key] || { color: 'text-slate-400' };
+    const pct = ((count / total) * 100).toFixed(2);
+    const partyColorMap = {
+        'text-orange-500': '#f97316',
+        'text-red-500': '#ef4444',
+        'text-blue-500': '#3b82f6',
+        'text-blue-700': '#1d4ed8',
+        'text-cyan-500': '#06b6d4',
+        'text-blue-600': '#2563eb',
+        'text-purple-600': '#9333ea',
+        'text-orange-600': '#ea580c',
+        'text-pink-500': '#ec4899',
+        'text-purple-400': '#a855f7',
+        'text-orange-400': '#fb923c',
+        'text-yellow-500': '#eab308',
+        'text-purple-300': '#d8b4fe',
+        'text-indigo-500': '#6366f1',
+        'text-cyan-400': '#22d3ee',
+        'text-emerald-400': '#34d399',
+        'text-green-500': '#22c55e',
+        'text-slate-400': '#94a3b8'
+    };
+    const bgColor = partyColorMap[p.color] || '#94a3b8';
+    return `<div style="width: ${pct}%; background-color: ${bgColor}" class="h-full first:rounded-l-full last:rounded-r-full" title="${p.name}: ${pct}%"></div>`;
+}).join('')}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -191,6 +220,62 @@ async function initResults() {
             }
         } catch (e) {
             console.error("Policy stats fetch error:", e);
+        }
+
+        // Add Winner Statistics Section
+        try {
+            const winnerSnapshot = await getDocs(collection(db, 'artifacts', appId, 'public', 'data', 'sim_results_v7'));
+            const winnerCounts = {};
+            let totalWinners = 0;
+
+            winnerSnapshot.forEach(doc => {
+                const data = doc.data();
+                if (data.winner && data.winner.name) {
+                    const partyKey = findPartyKeyByName(data.winner.name);
+                    if (partyKey) {
+                        winnerCounts[partyKey] = (winnerCounts[partyKey] || 0) + 1;
+                        totalWinners++;
+                    }
+                }
+            });
+
+            if (totalWinners > 0) {
+                const sortedWinners = Object.entries(winnerCounts)
+                    .sort((a, b) => b[1] - a[1])
+                    .slice(0, 10);
+
+                // Generate Card Grid HTML
+                html += `
+                    <div class="mt-10 w-full">
+                        <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-trophy text-yellow-500"></i> 10 พรรคแรกที่นโยบายตรงใจที่สุด (จากการจำลอง)
+                        </h3>
+                        <p class="text-xs text-slate-500 mb-6">จากการจำลองทั้งหมด ${totalWinners.toLocaleString()} ครั้ง</p>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                `;
+
+                sortedWinners.forEach(([key, count], index) => {
+                    const p = parties[key];
+                    const pct = ((count / totalWinners) * 100).toFixed(1);
+                    html += `
+                        <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-4 text-center hover:bg-slate-700/50 transition">
+                            <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-slate-900 flex items-center justify-center">
+                                <i class="fa-solid ${p.icon} ${p.color} text-xl"></i>
+                            </div>
+                            <div class="text-lg font-bold ${p.color} mb-1">${p.name}</div>
+                            <div class="text-2xl font-extrabold text-white">${count.toLocaleString()}</div>
+                            <div class="text-xs text-slate-500">${pct}%</div>
+                        </div>
+                    `;
+                });
+
+                html += `
+                        </div>
+                    </div>
+                `;
+            }
+        } catch (e) {
+            console.error("Winner stats error:", e);
         }
 
         container.innerHTML = html;
