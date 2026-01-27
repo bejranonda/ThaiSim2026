@@ -147,9 +147,15 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
   - Policies span categories: Economy, Social, Education, Security, and Politics
   - Includes forward-thinking policies like space force, nuclear program, and Elon Musk advisorship
 - 🎮 **Simulation Game Integration**:
-  - NAP mapped to 6 existing policy options across all game phases
-  - Players can now select NAP-aligned policies during gameplay
-  - Party appears in results matching based on policy choices
+  - NAP mapped to 6 existing policy options
+  - Added **18 New Policy Options [Release2]** (3 per phase) extending choices for all parties
+  - Highlights:
+    - **Economy**: Mega Projects (Landbridge), Virtual Bank
+    - **Agriculture**: Unlock Local Fishery, Smart Farmer AI
+    - **Welfare**: Parental Leave 180 Days, Stepped Elderly Allowance
+    - **Anti-Corruption**: Regulatory Guillotine, Higher Lottery Penalties
+    - **Security**: Cyber Army, Space Force, Nuclear Program
+    - **Education**: Space Trip, AI in Classroom, Elon Musk Advisor
 
 ### v1.7.1 (January 22, 2569/2026)
 - 🏆 **Winner Statistics Dashboard**:

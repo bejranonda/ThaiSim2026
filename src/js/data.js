@@ -34,7 +34,10 @@ export const phases = [
             { id: "p1-5", label: "อัดฉีดงบ 5 แสนล้าน", desc: "เร่งรัดงบลงทุนภาครัฐเข้าระบบทันที", stats: { eco: 20, soc: 0, lib: 0, budget: -16 }, party: ["OKM", "CP"] },
             { id: "p1-6", label: "กองทุนคนตัวเล็ก / พักหนี้", desc: "ช่วย SME และคนตัวเล็กให้ตั้งตัวได้", stats: { eco: 15, soc: 15, lib: 5, budget: -13 }, party: ["TST", "BJT", "RAK"] },
             { id: "p1-7", label: "ลดภาษีสินค้าในประเทศ", desc: "ลด VAT สินค้าไทยเพื่อช่วยผู้ผลิต", stats: { eco: 10, soc: 5, lib: 10, budget: -9 }, party: ["RAK", "TKM"] },
-            { id: "p1-8", label: "ค่าแรง 450-600 บาท", desc: "ขึ้นค่าแรงขั้นต่ำให้สอดคล้องค่าครองชีพ", stats: { eco: 5, soc: 15, lib: 10, budget: -6 }, party: ["PP", "PTP"] }
+            { id: "p1-8", label: "ค่าแรง 450-600 บาท", desc: "ขึ้นค่าแรงขั้นต่ำให้สอดคล้องค่าครองชีพ", stats: { eco: 5, soc: 15, lib: 10, budget: -6 }, party: ["PP", "PTP"] },
+            { id: "p1-9", label: "วิดพื้นเพิ่มเงินเดือน [Release2]", desc: "พนักงานที่วิดพื้น 40-100 ครั้ง/วัน ได้เงินเดือนเพิ่ม 10%", stats: { eco: 5, soc: 10, lib: 5, budget: -8 }, party: ["NAP"] },
+            { id: "p1-10", label: "Mega Projects (Landbridge) [Release2]", desc: "โครงการขนาดใหญ่ (สะพานทะเล, รถไฟความเร็วสูง)", stats: { eco: 20, soc: 0, lib: -5, budget: -21 }, party: ["ECO", "CP"] },
+            { id: "p1-11", label: "Virtual Bank / ทลายทุนการเงิน [Release2]", desc: "เปิดเสรีธนาคาร บัตรเครดิต ให้แข่งขันได้", stats: { eco: 15, soc: 5, lib: 15, budget: 6 }, party: ["PP", "ECO"] }
         ]
     },
     {
@@ -49,7 +52,10 @@ export const phases = [
             { id: "p2-5", label: "เกษตรสีเขียว / น้ำบาดาล", desc: "ขายคาร์บอนเครดิตและจัดหาแหล่งน้ำทั่วถึง", stats: { eco: 10, soc: 10, lib: 5, budget: 6 }, party: ["CTP", "ECO", "NAP"] },
             { id: "p2-6", label: "พักหนี้เกษตรกร", desc: "พักชำระหนี้ทั้งต้นและดอกเบี้ย", stats: { eco: 5, soc: 15, lib: 0, budget: -11 }, party: ["BJT", "KLA", "PPRP"] },
             { id: "p2-7", label: "แปรรูปสินค้าเกษตร", desc: "สร้างโรงงานแปรรูปในชุมชน เพิ่มมูลค่า", stats: { eco: 15, soc: 5, lib: 5, budget: -13 }, party: ["CP", "OKM", "CTP"] },
-            { id: "p2-8", label: "โฉนดต้นไม้", desc: "ใช้ต้นไม้ค้ำประกันเงินกู้ได้", stats: { eco: 10, soc: 10, lib: 10, budget: 0 }, party: ["DEM", "CTP"] }
+            { id: "p2-8", label: "โฉนดต้นไม้", desc: "ใช้ต้นไม้ค้ำประกันเงินกู้ได้", stats: { eco: 10, soc: 10, lib: 10, budget: 0 }, party: ["DEM", "CTP"] },
+            { id: "p2-9", label: "ปลดล็อกประมงพื้นบ้าน (Fishery) [Release2]", desc: "แก้กฎหมาย IUU คืนอาชีพให้ชาวประมง", stats: { eco: 10, soc: 10, lib: 15, budget: 0 }, party: ["DEM", "CTP"] },
+            { id: "p2-10", label: "กัญชาเพื่อเกษตรกร [Release2]", desc: "ส่งเสริมการปลูกกัญชาทางการแพทย์อย่างถูกกฎหมาย", stats: { eco: 15, soc: 5, lib: 10, budget: 9 }, party: ["BJT", "FAIR"] },
+            { id: "p2-11", label: "ปั้น Smart Farmer / เกษตร AI [Release2]", desc: "ฝึกเกษตรกรใช้เทคโนโลยีและ AI", stats: { eco: 10, soc: 10, lib: 5, budget: -11 }, party: ["CTP", "TKM"] }
         ]
     },
     {
@@ -64,7 +70,10 @@ export const phases = [
             { id: "p3-5", label: "ติดโซล่าเซลล์ฟรี", desc: "ลดภาระค่าไฟให้ทุกหลังคาเรือน", stats: { eco: 5, soc: 15, lib: 10, budget: -19 }, party: ["BJT", "TST"] },
             { id: "p3-6", label: "เงินอุดหนุนเด็ก/คนท้อง", desc: "ดูแลแม่และเด็กแรกเกิดอย่างเข้มข้น", stats: { eco: 5, soc: 20, lib: 5, budget: -15 }, party: ["TKM", "DEM", "PPRP", "NAP"] },
             { id: "p3-7", label: "รักษาฟรีทั่วไทย (30 บาทพลัส)", desc: "ยกระดับระบบสาธารณสุขและการส่งต่อผู้ป่วย", stats: { eco: 0, soc: 20, lib: 10, budget: -21 }, party: ["PTP", "TST"] },
-            { id: "p3-8", label: "ศูนย์ดูแลผู้สูงอายุ", desc: "Day Care Center ทุกตำบล", stats: { eco: 5, soc: 15, lib: 5, budget: -13 }, party: ["RAK", "UTN"] }
+            { id: "p3-8", label: "ศูนย์ดูแลผู้สูงอายุ", desc: "Day Care Center ทุกตำบล", stats: { eco: 5, soc: 15, lib: 5, budget: -13 }, party: ["RAK", "UTN"] },
+            { id: "p3-9", label: "งดภาษีครอบครัวมีลูก [Release2]", desc: "ยกเว้นภาษีเงินได้สำหรับครอบครัวที่มีบุตร", stats: { eco: 5, soc: 15, lib: 5, budget: -16 }, party: ["NAP"] },
+            { id: "p3-10", label: "ลาคลอด 180 วัน (พ่อแม่) [Release2]", desc: "สิทธิลาคลอดทั้งพ่อและแม่ 180 วัน เพื่อคุณภาพชีวิตครอบครัว", stats: { eco: 0, soc: 25, lib: 10, budget: -23 }, party: ["PP", "PTP"] },
+            { id: "p3-11", label: "เบี้ยผู้สูงอายุขั้นบันได [Release2]", desc: "60 ปี=600, 70 ปี=800, 80 ปี=1,000 บาท", stats: { eco: 0, soc: 20, lib: 5, budget: -19 }, party: ["PPRP", "TST"] }
         ]
     },
     {
@@ -79,7 +88,10 @@ export const phases = [
             { id: "p4-5", label: "กระจายอำนาจ / เลือกตั้งผู้ว่าฯ", desc: "ลดอำนาจส่วนกลาง ให้จังหวัดจัดการตนเอง", stats: { eco: 5, soc: 10, lib: 25, budget: -6 }, party: ["PP", "FAIR", "CTP"] },
             { id: "p4-6", label: "แพลตฟอร์มส่องรัฐ", desc: "เปิดเผยข้อมูลจัดซื้อจัดจ้างให้ประชาชนตรวจสอบ", stats: { eco: 5, soc: 5, lib: 20, budget: 11 }, party: ["DEM", "SRT"] },
             { id: "p4-7", label: "AI จับโกง", desc: "ตรวจสอบการประมูลรัฐแบบ Real-time", stats: { eco: 10, soc: 5, lib: 10, budget: 13 }, party: ["ECO"] },
-            { id: "p4-8", label: "ปฏิรูปองค์กรอิสระ", desc: "รื้อระบบองค์กรตรวจสอบให้เป็นกลาง", stats: { eco: 0, soc: 10, lib: 20, budget: -6 }, party: ["PP", "TST"] }
+            { id: "p4-8", label: "ปฏิรูปองค์กรอิสระ", desc: "รื้อระบบองค์กรตรวจสอบให้เป็นกลาง", stats: { eco: 0, soc: 10, lib: 20, budget: -6 }, party: ["PP", "TST"] },
+            { id: "p4-9", label: "กิโยตินกฎหมาย (ลดส่วย) [Release2]", desc: "ยกเลิกกฎหมายล้าหลัง ปิดช่องทางเรียกรับสินบน", stats: { eco: 10, soc: 5, lib: 15, budget: 11 }, party: ["PTP", "ECO"] },
+            { id: "p4-10", label: "ลงโทษหนักขายหวยแพง [Release2]", desc: "ขายหวยเกิน 80 บาท ติดคุก 5 ปี", stats: { eco: 0, soc: 10, lib: -10, budget: 0 }, party: ["NAP"] },
+            { id: "p4-11", label: "Open Parliament [Release2]", desc: "เปิดข้อมูลการประชุมสภา ให้ดาวน์โหลดได้ทั้งหมด", stats: { eco: 0, soc: 10, lib: 25, budget: 6 }, party: ["PP", "FAIR"] }
         ]
     },
     {
@@ -94,7 +106,10 @@ export const phases = [
             { id: "p5-5", label: "Single Command", desc: "นายกฯ สั่งการเองเบ็ดเสร็จเมื่อเกิดวิกฤต", stats: { eco: 0, soc: 10, lib: -15, budget: 0 }, party: ["TKM"] },
             { id: "p5-6", label: "ปราบยาเสพติดเด็ดขาด", desc: "กวาดล้างผู้ค้า และบำบัดผู้เสพ", stats: { eco: 0, soc: 20, lib: -5, budget: -13 }, party: ["PTP", "KLA", "NAP"] },
             { id: "p5-7", label: "ปิดประเทศเมื่อมีโรคระบาด", desc: "กล้าตัดสินใจล็อกดาวน์เพื่อรักษาชีวิต", stats: { eco: -10, soc: 20, lib: -20, budget: -9 }, party: ["OKM"] },
-            { id: "p5-8", label: "Offset อาวุธ", desc: "ซื้ออาวุธต้องแลกเปลี่ยนสินค้าเกษตร/เทคโนโลยี", stats: { eco: 10, soc: 5, lib: 0, budget: 13 }, party: ["DEM"] }
+            { id: "p5-8", label: "Offset อาวุธ", desc: "ซื้ออาวุธต้องแลกเปลี่ยนสินค้าเกษตร/เทคโนโลยี", stats: { eco: 10, soc: 5, lib: 0, budget: 13 }, party: ["DEM"] },
+            { id: "p5-9", label: "กองทัพอวกาศ [Release2]", desc: "จัดตั้งกองทัพอวกาศและฐานทัพอวกาศ", stats: { eco: 0, soc: 10, lib: 0, budget: -19 }, party: ["NAP"] },
+            { id: "p5-10", label: "นิวเคลียร์เพื่อสันติภาพ [Release2]", desc: "พัฒนาเทคโนโลยีนิวเคลียร์เพื่อความมั่นคง", stats: { eco: 5, soc: 10, lib: -15, budget: -21 }, party: ["NAP"] },
+            { id: "p5-11", label: "ตั้งกองทัพไซเบอร์ (Cyber Army) [Release2]", desc: "สร้างกองทัพไซเบอร์ป้องกันประเทศ", stats: { eco: 10, soc: 5, lib: 0, budget: -13 }, party: ["TKM", "RAK"] }
         ]
     },
     {
@@ -109,7 +124,10 @@ export const phases = [
             { id: "p6-5", label: "ทักษะอนาคต (Wellness/Tech)", desc: "สร้างทักษะแรงงานมูลค่าสูง", stats: { eco: 15, soc: 5, lib: 5, budget: -9 }, party: ["PTP", "NAP"] },
             { id: "p6-6", label: "แก้หนี้คนรุ่นใหม่ (กยศ.)", desc: "ล้างหนี้/ปรับโครงสร้างหนี้เพื่อการศึกษา", stats: { eco: 5, soc: 15, lib: 5, budget: -19 }, party: ["PCC", "BJT"] },
             { id: "p6-7", label: "อินเทอร์เน็ตฟรี/ดาวเทียม", desc: "ลดความเหลื่อมล้ำทางดิจิทัล", stats: { eco: 10, soc: 5, lib: 15, budget: -11 }, party: ["TKM", "PP"] },
-            { id: "p6-8", label: "สร้างคนดีมีวินัย", desc: "ปลูกฝังค่านิยมตั้งแต่อนุบาล", stats: { eco: 0, soc: 15, lib: -5, budget: -6 }, party: ["TKM", "OKM"] }
+            { id: "p6-8", label: "สร้างคนดีมีวินัย", desc: "ปลูกฝังค่านิยมตั้งแต่อนุบาล", stats: { eco: 0, soc: 15, lib: -5, budget: -6 }, party: ["TKM", "OKM"] },
+            { id: "p6-9", label: "Elon Musk ที่ปรึกษา PM [Release2]", desc: "เชิญ Elon Musk เป็นที่ปรึกษาด้านเทคโนโลยีอวกาศ", stats: { eco: 15, soc: 0, lib: 5, budget: -6 }, party: ["NAP"] },
+            { id: "p6-10", label: "AI ในห้องเรียน [Release2]", desc: "ใช้ AI ช่วยครูสอนและวิเคราะห์พัฒนาการเด็ก", stats: { eco: 10, soc: 10, lib: 10, budget: -11 }, party: ["TKM", "PTP"] },
+            { id: "p6-11", label: "ทัศนศึกษาอวกาศ (Space Trip) [Release2]", desc: "จัดทริปพานักเรียนไปอวกาศเพื่อการศึกษา", stats: { eco: 10, soc: 5, lib: 0, budget: -16 }, party: ["NAP"] }
         ]
     }
 ];
