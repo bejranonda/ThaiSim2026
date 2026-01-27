@@ -135,7 +135,7 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 ## 📜 Version History
 
-### v1.7.2 (January 28, 2569/2026)
+### v2.0.0 (January 28, 2569/2026) - "Release 2 Major Update"
 - 🆕 **New Political Party Added**:
   - พรรคทางเลือกใหม่ (New Alternative Party) led by มงคลกิตติ์ สุขสินธารานนท์ (พรี่เต้)
   - Added to both **Policy Explorer** (10 policies) and **Simulation Game** (6 phases)
@@ -320,4 +320,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v1.6.1 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.6.1)
+**Latest Release**: [v2.0.0 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v2.0.0)
