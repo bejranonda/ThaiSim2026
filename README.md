@@ -24,7 +24,7 @@
 **Reference Materials**: Political campaign data and debate transcripts are organized in the `/Campaign2569` folder. All policies are sourced from the **Nation Election DEBATE** (Updated: 17 January 2569) to ensure accuracy and educational value.
 
 ### 🎯 Features
-- **16 Political Parties**: Complete with real policy platforms from the 2569 election cycle.
+- **18 Political Parties**: Complete with real policy platforms from the 2569 election cycle.
 - **6 Critical Phases**: Cover major policy areas like Economy, Land/Agriculture, Welfare, Anti-Corruption, National Security, and Future/Education.
 - **Real-Time Results**: Live dashboard showing voting trends from all users.
 - **Educational Tool**: Learn about the Thai political landscape through interactive simulation.
@@ -134,6 +134,17 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 - **Backend**: Firebase (Authentication & Firestore) for real-time voting data.
 
 ## 📜 Version History
+
+### v1.7.2 (January 28, 2569/2026)
+- 🆕 **New Political Party Added**:
+  - พรรคทางเลือกใหม่ (New Alternative Party) led by มงคลกิตติ์ สุขสินธารานนท์ (พรี่เต้)
+  - Added 10 innovative policies including space programs, tax incentives, and future-focused initiatives
+  - Party color: #ff6b2c (vibrant orange)
+  - Updated party count from 17 to 18 parties
+- 📚 **Policy Database Enhancement**:
+  - All policies sourced from The Matter article (https://thematter.co/brief/255470/255470)
+  - Policies span categories: Economy, Social, Education, Security, and Politics
+  - Includes forward-thinking policies like space force, nuclear program, and Elon Musk advisorship
 
 ### v1.7.1 (January 22, 2569/2026)
 - 🏆 **Winner Statistics Dashboard**:
