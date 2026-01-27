@@ -1,6 +1,6 @@
 # Sim-Thailand 2569 (ThaiSim2569) 🇹🇭
 
-**Thai Political Simulation Game** - Experience governance through real policy choices from 16 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
+**Thai Political Simulation Game** - Experience governance through real policy choices from 18 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
 **Latest Release**: [v1.7.1](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.7.1) | **Data Updated**: 22 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
@@ -138,13 +138,18 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 ### v1.7.2 (January 28, 2569/2026)
 - 🆕 **New Political Party Added**:
   - พรรคทางเลือกใหม่ (New Alternative Party) led by มงคลกิตติ์ สุขสินธารานนท์ (พรี่เต้)
-  - Added 10 innovative policies including space programs, tax incentives, and future-focused initiatives
+  - Added to both **Policy Explorer** (10 policies) and **Simulation Game** (6 phases)
   - Party color: #ff6b2c (vibrant orange)
+  - Party icon: Rocket (fa-rocket) symbolizing space and future programs
   - Updated party count from 17 to 18 parties
 - 📚 **Policy Database Enhancement**:
   - All policies sourced from The Matter article (https://thematter.co/brief/255470/255470)
   - Policies span categories: Economy, Social, Education, Security, and Politics
   - Includes forward-thinking policies like space force, nuclear program, and Elon Musk advisorship
+- 🎮 **Simulation Game Integration**:
+  - NAP mapped to 6 existing policy options across all game phases
+  - Players can now select NAP-aligned policies during gameplay
+  - Party appears in results matching based on policy choices
 
 ### v1.7.1 (January 22, 2569/2026)
 - 🏆 **Winner Statistics Dashboard**:
