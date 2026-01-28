@@ -8,7 +8,7 @@ export const parties = {
     "PPRP": { name: "พลังประชารัฐ", color: "text-blue-600", icon: "fa-id-card", desc: "เน้นบัตรประชารัฐ 700+ เบี้ยผู้สูงอายุขั้นบันได และน้ำมันประชาชน" },
     "KLA": { name: "กล้าธรรม", color: "text-purple-600", icon: "fa-file-signature", desc: "เน้นเปลี่ยน ส.ป.ก. เป็นโฉนดทองคำ แก้หนี้เบ็ดเสร็จ และน้ำชุมชน" },
     "PCC": { name: "ประชาชาติ", color: "text-orange-600", icon: "fa-hands-praying", desc: "เน้นล้างหนี้ กยศ. ลดราคาน้ำมันลิตรละ 20 บาท และสันติภาพชายแดนใต้" },
-    "CTP": { name: "ชาติไทยพัฒนา", color: "text-pink-500", icon: "fa-leaf", desc: "เน้น Green Economy ขายคาร์บอนเครดิต และน้ำบาดาลขนาดใหญ่ทุกตำบล" },
+    "CTP": { name: "ชาติไทยพัฒนา(ไม่ส่งผู้สมัคร)", color: "text-pink-500", icon: "fa-leaf", desc: "เน้น Green Economy ขายคาร์บอนเครดิต และน้ำบาดาลขนาดใหญ่ทุกตำบล" },
     "TST": { name: "ไทยสร้างไทย", color: "text-purple-400", icon: "fa-person-cane", desc: "เน้นบำนาญ 3,000 บาท แขวนกฎหมายที่เป็นอุปสรรค และกองทุนคนตัวเล็ก" },
     "CP": { name: "ชาติพัฒนา", color: "text-orange-400", icon: "fa-road", desc: "เน้นโคราชโนมิกส์ มอเตอร์เวย์ทั่วไทย และอุตสาหกรรมกีฬา" },
     "SRT": { name: "เสรีรวมไทย", color: "text-yellow-500", icon: "fa-handcuffs", desc: "เน้นปราบโกงทั้งแผ่นดิน ยึดทรัพย์คนโกง และปฏิรูปตำรวจ" },
