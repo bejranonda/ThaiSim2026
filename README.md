@@ -135,15 +135,7 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 ## 📜 Version History
 
-### v2.1.2 (January 28, 2569/2026) - "Public Voice Update"
-- 🗳️ **Enhanced Vote Results**:
-  - **Top Matched Parties**: Increased display limit from 10 to **20 parties**.
-  - **Top Voted Policies**: Removed limit to show **ALL** voted policies sorted by popularity.
-- 📝 **Content Update**:
-  - Added "Pornhub / Sex Toy Legalization" to Phase 1 (Economy).
-  - Added "Sex Worker Legalization" to Phase 3 (Welfare).
-  
-### v2.1.2 (January 28, 2569/2026) - "Mature Content Policy Update"
+### v2.1.2 (January 28, 2569/2026) - "Mature Content & Public Voice Update"
 - 🏛️ **Policy Diversity Enhancement**:
   - Added "Pornhub / Sex Toy ถูกกฎหมาย" to Phase 1 (Economy) - Regulating adult entertainment industry
   - Added "Sex Worker ถูกกฎหมาย" to Phase 3 (Welfare) - Protecting rights of adult service workers
@@ -153,6 +145,9 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
   - Social Welfare: +15 points from sex worker legalization
   - Liberty: +20 points from both policies (individual freedom focus)
   - Budget: +17 points total from regulated taxation
+- 🗳️ **Enhanced Vote Results**:
+  - **Top Matched Parties**: Increased display limit from 10 to **20 parties**.
+  - **Top Voted Policies**: Removed limit to show **ALL** voted policies sorted by popularity.
 
 ### v2.0.1 (January 28, 2569/2026) - "Future Edition Update"
 - 🚀 **New Visual Identity**: Added space-themed background animation with twinkling stars on the home screen.

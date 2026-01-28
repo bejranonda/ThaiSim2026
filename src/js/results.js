@@ -12,7 +12,7 @@ async function initResults() {
 
         // Fetch Poll Votes
         const snapshot = await getDocs(collection(db, 'artifacts', appId, 'public', 'data', 'poll_votes_v7'));
-        
+
         const counts = {};
         let total = 0;
 
@@ -32,7 +32,7 @@ async function initResults() {
             return;
         }
 
-        const sorted = Object.entries(counts).sort((a,b) => b[1] - a[1]);
+        const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
 
         let html = `
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
@@ -44,7 +44,7 @@ async function initResults() {
         `;
 
         sorted.forEach(([key, count], index) => {
-            const p = parties[key] || {name: key === 'OTHER' ? 'พรรคอื่นๆ' : 'ไม่ประสงค์ลงคะแนน', color: 'text-slate-400', icon: 'fa-circle-question'};
+            const p = parties[key] || { name: key === 'OTHER' ? 'พรรคอื่นๆ' : 'ไม่ประสงค์ลงคะแนน', color: 'text-slate-400', icon: 'fa-circle-question' };
             const pct = ((count / total) * 100).toFixed(1);
 
             // Highlight top 3
@@ -107,31 +107,31 @@ async function initResults() {
                         <p class="text-xs text-slate-500 mb-2">สัดส่วนคะแนนเสียงทุกพรรค:</p>
                         <div class="w-full bg-slate-800 h-4 rounded-full overflow-hidden flex">
 ${sorted.map(([key, count]) => {
-    const p = parties[key] || { color: 'text-slate-400' };
-    const pct = ((count / total) * 100).toFixed(2);
-    const partyColorMap = {
-        'text-orange-500': '#f97316',
-        'text-red-500': '#ef4444',
-        'text-blue-500': '#3b82f6',
-        'text-blue-700': '#1d4ed8',
-        'text-cyan-500': '#06b6d4',
-        'text-blue-600': '#2563eb',
-        'text-purple-600': '#9333ea',
-        'text-orange-600': '#ea580c',
-        'text-pink-500': '#ec4899',
-        'text-purple-400': '#a855f7',
-        'text-orange-400': '#fb923c',
-        'text-yellow-500': '#eab308',
-        'text-purple-300': '#d8b4fe',
-        'text-indigo-500': '#6366f1',
-        'text-cyan-400': '#22d3ee',
-        'text-emerald-400': '#34d399',
-        'text-green-500': '#22c55e',
-        'text-slate-400': '#94a3b8'
-    };
-    const bgColor = partyColorMap[p.color] || '#94a3b8';
-    return `<div style="width: ${pct}%; background-color: ${bgColor}" class="h-full first:rounded-l-full last:rounded-r-full" title="${p.name}: ${pct}%"></div>`;
-}).join('')}
+            const p = parties[key] || { color: 'text-slate-400' };
+            const pct = ((count / total) * 100).toFixed(2);
+            const partyColorMap = {
+                'text-orange-500': '#f97316',
+                'text-red-500': '#ef4444',
+                'text-blue-500': '#3b82f6',
+                'text-blue-700': '#1d4ed8',
+                'text-cyan-500': '#06b6d4',
+                'text-blue-600': '#2563eb',
+                'text-purple-600': '#9333ea',
+                'text-orange-600': '#ea580c',
+                'text-pink-500': '#ec4899',
+                'text-purple-400': '#a855f7',
+                'text-orange-400': '#fb923c',
+                'text-yellow-500': '#eab308',
+                'text-purple-300': '#d8b4fe',
+                'text-indigo-500': '#6366f1',
+                'text-cyan-400': '#22d3ee',
+                'text-emerald-400': '#34d399',
+                'text-green-500': '#22c55e',
+                'text-slate-400': '#94a3b8'
+            };
+            const bgColor = partyColorMap[p.color] || '#94a3b8';
+            return `<div style="width: ${pct}%; background-color: ${bgColor}" class="h-full first:rounded-l-full last:rounded-r-full" title="${p.name}: ${pct}%"></div>`;
+        }).join('')}
                         </div>
                     </div>
                 </div>
@@ -157,8 +157,7 @@ ${sorted.map(([key, count]) => {
 
             if (totalSims > 0) {
                 const sortedPolicies = Object.entries(policyCounts)
-                    .sort((a, b) => b[1] - a[1])
-                    .slice(0, 20); // Top 20 policies
+                    .sort((a, b) => b[1] - a[1]); // Show All Policies
 
                 html += `
                     <div class="mt-10 w-full">
@@ -237,18 +236,18 @@ ${sorted.map(([key, count]) => {
                 }
             });
 
-            
+
             if (totalWinners > 0) {
                 const sortedWinners = Object.entries(winnerCounts)
                     .sort((a, b) => b[1] - a[1])
-                    .slice(0, 10);
+                    .slice(0, 20);
 
-                
+
                 // Generate Card Grid HTML
                 html += `
                     <div class="mt-10 w-full">
                         <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                            <i class="fa-solid fa-trophy text-yellow-500"></i> 10 พรรคแรกที่นโยบายตรงใจที่สุด (จากการจำลอง)
+                            <i class="fa-solid fa-trophy text-yellow-500"></i> 20 พรรคแรกที่นโยบายตรงใจที่สุด (จากการจำลอง)
                         </h3>
                         <p class="text-xs text-slate-500 mb-6">จากการจำลองทั้งหมด ${totalWinners.toLocaleString()} ครั้ง</p>
                         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
