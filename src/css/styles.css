@@ -8,7 +8,8 @@ body {
     background-color: #0f172a;
     color: white;
     overflow-x: hidden;
-    font-size: 1.05rem; /* Slightly larger base for Thai font */
+    font-size: 1.05rem;
+    /* Slightly larger base for Thai font */
     line-height: 1.6;
 }
 
@@ -56,15 +57,36 @@ body {
 }
 
 @keyframes pulse-border {
-    0% { border-color: rgba(59, 130, 246, 0.4); box-shadow: 0 0 10px rgba(59, 130, 246, 0.1); }
-    50% { border-color: rgba(59, 130, 246, 1); box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
-    100% { border-color: rgba(59, 130, 246, 0.4); box-shadow: 0 0 10px rgba(59, 130, 246, 0.1); }
+    0% {
+        border-color: rgba(59, 130, 246, 0.4);
+        box-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
+    }
+
+    50% {
+        border-color: rgba(59, 130, 246, 1);
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    }
+
+    100% {
+        border-color: rgba(59, 130, 246, 0.4);
+        box-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
+    }
 }
 
 @keyframes slot-pop {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); border-color: #34d399; box-shadow: 0 0 20px rgba(52, 211, 153, 0.4); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+        border-color: #34d399;
+        box-shadow: 0 0 20px rgba(52, 211, 153, 0.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Choice Cards */
@@ -112,9 +134,18 @@ body {
 }
 
 @keyframes clickPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(0.98); background-color: #3b82f6; }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.98);
+        background-color: #3b82f6;
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Tooltip Styles */
@@ -177,6 +208,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -192,6 +224,7 @@ body {
         transform: scale(0);
         opacity: 0;
     }
+
     to {
         transform: scale(1);
         opacity: 1;
@@ -204,8 +237,17 @@ body {
 }
 
 @keyframes victoryReveal {
-    0% { transform: scale(0.8); opacity: 0; filter: blur(5px); }
-    100% { transform: scale(1); opacity: 1; filter: blur(0); }
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+        filter: blur(5px);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        filter: blur(0);
+    }
 }
 
 .animate-float {
@@ -213,19 +255,31 @@ body {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(1deg); }
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(1deg);
+    }
 }
 
 .animate-shine {
-    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0) 100%);
     background-size: 200% 100%;
     animation: shine 3s infinite linear;
 }
 
 @keyframes shine {
-    from { background-position: -200% 0; }
-    to { background-position: 200% 0; }
+    from {
+        background-position: -200% 0;
+    }
+
+    to {
+        background-position: 200% 0;
+    }
 }
 
 .animate-text-shine {
@@ -251,19 +305,24 @@ body {
     left: -100%;
     width: 50%;
     height: 100%;
-    background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.3) 50%,
-        rgba(255, 255, 255, 0) 100%
-    );
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0) 100%);
     transform: skewX(-25deg);
     animation: buttonShine 4s infinite;
 }
 
 @keyframes buttonShine {
-    0%, 30% { left: -100%; }
-    100% { left: 200%; }
+
+    0%,
+    30% {
+        left: -100%;
+    }
+
+    100% {
+        left: 200%;
+    }
 }
 
 /* Scrollbar */
@@ -292,10 +351,13 @@ body {
 
 /* Vote Section Animations */
 @keyframes glow-pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
         border-color: rgba(59, 130, 246, 0.5);
     }
+
     50% {
         box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
         border-color: rgba(59, 130, 246, 0.8);
@@ -309,15 +371,18 @@ body {
 
 /* Neon Pink Glow Animation for Scroll Indicator Text */
 @keyframes text-glow-pink {
-    0%, 100% {
+
+    0%,
+    100% {
         text-shadow: 0 0 10px rgba(232, 121, 249, 0.5),
-                     0 0 20px rgba(232, 121, 249, 0.3),
-                     0 0 30px rgba(232, 121, 249, 0.2);
+            0 0 20px rgba(232, 121, 249, 0.3),
+            0 0 30px rgba(232, 121, 249, 0.2);
     }
+
     50% {
         text-shadow: 0 0 15px rgba(232, 121, 249, 0.8),
-                     0 0 30px rgba(232, 121, 249, 0.5),
-                     0 0 45px rgba(232, 121, 249, 0.3);
+            0 0 30px rgba(232, 121, 249, 0.5),
+            0 0 45px rgba(232, 121, 249, 0.3);
     }
 }
 
@@ -328,4 +393,71 @@ body {
 /* Smooth scroll behavior */
 html {
     scroll-behavior: smooth;
+}
+
+/* Space Animation */
+#space-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle var(--duration) ease-in-out infinite;
+    animation-delay: var(--delay);
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    50% {
+        opacity: var(--opacity);
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+.new-release-badge {
+    background: linear-gradient(90deg, #ec4899, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.5));
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.5));
+        transform: scale(1);
+    }
+
+    50% {
+        filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.8));
+        transform: scale(1.05);
+    }
 }

@@ -140,21 +140,21 @@ export class Game {
                         <p class="text-sm text-slate-400 leading-relaxed">${opt.desc}</p>
                     </div>
 
-                    <!-- Tooltip -->
+                     <!-- Tooltip -->
                     <div class="tooltip-content w-56 pointer-events-none z-50">
                         <div class="font-bold text-blue-400 text-xs mb-2 border-b border-slate-600 pb-1">ข้อมูลเชิงลึก (Insight)</div>
                         <div class="space-y-1.5">
                              <div class="flex justify-between items-center text-xs text-slate-300">
                                 <span class="flex items-center gap-2"><i class="fa-solid fa-chart-line text-emerald-400 w-4 text-center"></i> เศรษฐกิจ</span>
-                                <span class="${opt.stats.eco >= 0 ? 'text-emerald-400' : 'text-red-400'} font-mono font-bold">${opt.stats.eco > 0 ? '+' : ''}${opt.stats.eco}</span>
+                                <span class="${(opt.stats.eco || 0) >= 0 ? 'text-emerald-400' : 'text-red-400'} font-mono font-bold">${(opt.stats.eco || 0) > 0 ? '+' : ''}${Math.round((opt.stats.eco || 0) * 0.5)}</span>
                             </div>
                             <div class="flex justify-between items-center text-xs text-slate-300">
                                 <span class="flex items-center gap-2"><i class="fa-solid fa-users text-blue-400 w-4 text-center"></i> สังคม</span>
-                                <span class="${opt.stats.soc >= 0 ? 'text-blue-400' : 'text-red-400'} font-mono font-bold">${opt.stats.soc > 0 ? '+' : ''}${opt.stats.soc}</span>
+                                <span class="${(opt.stats.soc || 0) >= 0 ? 'text-blue-400' : 'text-red-400'} font-mono font-bold">${(opt.stats.soc || 0) > 0 ? '+' : ''}${Math.round((opt.stats.soc || 0) * 0.5)}</span>
                             </div>
                             <div class="flex justify-between items-center text-xs text-slate-300">
                                 <span class="flex items-center gap-2"><i class="fa-solid fa-scale-balanced text-orange-400 w-4 text-center"></i> ปชต.</span>
-                                <span class="${(opt.stats.lib || 0) >= 0 ? 'text-orange-400' : 'text-red-400'} font-mono font-bold">${(opt.stats.lib || 0) > 0 ? '+' : ''}${opt.stats.lib || 0}</span>
+                                <span class="${(opt.stats.lib || 0) >= 0 ? 'text-orange-400' : 'text-red-400'} font-mono font-bold">${(opt.stats.lib || 0) > 0 ? '+' : ''}${Math.round((opt.stats.lib || 0) * 0.5)}</span>
                             </div>
                             <div class="flex justify-between items-center text-xs text-slate-400 border-t border-slate-700 pt-1.5 mt-1.5">
                                 <span class="flex items-center gap-2"><i class="fa-solid fa-hand-shake w-4 text-center"></i> พรรคที่หนุน</span>
@@ -228,13 +228,14 @@ export class Game {
 
         selectedOpts.forEach(opt => {
             opt.party.forEach(p => {
-                if (this.scores[p] !== undefined) this.scores[p] += 3.5; // Reduced from 5 to 3.5 (30% reduction) for balance
+                if (this.scores[p] !== undefined) this.scores[p] += 2.5;
             });
 
-            this.stats.eco = Math.min(100, Math.max(0, this.stats.eco + (opt.stats.eco || 0)));
-            this.stats.soc = Math.min(100, Math.max(0, this.stats.soc + (opt.stats.soc || 0)));
-            this.stats.lib = Math.min(100, Math.max(0, this.stats.lib + (opt.stats.lib || 0)));
-            this.stats.budget = this.stats.budget + (opt.stats.budget || 0); // Budget can be negative
+            // Round 3 Fix: 50% Reduction and Rounding
+            this.stats.eco = Math.min(100, Math.max(0, this.stats.eco + Math.round((opt.stats.eco || 0) * 0.5)));
+            this.stats.soc = Math.min(100, Math.max(0, this.stats.soc + Math.round((opt.stats.soc || 0) * 0.5)));
+            this.stats.lib = Math.min(100, Math.max(0, this.stats.lib + Math.round((opt.stats.lib || 0) * 0.5)));
+            this.stats.budget = this.stats.budget + (opt.stats.budget || 0); // Budget not reduced per request context (usually users care about meters)
             this.choices.push(opt.label);
             this.policyChoices.push({ id: opt.id, label: opt.label }); // Track for statistics
 
@@ -386,25 +387,30 @@ export class Game {
             winnerCard.classList.add('animate-victory', 'animate-shine');
         }
 
-        // Fire Confetti
+        // Fire Space Confetti (Stars)
         if (typeof confetti === 'function') {
             const duration = 3000;
             const end = Date.now() + duration;
+            const colors = ['#4f46e5', '#9333ea', '#fbbf24', '#e8e8e8']; // Blue, Purple, Gold, Silver
 
             (function frame() {
                 confetti({
-                    particleCount: 5,
+                    particleCount: 7,
                     angle: 60,
                     spread: 55,
                     origin: { x: 0 },
-                    colors: ['#3b82f6', '#10b981', '#f59e0b']
+                    colors: colors,
+                    shapes: ['star'],
+                    scalar: 1.2
                 });
                 confetti({
-                    particleCount: 5,
+                    particleCount: 7,
                     angle: 120,
                     spread: 55,
                     origin: { x: 1 },
-                    colors: ['#3b82f6', '#10b981', '#f59e0b']
+                    colors: colors,
+                    shapes: ['star'],
+                    scalar: 1.2
                 });
 
                 if (Date.now() < end) {
