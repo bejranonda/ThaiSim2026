@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 18 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v2.2.0](https://github.com/bejranonda/ThaiSim2026/releases/tag/v2.2.0) | **Data Updated**: 28 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v2.3.0](https://github.com/bejranonda/ThaiSim2026/releases/tag/v2.3.0) | **Data Updated**: 28 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -134,6 +134,15 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 - **Backend**: Firebase (Authentication & Firestore) for real-time voting data.
 
 ## 📜 Version History
+
+### v2.3.0 (January 28, 2569/2026) - "Facebook Integration & Release Documentation Update"
+- 🔗 **Social Media Integration**:
+  - Added Facebook link (thalay.eu) to developer credits section for better social presence
+  - Updated attribution in both simulation and results pages
+- 📝 **Documentation Update**:
+  - Updated README release information to v2.3.0
+  - Fixed release version display in index.html home page
+  - Synchronized version number across all documentation and website elements
 
 ### v2.2.0 (January 28, 2569/2026) - "Release Update & Documentation Sync"
 - 🔄 **Version Update**:
