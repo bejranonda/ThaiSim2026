@@ -37,7 +37,8 @@ export const phases = [
             { id: "p1-8", label: "ค่าแรง 450-600 บาท", desc: "ขึ้นค่าแรงขั้นต่ำให้สอดคล้องค่าครองชีพ", stats: { eco: 5, soc: 15, lib: 10, budget: -6 }, party: ["PP", "PTP"] },
             { id: "p1-9", label: "วิดพื้นเพิ่มเงินเดือน [Release2]", desc: "พนักงานที่วิดพื้น 40-100 ครั้ง/วัน ได้เงินเดือนเพิ่ม 10%", stats: { eco: 5, soc: 10, lib: 5, budget: -8 }, party: ["NAP"] },
             { id: "p1-10", label: "Mega Projects (Landbridge) [Release2]", desc: "โครงการขนาดใหญ่ (สะพานทะเล, รถไฟความเร็วสูง)", stats: { eco: 20, soc: 0, lib: -5, budget: -21 }, party: ["ECO", "CP"] },
-            { id: "p1-11", label: "Virtual Bank / ทลายทุนการเงิน [Release2]", desc: "เปิดเสรีธนาคาร บัตรเครดิต ให้แข่งขันได้", stats: { eco: 15, soc: 5, lib: 15, budget: 6 }, party: ["PP", "ECO"] }
+            { id: "p1-11", label: "Virtual Bank / ทลายทุนการเงิน [Release2]", desc: "เปิดเสรีธนาคาร บัตรเครดิต ให้แข่งขันได้", stats: { eco: 15, soc: 5, lib: 15, budget: 6 }, party: ["PP", "ECO"] },
+            { id: "p1-12", label: "Pornhub / Sex Toy ถูกกฎหมาย [Release2]", desc: "นำธุรกิจใต้ดินขึ้นบนดิน เก็บภาษีพัฒนาประเทศ", stats: { eco: 15, soc: 5, lib: 20, budget: 11 }, party: ["NAP"] }
         ]
     },
     {
@@ -73,7 +74,8 @@ export const phases = [
             { id: "p3-8", label: "ศูนย์ดูแลผู้สูงอายุ", desc: "Day Care Center ทุกตำบล", stats: { eco: 5, soc: 15, lib: 5, budget: -13 }, party: ["RAK", "UTN"] },
             { id: "p3-9", label: "งดภาษีครอบครัวมีลูก [Release2]", desc: "ยกเว้นภาษีเงินได้สำหรับครอบครัวที่มีบุตร", stats: { eco: 5, soc: 15, lib: 5, budget: -16 }, party: ["NAP"] },
             { id: "p3-10", label: "ลาคลอด 180 วัน (พ่อแม่) [Release2]", desc: "สิทธิลาคลอดทั้งพ่อและแม่ 180 วัน เพื่อคุณภาพชีวิตครอบครัว", stats: { eco: 0, soc: 25, lib: 10, budget: -23 }, party: ["PP", "PTP"] },
-            { id: "p3-11", label: "เบี้ยผู้สูงอายุขั้นบันได [Release2]", desc: "60 ปี=600, 70 ปี=800, 80 ปี=1,000 บาท", stats: { eco: 0, soc: 20, lib: 5, budget: -19 }, party: ["PPRP", "TST"] }
+            { id: "p3-11", label: "เบี้ยผู้สูงอายุขั้นบันได [Release2]", desc: "60 ปี=600, 70 ปี=800, 80 ปี=1,000 บาท", stats: { eco: 0, soc: 20, lib: 5, budget: -19 }, party: ["PPRP", "TST"] },
+            { id: "p3-12", label: "Sex Worker ถูกกฎหมาย [Release2]", desc: "คุ้มครองสวัสดิการและสิทธิแรงงานพนักงานบริการ", stats: { eco: 10, soc: 15, lib: 20, budget: 6 }, party: ["NAP", "PP"] }
         ]
     },
     {

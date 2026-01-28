@@ -147,6 +147,9 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
   - All score additions are now rounded to clean integers for better UI/UX.
   - Updated tooltips to accurately reflect these reduced point values.
 - ✨ **Enhanced Celebration**: Replaced standard confetti with neon star-shaped confetti for a "Space Party" themed celebration on the results page.
+- 📝 **Content Update (New Alternative Party)**:
+  - Added "Pornhub / Sex Toy Legalization" to Phase 1 (Economy).
+  - Added "Sex Worker Legalization" to Phase 3 (Welfare).
 - 🔧 **Code Refinement**: Improved internal scoring logic and consistent tooltip rendering across phases.
 
 ### v2.0.0 (January 28, 2569/2026) - "Release 2 Major Update"
