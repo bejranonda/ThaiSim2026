@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 18 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v2.0.2](https://github.com/bejranonda/ThaiSim2026/releases/tag/v2.0.2) | **Data Updated**: 28 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v2.1.2](https://github.com/bejranonda/ThaiSim2026/releases/tag/v2.1.2) | **Data Updated**: 28 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -135,6 +135,25 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 ## 📜 Version History
 
+### v2.1.2 (January 28, 2569/2026) - "Public Voice Update"
+- 🗳️ **Enhanced Vote Results**:
+  - **Top Matched Parties**: Increased display limit from 10 to **20 parties**.
+  - **Top Voted Policies**: Removed limit to show **ALL** voted policies sorted by popularity.
+- 📝 **Content Update**:
+  - Added "Pornhub / Sex Toy Legalization" to Phase 1 (Economy).
+  - Added "Sex Worker Legalization" to Phase 3 (Welfare).
+  
+### v2.1.2 (January 28, 2569/2026) - "Mature Content Policy Update"
+- 🏛️ **Policy Diversity Enhancement**:
+  - Added "Pornhub / Sex Toy ถูกกฎหมาย" to Phase 1 (Economy) - Regulating adult entertainment industry
+  - Added "Sex Worker ถูกกฎหมาย" to Phase 3 (Welfare) - Protecting rights of adult service workers
+  - Both policies support NAP (New Alternative Party) platform with balanced socio-economic impact
+- 🎯 **Scoring Adjustments**:
+  - Economy: +15 points from new adult entertainment regulation
+  - Social Welfare: +15 points from sex worker legalization
+  - Liberty: +20 points from both policies (individual freedom focus)
+  - Budget: +17 points total from regulated taxation
+
 ### v2.0.1 (January 28, 2569/2026) - "Future Edition Update"
 - 🚀 **New Visual Identity**: Added space-themed background animation with twinkling stars on the home screen.
 - 🏷️ **New Label**: "New Release 2 - Future Edition" badge added prominently above the main title.
@@ -147,9 +166,6 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
   - All score additions are now rounded to clean integers for better UI/UX.
   - Updated tooltips to accurately reflect these reduced point values.
 - ✨ **Enhanced Celebration**: Replaced standard confetti with neon star-shaped confetti for a "Space Party" themed celebration on the results page.
-- 📝 **Content Update (New Alternative Party)**:
-  - Added "Pornhub / Sex Toy Legalization" to Phase 1 (Economy).
-  - Added "Sex Worker Legalization" to Phase 3 (Welfare).
 - 🔧 **Code Refinement**: Improved internal scoring logic and consistent tooltip rendering across phases.
 
 ### v2.0.0 (January 28, 2569/2026) - "Release 2 Major Update"
@@ -337,4 +353,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v2.0.1 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v2.0.1)
+**Latest Release**: [v2.1.2 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v2.1.2)
