@@ -52,13 +52,24 @@
             <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto">
                 คะแนนเสียงจริงจากผู้เล่น Sim-Thailand 2569
             </p>
+            <p class="text-slate-500 mt-4 text-sm italic">
+                เนื่องจากมีผู้เล่นจำนวนมาก การโหลดผลแบบเรียลไทม์อาจใช้เวลาประมาณ 15–20 วินาที
+            </p>
         </div>
 
-        <div id="results-container"
+        <div id="poll-results-container"
+            class="w-full bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-2xl backdrop-blur-sm mb-8">
+            <div class="text-center py-10">
+                <i class="fa-solid fa-spinner fa-spin text-4xl text-blue-500 mb-4"></i>
+                <p class="text-slate-500">กำลังโหลดคะแนนพรรคที่คุณโหวต...</p>
+            </div>
+        </div>
+
+        <div id="sim-results-container"
             class="w-full bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-2xl backdrop-blur-sm">
             <div class="text-center py-10">
                 <i class="fa-solid fa-spinner fa-spin text-4xl text-blue-500 mb-4"></i>
-                <p class="text-slate-500">กำลังโหลดข้อมูลล่าสุด...</p>
+                <p class="text-slate-500">กำลังประมวลผลข้อมูลการจำลอง...</p>
             </div>
         </div>
 

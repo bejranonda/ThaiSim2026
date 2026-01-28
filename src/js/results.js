@@ -4,13 +4,24 @@ import '../css/styles.css';
 
 
 async function initResults() {
-    const container = document.getElementById('results-container');
-    if (!container) return;
+    const pollContainer = document.getElementById('poll-results-container');
+    const simContainer = document.getElementById('sim-results-container');
 
+    // 1. Fetch and Render Poll Votes (Fastest)
+    if (pollContainer) {
+        loadPollVotes(pollContainer);
+    }
+
+    // 2. Fetch and Render Sim Results (Heavier)
+    if (simContainer) {
+        loadSimResults(simContainer);
+    }
+}
+
+async function loadPollVotes(container) {
     try {
         if (!db) throw new Error("Database connection not available");
 
-        // Fetch Poll Votes
         const snapshot = await getDocs(collection(db, 'artifacts', appId, 'public', 'data', 'poll_votes_v7'));
 
         const counts = {};
@@ -47,9 +58,7 @@ async function initResults() {
             const p = parties[key] || { name: key === 'OTHER' ? 'พรรคอื่นๆ' : 'ไม่ประสงค์ลงคะแนน', color: 'text-slate-400', icon: 'fa-circle-question' };
             const pct = ((count / total) * 100).toFixed(1);
 
-            // Highlight top 3
             const rankStyle = index < 3 ? 'font-bold text-white' : 'text-slate-400';
-            // Use party color for bar - use inline style with specific color for better compatibility
             const partyColorMap = {
                 'text-orange-500': '#f97316',
                 'text-red-500': '#ef4444',
@@ -138,155 +147,147 @@ ${sorted.map(([key, count]) => {
             </div>
         `;
 
-        // Fetch Sim Results for policy statistics
-        try {
-            const simSnapshot = await getDocs(collection(db, 'artifacts', appId, 'public', 'data', 'sim_results_v7'));
-            const policyCounts = {};
-            let totalSims = 0;
-
-            simSnapshot.forEach(doc => {
-                const data = doc.data();
-                if (data.policyChoices && Array.isArray(data.policyChoices)) {
-                    data.policyChoices.forEach(policy => {
-                        const label = policy.label || policy;
-                        policyCounts[label] = (policyCounts[label] || 0) + 1;
-                    });
-                    totalSims++;
-                }
-            });
-
-            if (totalSims > 0) {
-                const sortedPolicies = Object.entries(policyCounts)
-                    .sort((a, b) => b[1] - a[1]); // Show All Policies
-
-                html += `
-                    <div class="mt-10 w-full">
-                        <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                            <i class="fa-solid fa-list-check text-blue-500"></i> นโยบายที่ผู้เล่นเลือกมากที่สุด
-                        </h3>
-                        <p class="text-xs text-slate-500 mb-6">จากผู้เล่นทั้งหมด ${totalSims.toLocaleString()} คน</p>
-                        <div class="space-y-3">
-                `;
-
-                sortedPolicies.forEach(([label, count], index) => {
-                    const pct = ((count / totalSims) * 100).toFixed(1);
-                    // Heatmap color based on percentage - finer scale for 20-50% range
-                    const pctNum = parseFloat(pct);
-                    let barColor;
-                    if (pctNum >= 45) {
-                        barColor = 'bg-gradient-to-r from-red-500 to-red-600';
-                    } else if (pctNum >= 35) {
-                        barColor = 'bg-gradient-to-r from-red-400 to-orange-500';
-                    } else if (pctNum >= 28) {
-                        barColor = 'bg-gradient-to-r from-orange-500 to-orange-600';
-                    } else if (pctNum >= 22) {
-                        barColor = 'bg-gradient-to-r from-orange-400 to-orange-500';
-                    } else if (pctNum >= 18) {
-                        barColor = 'bg-gradient-to-r from-amber-500 to-yellow-500';
-                    } else if (pctNum >= 14) {
-                        barColor = 'bg-gradient-to-r from-yellow-500 to-amber-500';
-                    } else if (pctNum >= 10) {
-                        barColor = 'bg-gradient-to-r from-lime-500 to-lime-600';
-                    } else if (pctNum >= 6) {
-                        barColor = 'bg-gradient-to-r from-green-500 to-green-600';
-                    } else {
-                        barColor = 'bg-gradient-to-r from-emerald-500 to-emerald-600';
-                    }
-
-                    html += `
-                        <div class="relative">
-                            <div class="flex justify-between items-end mb-1">
-                                <div class="flex items-center gap-3">
-                                    <span class="text-xs font-mono text-slate-500 w-5 text-right">#${index + 1}</span>
-                                    <span class="text-sm text-slate-300">${label}</span>
-                                </div>
-                                <span class="text-xs text-slate-400 font-mono">${count.toLocaleString()} (${pct}%)</span>
-                            </div>
-                            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
-                                <div class="h-full ${barColor}" style="width: ${pct}%"></div>
-                            </div>
-                        </div>
-                    `;
-                });
-
-                html += `
-                        </div>
-                    </div>
-                `;
-            }
-        } catch (e) {
-            console.error("Policy stats fetch error:", e);
-        }
-
-        // Add Winner Statistics Section
-        try {
-            const winnerSnapshot = await getDocs(collection(db, 'artifacts', appId, 'public', 'data', 'sim_results_v7'));
-            const winnerCounts = {};
-            let totalWinners = 0;
-
-            winnerSnapshot.forEach(doc => {
-                const data = doc.data();
-                if (data.winner && data.winner) {
-                    // The winner field contains the party code directly (e.g., "PPRP")
-                    const partyKey = data.winner;
-                    if (parties[partyKey]) {
-                        winnerCounts[partyKey] = (winnerCounts[partyKey] || 0) + 1;
-                        totalWinners++;
-                    }
-                }
-            });
-
-
-            if (totalWinners > 0) {
-                const sortedWinners = Object.entries(winnerCounts)
-                    .sort((a, b) => b[1] - a[1])
-                    .slice(0, 20);
-
-
-                // Generate Card Grid HTML
-                html += `
-                    <div class="mt-10 w-full">
-                        <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                            <i class="fa-solid fa-trophy text-yellow-500"></i> พรรคแรกที่นโยบายตรงใจที่สุด (จากการจำลอง)
-                        </h3>
-                        <p class="text-xs text-slate-500 mb-6">จากการจำลองทั้งหมด ${totalWinners.toLocaleString()} ครั้ง</p>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                `;
-
-                sortedWinners.forEach(([key, count], index) => {
-                    const p = parties[key];
-                    const pct = ((count / totalWinners) * 100).toFixed(1);
-                    html += `
-                        <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-4 text-center hover:bg-slate-700/50 transition">
-                            <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-slate-900 flex items-center justify-center">
-                                <i class="fa-solid ${p.icon} ${p.color} text-xl"></i>
-                            </div>
-                            <div class="text-lg font-bold ${p.color} mb-1">${p.name}</div>
-                            <div class="text-2xl font-extrabold text-white">${count.toLocaleString()}</div>
-                            <div class="text-xs text-slate-500">${pct}%</div>
-                        </div>
-                    `;
-                });
-
-                html += `
-                        </div>
-                    </div>
-                `;
-            } else {
-                console.log('No simulation results found yet');
-            }
-        } catch (e) {
-            console.error("Winner stats error:", e);
-        }
-
         container.innerHTML = html;
-
     } catch (e) {
-        console.error("Fetch Error:", e);
+        console.error("Poll Votes Fetch Error:", e);
         container.innerHTML = `
             <div class="text-center py-10">
                 <i class="fa-solid fa-triangle-exclamation text-4xl text-red-500 mb-4"></i>
-                <p class="text-red-400">เกิดข้อผิดพลาดในการโหลดข้อมูล</p>
+                <p class="text-red-400">เกิดข้อผิดพลาดในการโหลดข้อมูลโหวต</p>
+                <p class="text-xs text-slate-600 mt-2">${e.message}</p>
+            </div>
+        `;
+    }
+}
+
+async function loadSimResults(container) {
+    try {
+        if (!db) throw new Error("Database connection not available");
+
+        // Fetch Sim Results ONCE for both sections
+        const simSnapshot = await getDocs(collection(db, 'artifacts', appId, 'public', 'data', 'sim_results_v7'));
+
+        const policyCounts = {};
+        const winnerCounts = {};
+        let totalSims = 0;
+        let totalWinners = 0;
+
+        simSnapshot.forEach(doc => {
+            const data = doc.data();
+
+            // Process Policies
+            if (data.policyChoices && Array.isArray(data.policyChoices)) {
+                data.policyChoices.forEach(policy => {
+                    const label = policy.label || policy;
+                    policyCounts[label] = (policyCounts[label] || 0) + 1;
+                });
+                totalSims++;
+            }
+
+            // Process Winners
+            if (data.winner) {
+                const partyKey = data.winner;
+                if (parties[partyKey]) {
+                    winnerCounts[partyKey] = (winnerCounts[partyKey] || 0) + 1;
+                    totalWinners++;
+                }
+            }
+        });
+
+        let html = '';
+
+        // Render Policies Section
+        if (totalSims > 0) {
+            const sortedPolicies = Object.entries(policyCounts).sort((a, b) => b[1] - a[1]);
+
+            html += `
+                <div class="w-full">
+                    <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-list-check text-blue-500"></i> นโยบายที่ผู้เล่นเลือกมากที่สุด
+                    </h3>
+                    <p class="text-xs text-slate-500 mb-6">จากผู้เล่นทั้งหมด ${totalSims.toLocaleString()} คน</p>
+                    <div class="space-y-3">
+            `;
+
+            sortedPolicies.forEach(([label, count], index) => {
+                const pct = ((count / totalSims) * 100).toFixed(1);
+                const pctNum = parseFloat(pct);
+                let barColor;
+                if (pctNum >= 45) barColor = 'bg-gradient-to-r from-red-500 to-red-600';
+                else if (pctNum >= 35) barColor = 'bg-gradient-to-r from-red-400 to-orange-500';
+                else if (pctNum >= 28) barColor = 'bg-gradient-to-r from-orange-500 to-orange-600';
+                else if (pctNum >= 22) barColor = 'bg-gradient-to-r from-orange-400 to-orange-500';
+                else if (pctNum >= 18) barColor = 'bg-gradient-to-r from-amber-500 to-yellow-500';
+                else if (pctNum >= 14) barColor = 'bg-gradient-to-r from-yellow-500 to-amber-500';
+                else if (pctNum >= 10) barColor = 'bg-gradient-to-r from-lime-500 to-lime-600';
+                else if (pctNum >= 6) barColor = 'bg-gradient-to-r from-green-500 to-green-600';
+                else barColor = 'bg-gradient-to-r from-emerald-500 to-emerald-600';
+
+                html += `
+                    <div class="relative">
+                        <div class="flex justify-between items-end mb-1">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xs font-mono text-slate-500 w-5 text-right">#${index + 1}</span>
+                                <span class="text-sm text-slate-300">${label}</span>
+                            </div>
+                            <span class="text-xs text-slate-400 font-mono">${count.toLocaleString()} (${pct}%)</span>
+                        </div>
+                        <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
+                            <div class="h-full ${barColor}" style="width: ${pct}%"></div>
+                        </div>
+                    </div>
+                `;
+            });
+            html += `</div></div>`;
+        }
+
+        // Render Winners Section
+        if (totalWinners > 0) {
+            const sortedWinners = Object.entries(winnerCounts).sort((a, b) => b[1] - a[1]).slice(0, 20);
+
+            html += `
+                <div class="mt-10 w-full pt-10 border-t border-slate-800">
+                    <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-trophy text-yellow-500"></i> พรรคแรกที่นโยบายตรงใจที่สุด (จากการจำลอง)
+                    </h3>
+                    <p class="text-xs text-slate-500 mb-6">จากการจำลองทั้งหมด ${totalWinners.toLocaleString()} ครั้ง</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            `;
+
+            sortedWinners.forEach(([key, count]) => {
+                const p = parties[key];
+                const pct = ((count / totalWinners) * 100).toFixed(1);
+                html += `
+                    <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-4 text-center hover:bg-slate-700/50 transition">
+                        <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-slate-900 flex items-center justify-center">
+                            <i class="fa-solid ${p.icon} ${p.color} text-xl"></i>
+                        </div>
+                        <div class="text-lg font-bold ${p.color} mb-1">${p.name}</div>
+                        <div class="text-2xl font-extrabold text-white">${count.toLocaleString()}</div>
+                        <div class="text-xs text-slate-500">${pct}%</div>
+                    </div>
+                `;
+            });
+            html += `</div></div>`;
+        }
+
+        if (totalSims === 0 && totalWinners === 0) {
+            container.innerHTML = `
+                <div class="text-center py-10">
+                    <i class="fa-solid fa-box-open text-4xl text-slate-700 mb-4"></i>
+                    <p class="text-slate-500">ยังไม่มีข้อมูลการจำลองในระบบ</p>
+                </div>
+            `;
+        } else {
+            container.innerHTML = html;
+        }
+
+    } catch (e) {
+        console.error("Sim Results Fetch Error:", e);
+        container.innerHTML = `
+            <div class="text-center py-10">
+                <i class="fa-solid fa-triangle-exclamation text-4xl text-red-500 mb-4"></i>
+                <p class="text-red-400">เกิดข้อผิดพลาดในการโหลดข้อมูลการจำลอง</p>
                 <p class="text-xs text-slate-600 mt-2">${e.message}</p>
             </div>
         `;
