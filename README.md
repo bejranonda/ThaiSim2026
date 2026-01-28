@@ -141,7 +141,6 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 - ✨ **Immersive Gameplay Animations**:
   - **Neon HUD/Stats**: The HUD and stat values pulse and brighten when updated by policy choices.
   - **Choice Overlays**: Choice cards now feature scanlines and pulsing neon borders when selected.
-  - **Warp Effect**: Background stars warp and flash upon making a policy selection.
   - **Future Grid**: A subtle global CRT scanline grid added for a premium "Future Edition" feel.
 - 🎮 **Scoring Balance (Round 3)**:
   - Reduced stat gains (Economy, Welfare, Democracy) by 50% (0.5x multiplier) to make 100% scores harder and more meaningful.
