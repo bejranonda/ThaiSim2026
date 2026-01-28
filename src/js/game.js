@@ -33,7 +33,7 @@ export class Game {
 
     async init() {
         console.log("Initializing Game...");
-        
+
         // Render immediately
         if (document.getElementById('city-container')) {
             this.renderCityGrid();
@@ -46,17 +46,17 @@ export class Game {
                 signInAnonymously(auth).then(userCred => {
                     console.log("Firebase Auth Success:", userCred.user.uid);
                     // Test Firestore connection in background
-                    if(db) {
-                         getDocs(collection(db, 'test_connection')).then(() => {
+                    if (db) {
+                        getDocs(collection(db, 'test_connection')).then(() => {
                             console.log("Firestore Connection Success");
-                         }).catch(dbErr => {
+                        }).catch(dbErr => {
                             console.warn("Firestore Check Failed:", dbErr);
-                         });
+                        });
                     }
                 }).catch(e => {
-                     console.error("Auth failed:", e);
-                     // Only alert if critical, or maybe just log it since we want the game to be playable offline
-                     console.warn("Running in Offline Mode (Auth failed)");
+                    console.error("Auth failed:", e);
+                    // Only alert if critical, or maybe just log it since we want the game to be playable offline
+                    console.warn("Running in Offline Mode (Auth failed)");
                 });
             } else {
                 console.warn("Auth not initialized (Offline Mode)");
@@ -125,7 +125,7 @@ export class Game {
             grid.innerHTML = '';
             // Shuffle options for fairness
             const shuffledOptions = [...p.options].sort(() => Math.random() - 0.5);
-            
+
             shuffledOptions.forEach(opt => {
                 const card = document.createElement('div');
                 card.id = `card-${opt.id}`;
@@ -172,7 +172,7 @@ export class Game {
 
     toggleOption(opt) {
         const card = document.getElementById(`card-${opt.id}`);
-        
+
         // Add click pulse effect
         card.classList.add('click-pulse');
         setTimeout(() => card.classList.remove('click-pulse'), 300);
@@ -209,8 +209,8 @@ export class Game {
         if (this.currentSelection.size === 0) return;
 
         this.history.push({
-            scores: {...this.scores},
-            stats: {...this.stats},
+            scores: { ...this.scores },
+            stats: { ...this.stats },
             choices: [...this.choices],
             policyChoices: [...this.policyChoices],
             selection: new Set(this.currentSelection)
@@ -219,16 +219,16 @@ export class Game {
         const selectedOpts = Array.from(this.currentSelection);
 
         const slot = document.getElementById(`slot-${this.phase}`);
-        
+
         // Find the fill container
         const fillContainer = slot ? slot.querySelector('.slot-fill') : null;
         const contentContainer = slot ? slot.querySelector('.slot-content') : null;
-        
+
         if (contentContainer) contentContainer.style.opacity = '0.1';
 
         selectedOpts.forEach(opt => {
             opt.party.forEach(p => {
-                if (this.scores[p] !== undefined) this.scores[p] += 5;
+                if (this.scores[p] !== undefined) this.scores[p] += 3.5; // Reduced from 5 to 3.5 (30% reduction) for balance
             });
 
             this.stats.eco = Math.min(100, Math.max(0, this.stats.eco + (opt.stats.eco || 0)));
@@ -260,8 +260,8 @@ export class Game {
 
     skip() {
         this.history.push({
-            scores: {...this.scores},
-            stats: {...this.stats},
+            scores: { ...this.scores },
+            stats: { ...this.stats },
             choices: [...this.choices],
             selection: "SKIP"
         });
@@ -296,10 +296,10 @@ export class Game {
         if (slot) {
             const fillContainer = slot.querySelector('.slot-fill');
             const contentContainer = slot.querySelector('.slot-content');
-            
+
             if (fillContainer) fillContainer.innerHTML = '';
             if (contentContainer) contentContainer.style.opacity = '1';
-            
+
             slot.classList.remove('filled');
         }
 
@@ -447,11 +447,11 @@ export class Game {
 
         const runnerContainer = document.getElementById('res-runners');
         runnerContainer.innerHTML = '';
-        for (let i=1; i<top5.length; i++) {
+        for (let i = 1; i < top5.length; i++) {
             const r = top5[i];
             const pKey = r.key;
             const p = parties[pKey];
-            
+
             // Only show if they scored something
             if (r.score > 0) {
                 runnerContainer.innerHTML += `
@@ -481,9 +481,9 @@ export class Game {
         container.innerHTML = '';
 
         const opts = [
-            ...Object.entries(parties).map(([k,v]) => ({id:k, ...v})),
-            {id:'OTHER', name:'พรรคอื่นๆ', icon:'fa-question', color:'text-slate-400', desc:'พรรคอื่นๆ ที่ไม่ได้อยู่ในรายการ'},
-            {id:'NOVOTE', name:'ไม่ประสงค์ลงคะแนน', icon:'fa-xmark', color:'text-slate-400', desc:'ยังไม่ตัดสินใจ หรือไม่ต้องการเลือกใคร'}
+            ...Object.entries(parties).map(([k, v]) => ({ id: k, ...v })),
+            { id: 'OTHER', name: 'พรรคอื่นๆ', icon: 'fa-question', color: 'text-slate-400', desc: 'พรรคอื่นๆ ที่ไม่ได้อยู่ในรายการ' },
+            { id: 'NOVOTE', name: 'ไม่ประสงค์ลงคะแนน', icon: 'fa-xmark', color: 'text-slate-400', desc: 'ยังไม่ตัดสินใจ หรือไม่ต้องการเลือกใคร' }
         ];
 
         opts.forEach(o => {
@@ -506,7 +506,7 @@ export class Game {
         try {
             const user = auth && auth.currentUser;
             // Only save if user has selected at least one policy
-            if(user && db && this.policyChoices.length > 0) {
+            if (user && db && this.policyChoices.length > 0) {
                 await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'sim_results_v7'), {
                     winner: winner,
                     choices: this.choices,
@@ -517,7 +517,7 @@ export class Game {
             } else if (this.policyChoices.length === 0) {
                 console.log("Skipping save: No policies selected");
             }
-        } catch(e) {
+        } catch (e) {
             console.error("saveSimResult failed. Path:", `artifacts/${appId}/public/data/sim_results_v7`);
             console.error(e);
         }
@@ -532,10 +532,10 @@ export class Game {
         try {
             let user = auth && auth.currentUser;
             if (!user && auth) {
-                try { await signInAnonymously(auth); user = auth.currentUser; } catch(e){}
+                try { await signInAnonymously(auth); user = auth.currentUser; } catch (e) { }
             }
 
-            if(user && db) {
+            if (user && db) {
                 await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'poll_votes_v7'), {
                     vote: this.manualVote,
                     timestamp: new Date()
@@ -550,7 +550,7 @@ export class Game {
                 btn.innerHTML = 'บันทึก (Offline Mode)';
                 await this.showLiveResults();
             }
-        } catch(e) {
+        } catch (e) {
             console.error("submitVote failed. Path:", `artifacts/${appId}/public/data/poll_votes_v7`);
             console.error(e);
             btn.innerHTML = "ลองใหม่";
@@ -578,7 +578,7 @@ export class Game {
             });
 
             resultsContainer.innerHTML = '';
-            const sorted = Object.entries(counts).sort((a,b) => b[1] - a[1]).slice(0, 5);
+            const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 5);
 
             if (sorted.length === 0) {
                 resultsContainer.innerHTML = '<div class="text-center text-slate-500 text-sm">ยังไม่มีข้อมูลโหวต</div>';
@@ -586,7 +586,7 @@ export class Game {
             }
 
             sorted.forEach(([key, count]) => {
-                const pInfo = parties[key] || {name: key === 'OTHER' ? 'พรรคอื่นๆ' : 'ไม่ประสงค์ลงคะแนน', color: 'text-slate-400'};
+                const pInfo = parties[key] || { name: key === 'OTHER' ? 'พรรคอื่นๆ' : 'ไม่ประสงค์ลงคะแนน', color: 'text-slate-400' };
                 const pct = Math.round((count / total) * 100);
 
                 resultsContainer.innerHTML += `
@@ -629,7 +629,7 @@ export class Game {
         if (!element) return;
 
         const originalText = btn ? btn.innerHTML : 'แชร์รูปผลลัพธ์';
-        if(btn) {
+        if (btn) {
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> กำลังสร้างรูป...';
             btn.disabled = true;
         }
@@ -672,7 +672,7 @@ export class Game {
             console.error("Screenshot failed:", e);
             alert("ขออภัย เกิดข้อผิดพลาดในการสร้างรูปภาพ");
         } finally {
-            if(btn) {
+            if (btn) {
                 // Restore original text after a short delay so user sees "Done" if needed, 
                 // but usually just restoring is fine.
                 setTimeout(() => {
