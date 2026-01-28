@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 18 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v2.1.2](https://github.com/bejranonda/ThaiSim2026/releases/tag/v2.1.2) | **Data Updated**: 28 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v2.2.0](https://github.com/bejranonda/ThaiSim2026/releases/tag/v2.2.0) | **Data Updated**: 28 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -135,6 +135,22 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 ## 📜 Version History
 
+### v2.2.0 (January 28, 2569/2026) - "Release Update & Documentation Sync"
+- 🔄 **Version Update**:
+  - Updated README release information to v2.2.0
+  - Synchronized version number across all documentation and website elements
+- 📝 **Documentation Enhancement**:
+  - Updated repository links to reflect current release status
+  - Ensured consistent version references across all platforms
+
+### v2.1.3 (January 28, 2569/2026) - "Social Presence & Accuracy Update"
+- 🔗 **Social Media Integration**:
+  - Added Facebook link (`thalay.eu`) to the developer credit section on both the simulation and live results pages.
+- 🏷️ **Naming Consistency**:
+  - Shortened "พรรคชาติไทยพัฒนา" to **"ชาติไทยพัฒนา(ไม่ส่งผู้สมัคร)"** for better UI fit and clarity.
+- 📊 **UI Refinement**:
+  - Streamlined the simulation results header to **"พรรคแรกที่นโยบายตรงใจที่สุด (จากการจำลอง)"**.
+
 ### v2.1.2 (January 28, 2569/2026) - "Mature Content & Public Voice Update"
 - 🏛️ **Policy Diversity Enhancement**:
   - Added "Pornhub / Sex Toy ถูกกฎหมาย" to Phase 1 (Economy) - Regulating adult entertainment industry
@@ -199,7 +215,7 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
   - Streamlined header text: "คะแนนเสียงจริงจากผู้เล่น Sim-Thailand 2569"
   - Updated section headers for better clarity:
     - "พรรคที่ผู้เล่นโหวตให้ (ไม่ใช่ผลการจำลอง)"
-    - "10 พรรคแรกที่นโยบายตรงใจที่สุด (จากการจำลอง)"
+    - "พรรคแรกที่นโยบายตรงใจที่สุด (จากการจำลอง)"
 
 ### v1.7.0 (January 20, 2569/2026)
 - 🔍 **Policy Statistics Export Tool**:
@@ -348,4 +364,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v2.1.2 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v2.1.2)
+**Latest Release**: [v2.2.0 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v2.2.0)
