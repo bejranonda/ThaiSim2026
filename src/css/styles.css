@@ -461,3 +461,109 @@ html {
         transform: scale(1.05);
     }
 }
+
+/* Future Edition Enhancements */
+.future-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.15;
+}
+
+.choice-card.selected {
+    background-color: #1e3a8a;
+    border-color: #3b82f6;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), inset 0 0 10px rgba(59, 130, 246, 0.2);
+    animation: neon-pulse 2s infinite ease-in-out;
+}
+
+@keyframes neon-pulse {
+
+    0%,
+    100% {
+        border-color: #3b82f6;
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    }
+
+    50% {
+        border-color: #60a5fa;
+        box-shadow: 0 0 30px rgba(96, 165, 250, 0.6);
+    }
+}
+
+.choice-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.1) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.stat-update-flash {
+    animation: stat-flash 0.5s ease-out;
+}
+
+@keyframes stat-flash {
+    0% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(2) drop-shadow(0 0 10px white);
+    }
+
+    100% {
+        filter: brightness(1);
+    }
+}
+
+.star-flash {
+    animation: star-warp 0.4s ease-out forwards;
+}
+
+@keyframes star-warp {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+        filter: brightness(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+/* Enhanced HUD */
+#hud.active-pulse {
+    animation: hud-pulse 0.4s ease-out;
+}
+
+@keyframes hud-pulse {
+    0% {
+        box-shadow: 0 0 0px rgba(59, 130, 246, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 0 0px rgba(59, 130, 246, 0);
+    }
+}

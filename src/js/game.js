@@ -183,6 +183,13 @@ export class Game {
         } else {
             this.currentSelection.add(opt);
             card.classList.add('selected');
+
+            // Future Edition: Background Pulse on Selection
+            const spaceBg = document.getElementById('space-background');
+            if (spaceBg) {
+                spaceBg.classList.add('star-flash');
+                setTimeout(() => spaceBg.classList.remove('star-flash'), 400);
+            }
         }
         this.updateConfirmButton();
     }
@@ -309,6 +316,23 @@ export class Game {
     }
 
     updateMeters() {
+        // Future Edition: Pulse HUD on Update
+        const hud = document.getElementById('hud');
+        if (hud) {
+            hud.classList.add('active-pulse');
+            setTimeout(() => hud.classList.remove('active-pulse'), 400);
+        }
+
+        const stats = ['eco', 'soc', 'lib', 'budget'];
+        stats.forEach(s => {
+            const valEl = document.getElementById(`val-${s}`);
+            const barEl = document.getElementById(`bar-${s}`);
+            if (valEl) {
+                valEl.classList.add('stat-update-flash');
+                setTimeout(() => valEl.classList.remove('stat-update-flash'), 500);
+            }
+        });
+
         document.getElementById('val-eco').innerText = this.stats.eco;
         document.getElementById('bar-eco').style.width = `${this.stats.eco}%`;
         document.getElementById('val-soc').innerText = this.stats.soc;

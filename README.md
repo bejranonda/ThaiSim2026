@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 18 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v1.7.1](https://github.com/bejranonda/ThaiSim2026/releases/tag/v1.7.1) | **Data Updated**: 22 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v2.0.1](https://github.com/bejranonda/ThaiSim2026/releases/tag/v2.0.1) | **Data Updated**: 28 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -134,6 +134,21 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 - **Backend**: Firebase (Authentication & Firestore) for real-time voting data.
 
 ## 📜 Version History
+
+### v2.0.1 (January 28, 2569/2026) - "Future Edition Update"
+- 🚀 **New Visual Identity**: Added space-themed background animation with twinkling stars on the home screen.
+- 🏷️ **New Label**: "New Release 2 - Future Edition" badge added prominently above the main title.
+- ✨ **Immersive Gameplay Animations**:
+  - **Neon HUD/Stats**: The HUD and stat values pulse and brighten when updated by policy choices.
+  - **Choice Overlays**: Choice cards now feature scanlines and pulsing neon borders when selected.
+  - **Warp Effect**: Background stars warp and flash upon making a policy selection.
+  - **Future Grid**: A subtle global CRT scanline grid added for a premium "Future Edition" feel.
+- 🎮 **Scoring Balance (Round 3)**:
+  - Reduced stat gains (Economy, Welfare, Democracy) by 50% (0.5x multiplier) to make 100% scores harder and more meaningful.
+  - All score additions are now rounded to clean integers for better UI/UX.
+  - Updated tooltips to accurately reflect these reduced point values.
+- ✨ **Enhanced Celebration**: Replaced standard confetti with neon star-shaped confetti for a "Space Party" themed celebration on the results page.
+- 🔧 **Code Refinement**: Improved internal scoring logic and consistent tooltip rendering across phases.
 
 ### v2.0.0 (January 28, 2569/2026) - "Release 2 Major Update"
 - 🆕 **New Political Party Added**:
@@ -320,4 +335,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v2.0.0 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v2.0.0)
+**Latest Release**: [v2.0.1 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v2.0.1)
