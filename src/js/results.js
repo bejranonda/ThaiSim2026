@@ -247,7 +247,7 @@ ${sorted.map(([key, count]) => {
                 html += `
                     <div class="mt-10 w-full">
                         <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                            <i class="fa-solid fa-trophy text-yellow-500"></i> 20 พรรคแรกที่นโยบายตรงใจที่สุด (จากการจำลอง)
+                            <i class="fa-solid fa-trophy text-yellow-500"></i> พรรคแรกที่นโยบายตรงใจที่สุด (จากการจำลอง)
                         </h3>
                         <p class="text-xs text-slate-500 mb-6">จากการจำลองทั้งหมด ${totalWinners.toLocaleString()} ครั้ง</p>
                         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
