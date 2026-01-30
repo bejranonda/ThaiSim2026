@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 18 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v3.1.3](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.1.3) | **Data Updated**: 30 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v3.2.3](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.2.3) | **Data Updated**: 31 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -35,7 +35,7 @@
 
 Per Thai election law (**พ.ร.ป.สส.ฯ มาตรา 72 ประกอบมาตรา 157**), publishing poll results is prohibited **7 days before elections**.
 
-**Blackout Period**: January 30 - February 8, 2569 (2026) at 17:30 ICT
+**Blackout Period**: January 31 - February 8, 2569 (2026) at 17:30 ICT (starts at 12:00 ICT)
 
 During this period:
 - **Results Page** (`results.html`) - Shows legal notice instead of poll/simulation results
@@ -208,9 +208,29 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 ## 📜 Version History
 
+### v3.2.3 (January 31, 2569/2026) - "Always-On Blackout Notice"
+- 📢 **Permanent Blackout Notice Display**: Added informational blackout notice box that appears on all pages permanently
+  - **Homepage** (`index.html`): Blackout notice always visible, game only disabled during actual blackout period
+  - **Results Page** (`results.html`): Blackout notice always visible, results only hidden during actual blackout period
+  - Shows "Sim-Government 2569" branding prominently with legal information
+- ⚖️ **Actual Date Enforcement**: Updated `isBlackoutPeriod()` to use real date checking
+  - **Blackout Period**: January 31, 2026 @ 12:00 ICT to February 8, 2026 @ 17:30 ICT
+  - Automatic enforcement based on current time in Thai timezone (ICT +07:00)
+  - No manual toggle needed - system automatically detects and enforces blackout
+- 🎨 **Enhanced Visual Design**: Improved notice box design with:
+  - Gradient background (slate-900/95 to red-950/30)
+  - Animated "Sim-Government 2569" text with glow effects
+  - Scale of justice icon (fa-scale-balanced)
+  - Clear legal reference to มาตรา 72
+- 🔧 **Implementation Details**:
+  - Added `blackout-notice` HTML element to results.html
+  - Modified `results.js` to always show notice box
+  - Updated blackout dates to Jan 31 @ 12:00 (was Jan 30 @ 18:00)
+  - Simplified notice text to show only end time (17:30 น.)
+
 ### v3.1.3 (January 30, 2569/2026) - "Election Law Compliance: Blackout Period"
 - ⚖️ **Legal Compliance Feature**: Implemented automatic blackout period enforcement per Thai election law (พ.ร.ป.สส.ฯ มาตรา 72 ประกอบมาตรา 157)
-  - **Blackout Period**: January 30 - February 8, 2569 (2026) at 17:30 ICT
+  - **Blackout Period**: January 31 - February 8, 2569 (2026) at 17:30 ICT (starts at 12:00 ICT)
   - **Results Page**: Shows legal notice instead of poll/simulation results during blackout
   - **Game Page**: Users can still vote, but live results are hidden until blackout ends
   - **Auto-Resume**: Results automatically display after February 8, 17:30 ICT
@@ -498,4 +518,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v3.1.3 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.1.3)
+**Latest Release**: [v3.2.3 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.2.3)
