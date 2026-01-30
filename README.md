@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 18 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v3.0.1](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.0.1) | **Data Updated**: 30 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v3.0.2](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.0.2) | **Data Updated**: 30 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -135,8 +135,17 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 ## 📜 Version History
 
+### v3.0.2 (January 30, 2569/2026) - "Cosmic Visitor: We're Being Watched"
+- 🛸 **Floating Astronaut Animation**: Added an animated alien astronaut floating across the home page.
+  - Emerald-colored UFO visitor (👽) with smooth trajectory animation
+  - Flies across the screen in 15 seconds with rotation and scaling effects
+  - Adds a playful, mysterious "We're being watched" atmosphere to the IO-aware theme
+- 🎨 **Visual Enhancement**: The alien visitor serves as a whimsical reinforcement of the transparency message
+- 📝 **Documentation Update**: Updated version to 3.0.2 across all references
+
 ### v3.0.1 (January 30, 2569/2026) - "Aware Release Refined: IO, We Know You"
 - 🏷️ **UI Refinement**: Updated Home Page banner to **"New Release 3.0 – IO, We Know You"**.
+- 🛸 **Fun Addition**: Added a floating astronaut animation to the home page for a more dynamic and engaging welcome.
 - 🛡️ **Warning Modal Enhancement**: Added explicit instructions to the Results page warning modal, encouraging users to audit the **"Daily Vote Trend Chart"** for transparency.
 - 📝 **Documentation Synchronization**: Updated version numbers and release notes across all project documentation.
 
@@ -391,4 +400,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v3.0.1 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.0.1)
+**Latest Release**: [v3.0.2 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.0.2)
