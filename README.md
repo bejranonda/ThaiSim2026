@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 18 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v3.0.2](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.0.2) | **Data Updated**: 30 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v3.1.2](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.1.2) | **Data Updated**: 30 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -134,6 +134,13 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 - **Backend**: Firebase (Authentication & Firestore) for real-time voting data.
 
 ## 📜 Version History
+
+### v3.1.2 (January 30, 2569/2026) - "Anti-Spam: Randomized Party Order"
+- 🎲 **Randomized Party Order**: Party choices in the voting section are now shuffled using Fisher-Yates algorithm to prevent vote spamming and brute forcing.
+  - Political parties appear in random order each time the simulation results page is displayed
+  - "พรรคอื่นๆ" (Other Parties) and "ไม่ประสงค์ลงคะแนน" (No Vote) remain fixed at the end
+  - Enhanced security measure to maintain voting integrity
+- 🔒 **Anti-Abuse Enhancement**: Makes it more difficult for automated scripts to target specific positions in the party list
 
 ### v3.0.2 (January 30, 2569/2026) - "Cosmic Visitor: We're Being Watched"
 - 🛸 **Floating Astronaut Animation**: Added an animated alien astronaut floating across the home page.
@@ -400,4 +407,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v3.0.2 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.0.2)
+**Latest Release**: [v3.1.2 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.1.2)

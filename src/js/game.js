@@ -510,8 +510,15 @@ export class Game {
         const container = document.getElementById('poll-container');
         container.innerHTML = '';
 
+        // Get parties and shuffle them (Fisher-Yates for better randomness)
+        const partyEntries = Object.entries(parties).map(([k, v]) => ({ id: k, ...v }));
+        for (let i = partyEntries.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [partyEntries[i], partyEntries[j]] = [partyEntries[j], partyEntries[i]];
+        }
+
         const opts = [
-            ...Object.entries(parties).map(([k, v]) => ({ id: k, ...v })),
+            ...partyEntries,
             { id: 'OTHER', name: 'พรรคอื่นๆ', icon: 'fa-question', color: 'text-slate-400', desc: 'พรรคอื่นๆ ที่ไม่ได้อยู่ในรายการ' },
             { id: 'NOVOTE', name: 'ไม่ประสงค์ลงคะแนน', icon: 'fa-xmark', color: 'text-slate-400', desc: 'ยังไม่ตัดสินใจ หรือไม่ต้องการเลือกใคร' }
         ];
