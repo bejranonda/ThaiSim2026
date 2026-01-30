@@ -24,19 +24,16 @@ function showBlackoutNotice() {
                 </p>
                 <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-6 max-w-lg mx-auto mb-6">
                     <p class="text-slate-400 text-sm mb-2">
-                        <strong class="text-white">มาตรา 72</strong> ห้ามเผยแพร่ผลการสำรวจความคิดเห็นของประชาชน
-                        ก่อนวันเลือกตั้ง 7 วัน
+                        <strong class="text-white">มาตรา 72</strong> ห้ามทำสำรวจความคิดเห็นของประชาชน
+                        ก่อนวันเลือกตั้ง
                     </p>
                     <p class="text-slate-500 text-xs">
-                        ห้ามเผยแพร่ผลโพลตั้งแต่วันที่ 1 ถึงวันที่ 8 กุมภาพันธ์ 2569 เวลา 17:30 น.
-                    </p>
-                    <p class="text-amber-400/80 text-xs mt-2 italic">
-                        หากฝ่าฝืนมีโทษจำคุกไม่เกิน 3 เดือน หรือปรับไม่เกิน 6,000 บาท หรือทั้งจำทั้งปรับ
+                        ระงับการให้บริการชั่วคราว 30 ม.ค. - 8 ก.พ. 2569 (18:00 - 17:30 น.)
                     </p>
                 </div>
                 <p class="text-emerald-400 text-sm">
                     <i class="fa-solid fa-calendar-check mr-2"></i>
-                    ผลจะแสดงอีกครั้งหลังวันที่ 8 กุมภาพันธ์ 2569 เวลา 17:30 น.
+                    พบกันใหม่หลังเลือกตั้ง: <strong>Sim-ThaiGovernment 2569</strong>
                 </p>
             </div>
         `;
@@ -47,7 +44,7 @@ function showBlackoutNotice() {
         simContainer.innerHTML = `
             <div class="text-center py-10">
                 <i class="fa-solid fa-hourglass-half text-4xl text-slate-700 mb-4"></i>
-                <p class="text-slate-500">ข้อมูลการจำลองจะแสดงอีกครั้งหลังสิ้นสุดช่วงห้ามเผยแพร่ผลโพล</p>
+                <p class="text-slate-500">ข้อมูลการจำลองจะแสดงอีกครั้งหลังเลือกตั้ง</p>
             </div>
         `;
     }

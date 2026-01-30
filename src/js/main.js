@@ -1,4 +1,5 @@
 import { Game } from './game.js';
+import { isBlackoutPeriod } from './config.js';
 import './config.js';
 import '../css/styles.css';
 
@@ -9,6 +10,30 @@ window.game = game;
 // Initialize on window load
 window.addEventListener('DOMContentLoaded', () => {
     game.init();
+
+    // Check Blackout Period - Show notice on homepage and disable game
+    const blackoutNotice = document.getElementById('blackout-notice');
+    const startButton = document.querySelector('button[onclick="game.start()"]');
+
+    if (isBlackoutPeriod()) {
+        // Show blackout notice
+        if (blackoutNotice) {
+            blackoutNotice.classList.remove('hidden');
+        }
+
+        // Disable start button during blackout
+        if (startButton) {
+            startButton.disabled = true;
+            startButton.classList.remove('bg-blue-600', 'hover:bg-blue-500', 'animate-[pulse_3s_ease-in-out_infinite]', 'animate-button-shine', 'shadow-blue-900/40');
+            startButton.classList.add('bg-slate-700', 'cursor-not-allowed', 'opacity-50');
+            startButton.innerHTML = `
+                <span class="flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                    <span>ระงับการทำโพลชั่วคราว (ตาม มาตรา 72)</span>
+                </span>
+            `;
+        }
+    }
 
     // Check for Malicious Warning
     const warningModal = document.getElementById('warning-modal');
