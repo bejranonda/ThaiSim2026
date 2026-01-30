@@ -28,7 +28,7 @@ function showBlackoutNotice() {
                         ก่อนวันเลือกตั้ง
                     </p>
                     <p class="text-slate-500 text-xs">
-                        ระงับการให้บริการชั่วคราว 30 ม.ค. - 8 ก.พ. 2569 (18:00 - 17:30 น.)
+                        ระงับการให้บริการชั่วคราว 30 ม.ค. - 8 ก.พ. 2569 (17:30 น.)
                     </p>
                 </div>
                 <div class="mt-5 pt-5 border-t border-slate-700">
@@ -60,7 +60,13 @@ async function initResults() {
     const pollContainer = document.getElementById('poll-results-container');
     const simContainer = document.getElementById('sim-results-container');
 
-    // Check if we're in the blackout period
+    // Always show blackout notice (informational)
+    const blackoutNotice = document.getElementById('blackout-notice');
+    if (blackoutNotice) {
+        blackoutNotice.classList.remove('hidden');
+    }
+
+    // Check if we're in the blackout period - hide results only during actual blackout
     if (isBlackoutPeriod()) {
         showBlackoutNotice();
         return; // Skip loading results

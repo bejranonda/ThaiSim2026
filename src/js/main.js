@@ -11,16 +11,16 @@ window.game = game;
 window.addEventListener('DOMContentLoaded', () => {
     game.init();
 
-    // Check Blackout Period - Show notice on homepage and disable game
+    // Always show blackout notice (informational)
     const blackoutNotice = document.getElementById('blackout-notice');
+    if (blackoutNotice) {
+        blackoutNotice.classList.remove('hidden');
+    }
+
+    // Check Blackout Period - Disable game ONLY during actual blackout
     const startButton = document.querySelector('button[onclick="game.start()"]');
 
     if (isBlackoutPeriod()) {
-        // Show blackout notice
-        if (blackoutNotice) {
-            blackoutNotice.classList.remove('hidden');
-        }
-
         // Disable start button during blackout
         if (startButton) {
             startButton.disabled = true;
