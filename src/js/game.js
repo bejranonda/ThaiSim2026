@@ -1,5 +1,5 @@
 import { parties, phases } from './data.js';
-import { auth, db, appId, signInAnonymously, collection, addDoc, getDocs } from './config.js';
+import { auth, db, appId, signInAnonymously, collection, addDoc, getDocs, isBlackoutPeriod } from './config.js';
 import html2canvas from 'html2canvas';
 
 export class Game {
@@ -598,6 +598,30 @@ export class Game {
     async showLiveResults() {
         const resultsContainer = document.getElementById('poll-results');
         resultsContainer.classList.remove('hidden');
+
+        // Check blackout period - show notice instead of results
+        if (isBlackoutPeriod()) {
+            resultsContainer.innerHTML = `
+                <div class="text-center py-6 px-4">
+                    <i class="fa-solid fa-scale-balanced text-4xl text-amber-500 mb-4"></i>
+                    <h4 class="text-lg font-bold text-amber-500 mb-3">แจ้งเตือนตามกฎหมาย</h4>
+                    <p class="text-slate-400 text-sm mb-3">
+                        ตามพระราชบัญญัติประกอบรัฐธรรมนูญว่าด้วยการเลือกตั้งสมาชิกสภาผู้แทนราษฎร มาตรา 72
+                    </p>
+                    <p class="text-slate-500 text-xs mb-4">
+                        ห้ามเผยแพร่ผลโพลก่อนวันเลือกตั้ง 7 วัน (1-8 ก.พ. 2569)
+                    </p>
+                    <p class="text-emerald-400 text-sm">
+                        <i class="fa-solid fa-check mr-1"></i> บันทึกเสียงของคุณเรียบร้อยแล้ว
+                    </p>
+                    <p class="text-slate-500 text-xs mt-2">
+                        ผลจะแสดงอีกครั้งหลังวันที่ 8 กุมภาพันธ์ 2569 เวลา 17:30 น.
+                    </p>
+                </div>
+            `;
+            return;
+        }
+
         resultsContainer.innerHTML = '<div class="text-center text-slate-500 text-sm"><i class="fa-solid fa-spinner fa-spin"></i> กำลังโหลดผลโหวต...</div>';
 
         try {

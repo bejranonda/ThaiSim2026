@@ -1,11 +1,68 @@
 import { parties } from './data.js';
-import { db, appId, collection, getDocs } from './config.js';
+import { db, appId, collection, getDocs, isBlackoutPeriod } from './config.js';
 import '../css/styles.css';
+
+
+function showBlackoutNotice() {
+    const pollContainer = document.getElementById('poll-results-container');
+    const chartContainer = document.getElementById('chart-container');
+    const simContainer = document.getElementById('sim-results-container');
+
+    // Hide chart container
+    if (chartContainer) chartContainer.classList.add('hidden');
+
+    // Show blackout notice in poll container
+    if (pollContainer) {
+        pollContainer.innerHTML = `
+            <div class="text-center py-10 px-4">
+                <div class="mb-6">
+                    <i class="fa-solid fa-scale-balanced text-6xl text-amber-500 mb-4"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-amber-500 mb-4">แจ้งเตือนตามกฎหมาย</h3>
+                <p class="text-slate-300 mb-4 max-w-lg mx-auto">
+                    ตามพระราชบัญญัติประกอบรัฐธรรมนูญว่าด้วยการเลือกตั้งสมาชิกสภาผู้แทนราษฎร
+                </p>
+                <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-6 max-w-lg mx-auto mb-6">
+                    <p class="text-slate-400 text-sm mb-2">
+                        <strong class="text-white">มาตรา 72</strong> ห้ามเผยแพร่ผลการสำรวจความคิดเห็นของประชาชน
+                        ก่อนวันเลือกตั้ง 7 วัน
+                    </p>
+                    <p class="text-slate-500 text-xs">
+                        ห้ามเผยแพร่ผลโพลตั้งแต่วันที่ 1 ถึงวันที่ 8 กุมภาพันธ์ 2569 เวลา 17:30 น.
+                    </p>
+                    <p class="text-amber-400/80 text-xs mt-2 italic">
+                        หากฝ่าฝืนมีโทษจำคุกไม่เกิน 3 เดือน หรือปรับไม่เกิน 6,000 บาท หรือทั้งจำทั้งปรับ
+                    </p>
+                </div>
+                <p class="text-emerald-400 text-sm">
+                    <i class="fa-solid fa-calendar-check mr-2"></i>
+                    ผลจะแสดงอีกครั้งหลังวันที่ 8 กุมภาพันธ์ 2569 เวลา 17:30 น.
+                </p>
+            </div>
+        `;
+    }
+
+    // Hide sim container or show notice
+    if (simContainer) {
+        simContainer.innerHTML = `
+            <div class="text-center py-10">
+                <i class="fa-solid fa-hourglass-half text-4xl text-slate-700 mb-4"></i>
+                <p class="text-slate-500">ข้อมูลการจำลองจะแสดงอีกครั้งหลังสิ้นสุดช่วงห้ามเผยแพร่ผลโพล</p>
+            </div>
+        `;
+    }
+}
 
 
 async function initResults() {
     const pollContainer = document.getElementById('poll-results-container');
     const simContainer = document.getElementById('sim-results-container');
+
+    // Check if we're in the blackout period
+    if (isBlackoutPeriod()) {
+        showBlackoutNotice();
+        return; // Skip loading results
+    }
 
     // 1. Fetch and Render Poll Votes (Fastest)
     if (pollContainer) {
@@ -45,6 +102,12 @@ async function initResults() {
 import Chart from 'chart.js/auto';
 
 async function loadPollVotes(container) {
+    // Check blackout period (safety check)
+    if (isBlackoutPeriod()) {
+        showBlackoutNotice();
+        return;
+    }
+
     try {
         if (!db) throw new Error("Database connection not available");
 
@@ -335,6 +398,17 @@ function renderVoteTrendChart(dailyData, sortedDates, involvedParties) {
 }
 
 async function loadSimResults(container) {
+    // Check blackout period (safety check)
+    if (isBlackoutPeriod()) {
+        container.innerHTML = `
+            <div class="text-center py-10">
+                <i class="fa-solid fa-hourglass-half text-4xl text-slate-700 mb-4"></i>
+                <p class="text-slate-500">ข้อมูลการจำลองจะแสดงอีกครั้งหลังสิ้นสุดช่วงห้ามเผยแพร่ผลโพล</p>
+            </div>
+        `;
+        return;
+    }
+
     try {
         if (!db) throw new Error("Database connection not available");
 

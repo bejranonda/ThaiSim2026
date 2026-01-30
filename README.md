@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 18 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v3.1.2](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.1.2) | **Data Updated**: 30 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v3.1.3](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.1.3) | **Data Updated**: 30 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -29,6 +29,23 @@
 - **Real-Time Results**: Live dashboard showing voting trends from all users.
 - **Educational Tool**: Learn about the Thai political landscape through interactive simulation.
 - **Anonymous**: No login required to play.
+- **Legal Compliance**: Automatic blackout period enforcement during pre-election silence period per Thai law (มาตรา 72 พ.ร.ป.สส.ฯ).
+
+### ⚖️ Election Law Compliance (Blackout Period)
+
+Per Thai election law (**พ.ร.ป.สส.ฯ มาตรา 72 ประกอบมาตรา 157**), publishing poll results is prohibited **7 days before elections**.
+
+**Blackout Period**: January 30 - February 8, 2569 (2026) at 17:30 ICT
+
+During this period:
+- **Results Page** (`results.html`) - Shows legal notice instead of poll/simulation results
+- **Game Page** (`index.html`) - Users can still vote, but live results are hidden
+- **Voting Continues** - Votes are still saved to Firebase, just not displayed
+- **Auto-Resume** - Results automatically display after February 8, 17:30 ICT
+
+**Penalty for Violation**: Up to 3 months imprisonment, fine up to 6,000 THB, or both (มาตรา 157)
+
+This feature ensures compliance with Thai election law while maintaining user engagement and data collection.
 
 <img width="1732" height="666" alt="image" src="https://github.com/user-attachments/assets/c2c79657-7d53-4602-8073-c8da1576f58c" />
 
@@ -190,6 +207,24 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 - **Backend**: Firebase (Authentication & Firestore) for real-time voting data.
 
 ## 📜 Version History
+
+### v3.1.3 (January 30, 2569/2026) - "Election Law Compliance: Blackout Period"
+- ⚖️ **Legal Compliance Feature**: Implemented automatic blackout period enforcement per Thai election law (พ.ร.ป.สส.ฯ มาตรา 72 ประกอบมาตรา 157)
+  - **Blackout Period**: January 30 - February 8, 2569 (2026) at 17:30 ICT
+  - **Results Page**: Shows legal notice instead of poll/simulation results during blackout
+  - **Game Page**: Users can still vote, but live results are hidden until blackout ends
+  - **Auto-Resume**: Results automatically display after February 8, 17:30 ICT
+  - **Voting Continues**: All votes are saved to Firebase, just not displayed during blackout
+- 📜 **Legal Notice Display**: Professional blackout notice with:
+  - Scale of justice icon (fa-scale-balanced)
+  - Clear explanation of มาตรา 72 prohibition
+  - Penalty information (up to 3 months imprisonment, 6,000 THB fine, or both)
+  - Expected return date for results display
+- 🔧 **Implementation Details**:
+  - Added `isBlackoutPeriod()` utility function in `config.js`
+  - Modified `results.js` to check blackout period and show notice
+  - Modified `game.js` to hide live results after voting during blackout
+  - All date calculations use Thai timezone (ICT +07:00)
 
 ### v3.1.2 (January 30, 2569/2026) - "Anti-Spam: Randomized Party Order"
 - 🎲 **Randomized Party Order**: Party choices in the voting section are now shuffled using Fisher-Yates algorithm to prevent vote spamming and brute forcing.
@@ -463,4 +498,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v3.1.2 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.1.2)
+**Latest Release**: [v3.1.3 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.1.3)
