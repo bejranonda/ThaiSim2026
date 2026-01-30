@@ -46,6 +46,10 @@ ThaiSim2569/
 │   │   └── results.js     # Logic for the live results dashboard
 │   └── css/
 │       └── styles.css     # Tailwind CSS styles
+├── scripts/               # Export and utility scripts
+│   ├── export_all_polls_sdk.js       # Export polls using Firebase SDK
+│   ├── export_sim_results_batched.js # Export simulation results in batches
+│   └── export_policy_stats_local.js  # Export policy statistics
 ├── Campaign2569/          # Political campaign reference files
 ├── public/                # Static assets
 ├── index.html             # Main Simulation Game
@@ -53,6 +57,44 @@ ThaiSim2569/
 ├── package.json           # Dependencies and scripts
 └── vite.config.js         # Vite build configuration
 ```
+
+## 📤 Data Export
+
+Export poll votes and simulation results from Firebase Firestore to CSV files for analysis.
+
+### Export Scripts
+
+Located in the `scripts/` directory:
+
+| Script | Description |
+|--------|-------------|
+| `export_all_polls_sdk.js` | **Recommended** - Export using Firebase SDK (no rate limits) |
+| `export_sim_results_batched.js` | Export simulation results in batches (for large datasets) |
+| `export_policy_stats_local.js` | Export aggregated policy statistics |
+
+### Usage
+
+```bash
+# Install dependencies
+npm install dotenv firebase
+
+# Run export script (from project root)
+cd scripts
+node export_all_polls_sdk.js
+```
+
+### Exported Data
+
+- **Poll Votes**: All manual votes with timestamps and party names
+- **Simulation Results**: Complete game results including:
+  - Winning party
+  - Selected policy choices
+  - Stats (Eco, Soc, Lib, Budget)
+- **Policy Statistics**: Aggregated rankings of most popular policies
+
+All CSV files include BOM for proper Thai character display in Excel.
+
+See [scripts/README.md](scripts/README.md) for detailed documentation.
 
 ## 🚀 Getting Started
 
