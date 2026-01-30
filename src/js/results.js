@@ -31,10 +31,15 @@ function showBlackoutNotice() {
                         ระงับการให้บริการชั่วคราว 30 ม.ค. - 8 ก.พ. 2569 (18:00 - 17:30 น.)
                     </p>
                 </div>
-                <p class="text-emerald-400 text-sm">
-                    <i class="fa-solid fa-calendar-check mr-2"></i>
-                    พบกันใหม่หลังเลือกตั้ง: <strong>Sim-ThaiGovernment 2569</strong>
-                </p>
+                <div class="mt-5 pt-5 border-t border-slate-700">
+                    <p class="text-emerald-400 text-base font-bold animate-pulse">
+                        <i class="fa-solid fa-calendar-check mr-2"></i>
+                        พบกันใหม่หลังเลือกตั้ง
+                    </p>
+                    <p class="text-emerald-200 text-2xl md:text-3xl font-extrabold mt-3 tracking-wide drop-shadow-[0_0_15px_rgba(52,211,153,0.5)] animate-pulse">
+                        Sim-ThaiGovernment 2569
+                    </p>
+                </div>
             </div>
         `;
     }

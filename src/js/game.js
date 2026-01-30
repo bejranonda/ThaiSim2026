@@ -611,12 +611,15 @@ export class Game {
                     <p class="text-slate-500 text-xs mb-4">
                         ห้ามทำสำรวจความคิดเห็นของประชาชน (โพล) ก่อนวันเลือกตั้ง
                     </p>
-                    <p class="text-emerald-400 text-sm">
+                    <p class="text-emerald-400 text-base font-bold mt-4">
                         <i class="fa-solid fa-check mr-1"></i> บันทึกเสียงของคุณเรียบร้อยแล้ว
                     </p>
-                    <p class="text-slate-500 text-xs mt-2">
-                        พบกันใหม่หลังเลือกตั้ง: <strong>Sim-ThaiGovernment 2569</strong>
-                    </p>
+                    <div class="mt-4 pt-4 border-t border-slate-700">
+                        <p class="text-slate-400 text-sm mb-2">พบกันใหม่หลังเลือกตั้ง</p>
+                        <p class="text-emerald-200 text-xl md:text-2xl font-extrabold animate-pulse tracking-wide drop-shadow-[0_0_15px_rgba(52,211,153,0.5)]">
+                            Sim-ThaiGovernment 2569
+                        </p>
+                    </div>
                 </div>
             `;
             return;
