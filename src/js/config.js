@@ -35,8 +35,7 @@ export { app, auth, db, appId, signInAnonymously, collection, addDoc, getDocs };
  * @returns {boolean} true if currently in blackout period
  */
 export function isBlackoutPeriod() {
-    const now = new Date();
-    const start = new Date('2026-01-30T18:00:00+07:00'); // Jan 30, 2026 18:00 ICT (Thai year 2569)
-    const end = new Date('2026-02-08T17:30:00+07:00');   // Feb 8, 2026 17:30 ICT (Thai year 2569)
-    return now >= start && now <= end;
+    // Temporarily disabled - set to false to not show blackout notice
+    // Blackout period: Jan 31, 2026 @ 12:00 ICT to Feb 8, 2026 @ 17:30 ICT (Thai year 2569)
+    return false; // Temporarily disabled
 }
