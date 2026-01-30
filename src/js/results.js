@@ -16,7 +16,33 @@ async function initResults() {
     if (simContainer) {
         loadSimResults(simContainer);
     }
+
+    // Warning Modal Logic (Show Every Time)
+    const warningModal = document.getElementById('warning-modal');
+    const btnAck = document.getElementById('btn-ack-warning');
+    const backdrop = document.getElementById('warning-backdrop');
+
+    if (warningModal) {
+        setTimeout(() => {
+            warningModal.classList.remove('hidden');
+        }, 1000);
+    }
+
+    if (btnAck && warningModal) {
+        const closeModal = () => {
+            warningModal.classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                warningModal.classList.add('hidden');
+            }, 500);
+            warningModal.classList.add('hidden');
+        };
+
+        btnAck.addEventListener('click', closeModal);
+        if (backdrop) backdrop.addEventListener('click', closeModal);
+    }
 }
+
+import Chart from 'chart.js/auto';
 
 async function loadPollVotes(container) {
     try {
@@ -27,11 +53,46 @@ async function loadPollVotes(container) {
         const counts = {};
         let total = 0;
 
+        // Data for Chart
+        const dailyData = {}; // { 'YYYY-MM-DD': { 'PARTY_ID': count } }
+        const allDates = new Set();
+        const allParties = new Set();
+
         snapshot.forEach(doc => {
-            const v = doc.data().vote;
+            const data = doc.data();
+            const v = data.vote;
             counts[v] = (counts[v] || 0) + 1;
             total++;
+
+            // Process Timeline Data
+            if (data.timestamp) {
+                let dateStr;
+                // Handle Firestore Timestamp or JS Date
+                if (data.timestamp.toDate) {
+                    dateStr = data.timestamp.toDate().toISOString().split('T')[0];
+                } else if (data.timestamp instanceof Date) {
+                    dateStr = data.timestamp.toISOString().split('T')[0];
+                } else {
+                    // Fallback try parsing string
+                    try {
+                        dateStr = new Date(data.timestamp).toISOString().split('T')[0];
+                    } catch (e) {
+                        // Invalid date
+                    }
+                }
+
+                if (dateStr) {
+                    allDates.add(dateStr);
+                    allParties.add(v);
+
+                    if (!dailyData[dateStr]) dailyData[dateStr] = {};
+                    dailyData[dateStr][v] = (dailyData[dateStr][v] || 0) + 1;
+                }
+            }
         });
+
+        // Debug: Check if we have date data
+        // console.log("Daily Data:", dailyData);
 
         if (total === 0) {
             container.innerHTML = `
@@ -148,6 +209,12 @@ ${sorted.map(([key, count]) => {
         `;
 
         container.innerHTML = html;
+
+        // Render Chart if data exists
+        if (allDates.size > 0) {
+            renderVoteTrendChart(dailyData, Array.from(allDates).sort(), Array.from(allParties));
+        }
+
     } catch (e) {
         console.error("Poll Votes Fetch Error:", e);
         container.innerHTML = `
@@ -158,6 +225,113 @@ ${sorted.map(([key, count]) => {
             </div>
         `;
     }
+}
+
+function renderVoteTrendChart(dailyData, sortedDates, involvedParties) {
+    const ctx = document.getElementById('voteTrendChart');
+    const chartContainer = document.getElementById('chart-container');
+
+    if (!ctx || !chartContainer) return;
+
+    chartContainer.classList.remove('hidden');
+
+    const datasets = involvedParties.map(partyKey => {
+        const p = parties[partyKey] || { name: partyKey === 'OTHER' ? 'พรรคอื่นๆ' : 'ไม่ประสงค์ลงคะแนน', color: 'text-slate-400' };
+
+        // Map Colors
+        const partyColorMap = {
+            'text-orange-500': '#f97316',
+            'text-red-500': '#ef4444',
+            'text-blue-500': '#3b82f6',
+            'text-blue-700': '#1d4ed8',
+            'text-cyan-500': '#06b6d4',
+            'text-blue-600': '#2563eb',
+            'text-purple-600': '#9333ea',
+            'text-orange-600': '#ea580c',
+            'text-pink-500': '#ec4899',
+            'text-purple-400': '#a855f7',
+            'text-orange-400': '#fb923c',
+            'text-yellow-500': '#eab308',
+            'text-purple-300': '#d8b4fe',
+            'text-indigo-500': '#6366f1',
+            'text-cyan-400': '#22d3ee',
+            'text-emerald-400': '#34d399',
+            'text-green-500': '#22c55e',
+            'text-slate-400': '#94a3b8'
+        };
+        const color = partyColorMap[p.color] || '#94a3b8';
+
+        const dataPoints = sortedDates.map(date => {
+            return (dailyData[date] && dailyData[date][partyKey]) ? dailyData[date][partyKey] : 0;
+        });
+
+        // Only include if total votes > 0
+        if (dataPoints.reduce((a, b) => a + b, 0) === 0) return null;
+
+        return {
+            label: p.name,
+            data: dataPoints,
+            borderColor: color,
+            backgroundColor: color,
+            borderWidth: 2,
+            tension: 0.3,
+            fill: false
+        };
+    }).filter(ds => ds !== null); // Filter out empty datasets
+
+    // Sort datasets by total votes descending for better legend
+    datasets.sort((a, b) => {
+        const sumA = a.data.reduce((x, y) => x + y, 0);
+        const sumB = b.data.reduce((x, y) => x + y, 0);
+        return sumB - sumA;
+    });
+
+    // Limit to top 10 parties to keep chart readable
+    const topDatasets = datasets.slice(0, 10);
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: sortedDates, // e.g. ["2026-01-28", "2026-01-29"]
+            datasets: topDatasets
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',
+                intersect: false,
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#94a3b8',
+                        usePointStyle: true,
+                        boxWidth: 8
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                    titleColor: '#e2e8f0',
+                    bodyColor: '#e2e8f0',
+                    borderColor: 'rgba(51, 65, 85, 0.5)',
+                    borderWidth: 1
+                }
+            },
+            scales: {
+                x: {
+                    grid: { color: 'rgba(51, 65, 85, 0.3)' },
+                    ticks: { color: '#94a3b8' }
+                },
+                y: {
+                    grid: { color: 'rgba(51, 65, 85, 0.3)' },
+                    ticks: { color: '#94a3b8' },
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 }
 
 async function loadSimResults(container) {
