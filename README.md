@@ -47,6 +47,7 @@ ThaiSim2569/
 │   └── css/
 │       └── styles.css     # Tailwind CSS styles
 ├── scripts/               # Export and utility scripts
+│   ├── export_charts_data.js          # Export data matching results page charts
 │   ├── export_all_polls_sdk.js       # Export polls using Firebase SDK
 │   ├── export_sim_results_batched.js # Export simulation results in batches
 │   └── export_policy_stats_local.js  # Export policy statistics
@@ -68,7 +69,8 @@ Located in the `scripts/` directory:
 
 | Script | Description |
 |--------|-------------|
-| `export_all_polls_sdk.js` | **Recommended** - Export using Firebase SDK (no rate limits) |
+| `export_charts_data.js` | **Charts Data** - Export data matching results page charts (5 files) |
+| `export_all_polls_sdk.js` | **Recommended** - Export raw poll votes and simulation results |
 | `export_sim_results_batched.js` | Export simulation results in batches (for large datasets) |
 | `export_policy_stats_local.js` | Export aggregated policy statistics |
 
@@ -78,19 +80,31 @@ Located in the `scripts/` directory:
 # Install dependencies
 npm install dotenv firebase
 
-# Run export script (from project root)
+# Export charts data (matches results page)
+cd scripts
+node export_charts_data.js
+
+# Export raw poll votes and simulation results
 cd scripts
 node export_all_polls_sdk.js
 ```
 
-### Exported Data
+### Exported Data (Charts Data)
+
+**5 CSV files** matching the results page charts:
+- **Poll Votes by Party** - Party rankings with vote counts and percentages
+- **Daily Trends** - Timeline data (top 10 parties, pivot table format)
+- **Policy Statistics** - Most selected policies with rankings
+- **Party Winners** - Top 20 parties by match count
+- **Raw Poll Votes** - Individual vote records with timestamps (27K+ records)
+
+### Exported Data (Raw Data)
 
 - **Poll Votes**: All manual votes with timestamps and party names
 - **Simulation Results**: Complete game results including:
   - Winning party
   - Selected policy choices
   - Stats (Eco, Soc, Lib, Budget)
-- **Policy Statistics**: Aggregated rankings of most popular policies
 
 All CSV files include BOM for proper Thai character display in Excel.
 

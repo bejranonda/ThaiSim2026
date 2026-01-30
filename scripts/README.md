@@ -4,6 +4,15 @@ Scripts for exporting poll data and simulation results from Firebase Firestore t
 
 ## Available Scripts
 
+### Charts Data Export (Matches Results Page)
+- **`export_charts_data.js`** - Export data matching results page charts
+  - **Poll Votes by Party** - Party rankings with vote counts and percentages
+  - **Daily Trends** - Timeline data (top 10 parties, pivot table format)
+  - **Policy Statistics** - Most selected policies with rankings
+  - **Party Winners** - Top 20 parties by match count
+  - **Raw Poll Votes** - Individual vote records with timestamps (27K+ records)
+  - Uses same calculation logic as `results.js`
+
 ### Main Export Scripts
 - **`export_all_polls_sdk.js`** - Export using Firebase SDK (RECOMMENDED)
   - Uses Firebase SDK (same as website) to avoid rate limits
@@ -28,6 +37,34 @@ Scripts for exporting poll data and simulation results from Firebase Firestore t
 - `debug_data.js` - Debug script for analyzing Firestore data structure (for development)
 
 ## How to Use
+
+### Export Charts Data (Matching Results Page)
+
+Exports data that exactly matches the charts displayed on the results page.
+
+1. **Install dependencies:**
+   ```bash
+   npm install dotenv firebase
+   ```
+
+2. **Run the script:**
+   ```bash
+   node export_charts_data.js
+   ```
+
+3. **CSV files will be saved** in `exports/` folder:
+   - `poll_votes_by_party_{timestamp}.csv` - Party rankings with counts and percentages
+   - `daily_trends_{timestamp}.csv` - Daily vote timeline (top 10 parties, pivot format)
+   - `policy_statistics_{timestamp}.csv` - Policy selection rankings
+   - `party_winners_{timestamp}.csv` - Top 20 parties by match count
+   - `raw_poll_votes_{timestamp}.csv` - Individual vote records with timestamps
+
+**Output formats:**
+- **Poll Votes by Party**: Rank, Party ID, Party Name, Vote Count, Percentage
+- **Daily Trends**: Date, Party1, Party2, ... (top 10 parties as columns)
+- **Policy Statistics**: Rank, Policy Name, Count, Percentage
+- **Party Winners**: Rank, Party ID, Party Name, Win Count, Percentage
+- **Raw Poll Votes**: Timestamp, Party ID, Party Name (27K+ individual records)
 
 ### Export All Poll Data (Recommended)
 
