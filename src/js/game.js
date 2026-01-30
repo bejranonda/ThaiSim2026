@@ -617,7 +617,7 @@ export class Game {
                     <div class="mt-4 pt-4 border-t border-slate-700">
                         <p class="text-slate-400 text-sm mb-2">พบกันใหม่หลังเลือกตั้ง</p>
                         <p class="text-emerald-200 text-xl md:text-2xl font-extrabold animate-pulse tracking-wide drop-shadow-[0_0_15px_rgba(52,211,153,0.5)]">
-                            Sim-ThaiGovernment 2569
+                            Sim-Government 2569
                         </p>
                     </div>
                 </div>
