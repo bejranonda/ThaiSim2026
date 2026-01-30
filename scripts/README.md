@@ -1,17 +1,37 @@
-# Export Policy Statistics Script
+# Export Scripts for ThaiSim2569
 
-Created to export "Most Selected Policies" data from Firebase Firestore to a CSV file.
+Scripts for exporting poll data and simulation results from Firebase Firestore to CSV files.
 
 ## Available Scripts
 
-- `export_policy_stats_local.js` - Local version with .env support (RECOMMENDED)
+### Main Export Scripts
+- **`export_all_polls_sdk.js`** - Export using Firebase SDK (RECOMMENDED)
+  - Uses Firebase SDK (same as website) to avoid rate limits
+  - Exports Poll Votes successfully
+  - Simulation Results may timeout for large datasets
+
+- **`export_sim_results_batched.js`** - Export Simulation Results in batches
+  - Use this if Simulation Results timeout in the main script
+  - Uses REST API with pagination and delays
+  - Handles large collections better
+
+- `export_all_polls.js` - Export using REST API (may have rate limits)
+  - Original version using Firebase REST API
+  - May encounter rate limiting issues
+
+- `export_policy_stats_local.js` - Export policy statistics only
+  - Exports "Most Selected Policies" data from `sim_results_v7`
+  - Generates aggregated policy rankings
+
+### Utility Scripts
 - `cleanup-empty-policies.js` - Utility script for cleaning up empty policies
 - `debug_data.js` - Debug script for analyzing Firestore data structure (for development)
 
 ## How to Use
 
-### Local Version with .env (Recommended)
-This script works in a Node.js environment with Firebase configuration from .env file.
+### Export All Poll Data (Recommended)
+
+Exports both Poll Votes and Simulation Results to CSV files.
 
 1. **Install dependencies:**
    ```bash
@@ -24,13 +44,45 @@ This script works in a Node.js environment with Firebase configuration from .env
 
 3. **Run the script:**
    ```bash
+   node export_all_polls.js
+   ```
+
+4. **CSV files will be saved** in `exports/` folder:
+   - `poll_votes_{timestamp}.csv` - All poll votes from users
+   - `sim_results_{timestamp}.csv` - All simulation results
+
+### Export Policy Statistics Only
+
+Exports aggregated policy rankings from simulation results.
+
+1. **Run the script:**
+   ```bash
    node export_policy_stats_local.js
    ```
 
-4. **CSV file will be saved** in the current directory with name:
+2. **CSV file will be saved** in the current directory with name:
    `policy_stats_{timestamp}.csv`
 
 ## Output
+
+### Export All Poll Data
+
+**`poll_votes_{timestamp}.csv`:**
+```csv
+Timestamp,Party,Party Name
+2025-01-30T10:30:00,PP,ประชาชน
+2025-01-30T10:31:00,PTP,เพื่อไทย
+...
+```
+
+**`sim_results_{timestamp}.csv`:**
+```csv
+Timestamp,Winner,Party Name,Policy Choices,Eco,Soc,Lib,Budget
+2025-01-30T10:30:00,PP,ประชาชน,"คืนครูให้นักเรียน|ยกเลิกเกณฑ์ทหาร",65,75,80,-26
+...
+```
+
+### Export Policy Statistics Only
 
 CSV file format:
 ```csv
@@ -43,49 +95,30 @@ Rank,Policy Name,Count,Percentage
 
 ## Notes
 
-- The script fetches data from the `sim_results_v7` collection in Firebase
-- Data is sorted by the most selected policies
-- The CSV file includes BOM for proper Thai character display in Excel on Windows
+- **Export All Poll Data:**
+  - Fetches from both `poll_votes_v7` and `sim_results_v7` collections
+  - Handles pagination automatically for large datasets
+  - CSV files include BOM for proper Thai character display in Excel on Windows
+  - Uses Firebase REST API for reliable data fetching
+
+- **Export Policy Statistics:**
+  - Fetches from the `sim_results_v7` collection only
+  - Data is aggregated and sorted by the most selected policies
+  - Processes Firestore's nested map structure for policy choices
+
 - Firebase configuration is loaded securely from project root .env file
-- Uses Firebase REST API for reliable data fetching
-- Processes Firestore's nested map structure for policy choices
 
 ## Error Handling
 
 If errors occur:
 - `Firebase configuration not found` - Check your .env file in the project root
 - `permission-denied` - Check Firebase security rules and make sure Firestore is in test mode
-- `not-found` - The collection name might have changed
-- `HTTP error! status: 404` - Verify the Firebase project ID and collection path
+- `not-found` or `404` - The collection name might have changed or the collection path is incorrect
 - General issues - Check your internet connection and ensure Firestore is enabled
-
-## How to Use
-
-### Local Version with .env (Recommended)
-This script works in a Node.js environment with Firebase configuration from .env file.
-
-1. **Install dependencies:**
-   ```bash
-   npm install dotenv
-   ```
-
-2. **Create .env file:**
-   ```bash
-   cp .env.example .env
-   ```
-   Edit the .env file with your Firebase credentials
-
-3. **Run the script:**
-   ```bash
-   node export_policy_stats_local.js
-   ```
-
-4. **CSV file will be saved** in the current directory with name:
-   `policy_stats_{timestamp}.csv`
 
 ## Environment Variables
 
-Create a `.env` file based on `.env.example`:
+The scripts use environment variables from the `.env` file in the project root. Create a `.env` file based on `.env.example`:
 
 ```env
 # Firebase Configuration
@@ -95,29 +128,5 @@ VITE_FIREBASE_PROJECT_ID=your_project_id
 VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket.appspot.com
 VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 VITE_FIREBASE_APP_ID=your_app_id
+VITE_FIREBASE_MEASUREMENT_ID=your_measurement_id
 ```
-
-## Output
-
-CSV file format:
-```csv
-Rank,Policy Name,Count,Percentage
-1,"ดิจิทัลวอลเล็ต / รัฐร่วมจ่าย",1234,45.2%
-2,"10,000 บาทดิจิทัล",987,36.1%
-...
-```
-
-## Notes
-
-- The script fetches data from the `sim_results_v7` collection in Firebase
-- Data is sorted by the most selected policies
-- The CSV file includes BOM for proper Thai character display in Excel on Windows
-- Firebase configuration is loaded securely from .env file
-
-## Error Handling
-
-If errors occur:
-- `Firebase configuration not found` - Check your .env file
-- `permission-denied` - Check Firebase security rules and credentials
-- `not-found` - The collection name might have changed
-- General issues - Verify Firebase project ID and internet connection

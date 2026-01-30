@@ -38,6 +38,9 @@ pnpm-debug.log*
 *.temp
 .cache/
 
+# Exported data files
+exports/
+
 # Deployment
 .vercel
 .netlify
