@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 18 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v3.0.0](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.0.0) | **Data Updated**: 30 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v3.0.1](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.0.1) | **Data Updated**: 30 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -134,6 +134,11 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 - **Backend**: Firebase (Authentication & Firestore) for real-time voting data.
 
 ## 📜 Version History
+
+### v3.0.1 (January 30, 2569/2026) - "Aware Release Refined: IO, We Know You"
+- 🏷️ **UI Refinement**: Updated Home Page banner to **"New Release 3.0 – IO, We Know You"**.
+- 🛡️ **Warning Modal Enhancement**: Added explicit instructions to the Results page warning modal, encouraging users to audit the **"Daily Vote Trend Chart"** for transparency.
+- 📝 **Documentation Synchronization**: Updated version numbers and release notes across all project documentation.
 
 ### v3.0.0 (January 30, 2569/2026) - "Aware Release: Anti-Fraud & Transparency"
 - 🛡️ **Anti-Fraud Measures**:
@@ -386,4 +391,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v3.0.0 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.0.0)
+**Latest Release**: [v3.0.1 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.0.1)
