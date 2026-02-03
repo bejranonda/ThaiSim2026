@@ -1,6 +1,6 @@
 # Sim-Thailand 2569 (ThaiSim2569) 🇹🇭
 
-**Thai Political Simulation Game** - Experience governance through real policy choices from 18 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
+**Thai Political Simulation Game** - Experience governance through real policy choices from 18 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy. 40,000+ active participants in just two weeks.
 
 **Latest Release**: [v3.2](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.2) | **Data Updated**: 31 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
@@ -18,6 +18,11 @@
 - **Vote**: Cast a manual vote for your preferred party after the simulation.
 - **Track**: View aggregate voting results in real-time via the **Live Results Dashboard**.
 - **Monitor**: Track national status across all three pillars in detailed results view.
+
+<img width="725" height="381" alt="image" src="https://github.com/user-attachments/assets/17bc2a56-8bc0-4ca9-ab73-8b4fb444c85f" />
+
+**More than 40,000 active participants and 100,000 unique visits. Thank you for making the launch of Sim-Thailand 2569 a success.**
+
 
 ### 📚 Educational Content
 
