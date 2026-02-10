@@ -1,5 +1,4 @@
 import { Game } from './game.js';
-import { isBlackoutPeriod } from './config.js';
 import './config.js';
 import '../css/styles.css';
 

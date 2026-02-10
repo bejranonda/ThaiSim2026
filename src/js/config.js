@@ -28,16 +28,3 @@ try {
 // Export Firebase services
 export { app, auth, db, appId, signInAnonymously, collection, addDoc, getDocs };
 
-/**
- * Check if current date is within the pre-election blackout period
- * per Thai law (พ.ร.ป.สส.ฯ มาตรา 72 ประกอบมาตรา 157)
- * Blackout: January 31 - February 8, 2026 (Thai year 2569)
- * @returns {boolean} true if currently in blackout period
- */
-export function isBlackoutPeriod() {
-    // Blackout period: Jan 31, 2026 @ 12:00 ICT to Feb 8, 2026 @ 17:30 ICT (Thai year 2569)
-    const start = new Date('2026-01-31T12:00:00+07:00');
-    const end = new Date('2026-02-08T17:30:00+07:00');
-    const now = new Date();
-    return now >= start && now <= end;
-}

@@ -1,5 +1,5 @@
 import { parties } from './data.js';
-import { db, appId, collection, getDocs, isBlackoutPeriod } from './config.js';
+import { db, appId, collection, getDocs } from './config.js';
 import '../css/styles.css';
 
 
