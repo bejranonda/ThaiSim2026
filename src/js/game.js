@@ -1,5 +1,5 @@
 import { parties, phases } from './data.js';
-import { auth, db, appId, signInAnonymously, collection, addDoc, getDocs, isBlackoutPeriod } from './config.js';
+import { auth, db, appId, signInAnonymously, collection, addDoc, getDocs } from './config.js';
 import html2canvas from 'html2canvas';
 
 export class Game {
@@ -600,7 +600,7 @@ export class Game {
         resultsContainer.classList.remove('hidden');
 
         // Check blackout period - show notice instead of results
-        if (isBlackoutPeriod()) {
+        if (false) { // Blackout period removed - always show results
             resultsContainer.innerHTML = `
                 <div class="text-center py-6 px-4">
                     <i class="fa-solid fa-scale-balanced text-4xl text-amber-500 mb-4"></i>

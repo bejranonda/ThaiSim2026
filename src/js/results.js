@@ -23,11 +23,7 @@ async function initResults() {
 import Chart from 'chart.js/auto';
 
 async function loadPollVotes(container) {
-    // Check blackout period (safety check)
-    if (isBlackoutPeriod()) {
-        showBlackoutNotice();
-        return;
-    }
+    // Blackout period removed - always show results
 
     try {
         if (!db) throw new Error("Database connection not available");
@@ -319,16 +315,7 @@ function renderVoteTrendChart(dailyData, sortedDates, involvedParties) {
 }
 
 async function loadSimResults(container) {
-    // Check blackout period (safety check)
-    if (isBlackoutPeriod()) {
-        container.innerHTML = `
-            <div class="text-center py-10">
-                <i class="fa-solid fa-hourglass-half text-4xl text-slate-700 mb-4"></i>
-                <p class="text-slate-500">ข้อมูลการจำลองจะแสดงอีกครั้งหลังสิ้นสุดช่วงห้ามเผยแพร่ผลโพล</p>
-            </div>
-        `;
-        return;
-    }
+    // Blackout period removed - always show simulation results
 
     try {
         if (!db) throw new Error("Database connection not available");
