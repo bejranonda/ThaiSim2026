@@ -3,74 +3,11 @@ import { db, appId, collection, getDocs, isBlackoutPeriod } from './config.js';
 import '../css/styles.css';
 
 
-function showBlackoutNotice() {
-    const pollContainer = document.getElementById('poll-results-container');
-    const chartContainer = document.getElementById('chart-container');
-    const simContainer = document.getElementById('sim-results-container');
-
-    // Hide chart container
-    if (chartContainer) chartContainer.classList.add('hidden');
-
-    // Show blackout notice in poll container
-    if (pollContainer) {
-        pollContainer.innerHTML = `
-            <div class="text-center py-10 px-4">
-                <div class="mb-6">
-                    <i class="fa-solid fa-scale-balanced text-6xl text-amber-500 mb-4"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-amber-500 mb-4">แจ้งเตือนตามกฎหมาย</h3>
-                <p class="text-slate-300 mb-4 max-w-lg mx-auto">
-                    ตามพระราชบัญญัติประกอบรัฐธรรมนูญว่าด้วยการเลือกตั้งสมาชิกสภาผู้แทนราษฎร
-                </p>
-                <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-6 max-w-lg mx-auto mb-6">
-                    <p class="text-slate-400 text-sm mb-2">
-                        <strong class="text-white">มาตรา 72</strong> ห้ามทำสำรวจความคิดเห็นของประชาชน
-                        ก่อนวันเลือกตั้ง
-                    </p>
-                    <p class="text-slate-500 text-xs">
-                        ระงับการให้บริการชั่วคราว 31 ม.ค. - 8 ก.พ. 2569 (17:30 น.)
-                    </p>
-                </div>
-                <div class="mt-5 pt-5 border-t border-slate-700">
-                    <p class="text-emerald-400 text-base font-bold animate-pulse">
-                        <i class="fa-solid fa-calendar-check mr-2"></i>
-                        พบกันใหม่หลังเลือกตั้ง
-                    </p>
-                    <p class="text-emerald-200 text-2xl md:text-3xl font-extrabold mt-3 tracking-wide drop-shadow-[0_0_15px_rgba(52,211,153,0.5)] animate-pulse">
-                        Sim-Government 2569
-                    </p>
-                </div>
-            </div>
-        `;
-    }
-
-    // Hide sim container or show notice
-    if (simContainer) {
-        simContainer.innerHTML = `
-            <div class="text-center py-10">
-                <i class="fa-solid fa-hourglass-half text-4xl text-slate-700 mb-4"></i>
-                <p class="text-slate-500">ข้อมูลการจำลองจะแสดงอีกครั้งหลังเลือกตั้ง</p>
-            </div>
-        `;
-    }
-}
 
 
 async function initResults() {
     const pollContainer = document.getElementById('poll-results-container');
     const simContainer = document.getElementById('sim-results-container');
-
-    // Always show blackout notice (informational)
-    const blackoutNotice = document.getElementById('blackout-notice');
-    if (blackoutNotice) {
-        blackoutNotice.classList.remove('hidden');
-    }
-
-    // Check if we're in the blackout period - hide results only during actual blackout
-    if (isBlackoutPeriod()) {
-        showBlackoutNotice();
-        return; // Skip loading results
-    }
 
     // 1. Fetch and Render Poll Votes (Fastest)
     if (pollContainer) {
@@ -80,30 +17,6 @@ async function initResults() {
     // 2. Fetch and Render Sim Results (Heavier)
     if (simContainer) {
         loadSimResults(simContainer);
-    }
-
-    // Warning Modal Logic (Show Every Time)
-    const warningModal = document.getElementById('warning-modal');
-    const btnAck = document.getElementById('btn-ack-warning');
-    const backdrop = document.getElementById('warning-backdrop');
-
-    if (warningModal) {
-        setTimeout(() => {
-            warningModal.classList.remove('hidden');
-        }, 1000);
-    }
-
-    if (btnAck && warningModal) {
-        const closeModal = () => {
-            warningModal.classList.add('opacity-0', 'pointer-events-none');
-            setTimeout(() => {
-                warningModal.classList.add('hidden');
-            }, 500);
-            warningModal.classList.add('hidden');
-        };
-
-        btnAck.addEventListener('click', closeModal);
-        if (backdrop) backdrop.addEventListener('click', closeModal);
     }
 }
 

@@ -2,7 +2,7 @@
 
 **Thai Political Simulation Game** - Experience governance through real policy choices from 18 political parties across 6 critical phases. Build your dream nation through strategic policy decisions and see how it impacts the economy, welfare, and democracy.
 
-**Latest Release**: [v3.2](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.2) | **Data Updated**: 31 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
+**Latest Release**: [v3.3.0](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.3.0) | **Data Updated**: 31 January 2569 (2026) | **Play Online**: [Sim-Thailand 2569](https://thalay.eu/sim-thailand-2569/)
 
 <img width="1075" height="462" alt="image" src="https://github.com/user-attachments/assets/2c930164-cf1d-4a63-a070-f7f573fc5583" />
 
@@ -207,6 +207,20 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 - **Backend**: Firebase (Authentication & Firestore) for real-time voting data.
 
 ## 📜 Version History
+
+### v3.3.0 (February 10, 2569/2026) - "Post-Election Freedom"
+- 🎉 **Blackout Period Removal**: Legal notices and blackout restrictions removed permanently
+  - 🚫 **No More Legal Disclaimers**: Election law compliance notices completely removed from all pages
+  - 🎮 **Unrestricted Gameplay**: Full access to results and live data at all times
+  - ✨ **Clean UI**: Simplified interface without warning overlays or legal notices
+  - 🔄 **Streamlined Experience**: Users can now access all features without election law restrictions
+- 🔧 **Technical Changes**:
+  - Removed `blackout-notice` HTML elements from `index.html` and `results.html`
+  - Removed `warning-modal` HTML elements from both pages
+  - Updated `main.js` to remove blackout notice display and warning modal logic
+  - Updated `results.js` to remove blackout notice functionality and warning modal
+  - Simplified user flow with no blackout period restrictions
+  - Maintained all core functionality while removing legal compliance features
 
 ### v3.2.3 (January 31, 2569/2026) - "Always-On Blackout Notice"
 - 📢 **Permanent Blackout Notice Display**: Added informational blackout notice box that appears on all pages permanently
@@ -518,4 +532,4 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 **Repository**: [github.com/bejranonda/ThaiSim2026](https://github.com/bejranonda/ThaiSim2026)
 **Developed by**: [thalay.eu](https://thalay.eu)
-**Latest Release**: [v3.2 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.2)
+**Latest Release**: [v3.3.0 on GitHub](https://github.com/bejranonda/ThaiSim2026/releases/tag/v3.3.0)
