@@ -56,7 +56,7 @@ VITE_FIREBASE_MEASUREMENT_ID = [ค่าจาก Firebase]
 ### ขั้นที่ 5: เสร็จ!
 รอสักครู่ แล้วคุณจะได้ URL:
 ```
-https://thaisim2569.pages.dev
+https://thaisim2026.autobahn.bot
 ```
 (หรือชื่อโปรเจกต์ของคุณแทน thaisim2569)
 

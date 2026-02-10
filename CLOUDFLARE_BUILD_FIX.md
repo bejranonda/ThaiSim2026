@@ -94,7 +94,7 @@ Option B:
 
 Once build succeeds, your site should be live at:
 ```
-https://thaisim2569.pages.dev
+https://thaisim2026.autobahn.bot
 ```
 
 Test it by:
@@ -106,7 +106,7 @@ Test it by:
 ## Final Check
 
 - ✅ Git repo: https://github.com/bejranonda/ThaiSim2026
-- ✅ Live site: https://thaisim2569.pages.dev
+- ✅ Live site: https://thaisim2026.autobahn.bot
 - ✅ Build command: `npm run build`
 - ✅ Output dir: `dist`
 - ✅ SPA routing: `_redirects` file present

@@ -156,7 +156,7 @@ Push to your GitHub repository on the `master` branch, and Cloudflare will autom
 1. Detect the push
 2. Build the project with environment variables
 3. Deploy to Cloudflare Pages
-4. Give you a URL like: `https://thaisim2569.pages.dev`
+4. Give you a URL like: `https://thaisim2026.autobahn.bot`
 
 **That's it!** No additional steps needed. Cloudflare will rebuild and redeploy on every push.
 
