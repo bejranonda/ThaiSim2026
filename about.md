@@ -1,7 +1,7 @@
 # Sim-Thailand 2569 🇹🇭
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/v3.3.0-blue.svg)](https://github.com/bejranonda/ThaiSim2026/releases)
+[![Version](https://img.shields.io/badge/v3.3.1-blue.svg)](https://github.com/bejranonda/ThaiSim2026/releases)
 [![Website](https://img.shields.io/badge/Website-green.svg)](https://thaisim2026.autobahn.bot)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-gray.svg)](https://thaisim2026.autobahn.bot)
 [![GitHub Actions](https://github.com/bejranonda/ThaiSim2026/actions/workflows/deploy.yml/badge.svg)](https://github.com/bejranonda/ThaiSim2026/actions/workflows/deploy.yml)

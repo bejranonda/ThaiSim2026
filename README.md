@@ -213,6 +213,12 @@ For detailed instructions, see [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMEN
 
 ## 📜 Version History
 
+### v3.3.1 (February 12, 2569/2026) - "Sequel Invitation"
+- 🎮 **Sequel Button on Result Page**: Added prominent "เล่นภาคใหม่ ฉบับหลังเลือกตั้ง" button to results page
+  - Links to post-election version at [findyourshade.autobahn.bot](https://findyourshade.autobahn.bot/)
+  - Positioned prominently to encourage continued engagement
+  - Consistent styling with intro page sequel button
+
 ### v3.3.0 (February 10, 2569/2026) - "Post-Election Freedom"
 - 🎉 **Blackout Period Removal**: Legal notices and blackout restrictions removed permanently
   - 🚫 **No More Legal Disclaimers**: Election law compliance notices completely removed from all pages
